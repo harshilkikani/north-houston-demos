@@ -129,7 +129,10 @@ const claim = [
     <div class="wrap">
       <p class="tag">04 — Estimate</p>
       <h2 class="h2" style="margin:14px 0 18px;max-width:16ch">Request an estimate.</h2>
-      <p class="lead" style="margin-bottom:clamp(26px,3vw,40px)">Three steps — tap the panels that took the damage, add a couple of photos, and we'll come back to you.</p>
+      <p class="lead" style="margin-bottom:clamp(26px,3vw,40px)">
+        Three steps — tap the panels that took the damage, add a couple of photos, and we'll come back to you. The shop
+        is closed Saturday and Sunday, so anything sent over the weekend is picked up Monday morning.
+      </p>
 
       <div class="est">
         <div class="diagram">
@@ -230,8 +233,9 @@ const claim = [
     <div class="wrap">
       <p class="tag">05 — {biz.rating.value} on Google from {biz.rating.count} reviews</p>
       <h2 class="h2" style="margin:14px 0 clamp(28px,3.4vw,44px);max-width:18ch">What customers have said.</h2>
-      <div class="rq">
-        {biz.reviews.map((r) => (<div><blockquote>{r.excerpt}</blockquote><cite>Google review</cite></div>))}
+      {/* the Corvette review is already quoted in full in the section above */}
+      <div class="rq" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+        {biz.reviews.filter((_, i) => i !== 1).map((r) => (<div><blockquote>{r.excerpt}</blockquote><cite>Google review</cite></div>))}
       </div>
     </div>
   </section>

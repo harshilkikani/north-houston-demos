@@ -19,12 +19,14 @@ const team = biz.staff.map((s) => ({
     : 'Recortes y secado',
 }))
 
+// Sample pricing — no verified price list exists for this shop, so these are placeholders the
+// owner replaces with their own. Labelled as samples wherever they appear.
 const services = [
-  { en: 'Men’s haircut', es: 'Corte de hombre', den: 'Clipper or scissor, finished how you asked.', des: 'Máquina o tijera, terminado como lo pediste.' },
-  { en: 'Women’s cut & style', es: 'Corte y peinado de mujer', den: 'Cut, wash and blow-dry.', des: 'Corte, lavado y secado.' },
-  { en: 'Kids & first haircuts', es: 'Niños y primer corte', den: 'Patience included. Reviewers name it specifically.', des: 'Con toda la paciencia. Las reseñas lo mencionan.' },
-  { en: 'Colour', es: 'Color', den: 'Bring the reference photo — Angie is the one people mention.', des: 'Trae la foto de referencia — Angie es a quien mencionan.' },
-  { en: 'Blow-dry & styling', es: 'Secado y peinado', den: 'Finishing without a cut.', des: 'Peinado sin corte.' },
+  { en: 'Men’s haircut', es: 'Corte de hombre', den: 'Clipper or scissor, finished how you asked.', des: 'Máquina o tijera, terminado como lo pediste.', p: '$25' },
+  { en: 'Women’s cut & style', es: 'Corte y peinado de mujer', den: 'Cut, wash and blow-dry.', des: 'Corte, lavado y secado.', p: '$40' },
+  { en: 'Kids & first haircuts', es: 'Niños y primer corte', den: 'Patience included. Reviewers name it specifically.', des: 'Con toda la paciencia. Las reseñas lo mencionan.', p: '$18' },
+  { en: 'Colour', es: 'Color', den: 'Bring the reference photo — Angie is the one people mention.', des: 'Trae la foto de referencia — Angie es a quien mencionan.', p: '$85+' },
+  { en: 'Blow-dry & styling', es: 'Secado y peinado', den: 'Finishing without a cut.', des: 'Peinado sin corte.', p: '$35' },
 ]
 ---
 
@@ -122,14 +124,22 @@ const services = [
   <section class="sect" id="services" style="padding-top:0">
     <div class="wrap">
       <p class="eyebrow"><T en="Services" es="Servicios" /></p>
-      <h2 class="h2" style="margin:12px 0 22px;max-width:15ch"><T en="What we do." es="Lo que hacemos." /></h2>
+      <h2 class="h2" style="margin:12px 0 22px;max-width:15ch"><T en="Sample menu." es="Menú de muestra." /></h2>
       <div class="svc">
-        {services.map((s) => (<div><h3 class="h3"><T en={s.en} es={s.es} /></h3><p><T en={s.den} es={s.des} /></p></div>))}
+        {services.map((s) => (
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px">
+              <h3 class="h3"><T en={s.en} es={s.es} /></h3>
+              <b style="font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--color-tomato);white-space:nowrap">{s.p}</b>
+            </div>
+            <p style="margin-top:5px"><T en={s.den} es={s.des} /></p>
+          </div>
+        ))}
       </div>
       <p class="small" style="margin-top:16px">
         <T
-          en="Prices are not shown because none are published for this shop. Call and ask — reviewers describe the pricing as reasonable."
-          es="No mostramos precios porque no hay ninguno publicado. Llama y pregunta — las reseñas describen los precios como razonables."
+          en="Prices shown are samples for this demonstration — the shop sets its own. Reviewers describe the pricing here as reasonable, so it is worth publishing once confirmed."
+          es="Los precios son de muestra para esta demostración — el salón pone los suyos. Las reseñas describen los precios como razonables, así que vale la pena publicarlos una vez confirmados."
         />
       </p>
     </div>
@@ -155,7 +165,7 @@ const services = [
                   </button>
                 ))}
                 <button class="opt" type="button" data-g="who" data-name="Anyone" aria-pressed="false">
-                  <T en="Anyone available" es="Quien esté disponible" /><small><T en="Usually sooner" es="Normalmente antes" /></small>
+                  <span class="opt-name"><T en="Anyone available" es="Quien esté disponible" /></span><small><T en="Usually sooner" es="Normalmente antes" /></small>
                 </button>
               </div>
               <p class="eyebrow" style="margin:22px 0 12px"><T en="2 — What for" es="2 — Para qué" /></p>
@@ -265,7 +275,13 @@ const services = [
     slotsEl.querySelectorAll('[data-time]').forEach((b) => b.addEventListener('click', () => { time = b.dataset.time; renderSlots(); recap() }))
   }
   const pickEl = (g) => document.querySelector(`[data-g="${g}"][aria-pressed="true"]`)
-  const pickText = (g) => { const e = pickEl(g); return e ? (e.querySelector('[data-l]:not([hidden])')?.textContent.trim() || e.childNodes[0].textContent.trim()) : '—' }
+  const pickText = (g) => {
+    const e = pickEl(g)
+    if (!e) return '—'
+    // .opt-name marks the label; without it we would pick up the small print underneath
+    const scope = e.querySelector('.opt-name') || e
+    return scope.querySelector('[data-l]:not([hidden])')?.textContent.trim() || scope.childNodes[0].textContent.trim()
+  }
 
   function recap() {
     document.getElementById('r-who').textContent = pickEl('who')?.dataset.name === 'Anyone' ? pickText('who') : pickEl('who')?.dataset.name || '—'

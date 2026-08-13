@@ -78,7 +78,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; line
   .hero { grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; padding-block: clamp(40px, 5vw, 80px); }
   .hero > .hero-img { order: 0; }
 }
-.hero h1 { max-width: 12ch; }
+.hero h1 { max-width: 18ch; }
 .hero-img { position: relative; isolation: isolate; }
 .hero-img picture, .hero-img img { position: relative; z-index: 1; }
 .hero-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
@@ -108,7 +108,8 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; line
 .menu > div { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: baseline; padding: 17px 0; border-bottom: 1px solid color-mix(in srgb,var(--color-ink) 13%,transparent); }
 .menu h3 { font-size: clamp(19px, 2vw, 25px); }
 .menu p { margin: 4px 0 0; font-size: 14px; color: var(--color-ink-soft); max-width: 52ch; }
-.menu .dur { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-ink-soft); white-space: nowrap; }
+.menu .price { display: grid; justify-items: end; gap: 3px; white-space: nowrap; font-family: var(--font-display); font-size: 22px; color: var(--color-plum); }
+.menu .dur { font-family: var(--font-body); font-style: normal; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-ink-soft); }
 
 /* booking */
 .book { display: grid; gap: 28px; }

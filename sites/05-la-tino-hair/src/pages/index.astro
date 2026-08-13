@@ -14,12 +14,14 @@ const works = [
   { n: 'work-brunette', en: 'Brunette with movement cut into it, not layered on top.', es: 'Castaño con movimiento cortado dentro, no añadido encima.' },
 ]
 
+// Sample pricing — no verified price list exists for this salon, so these are placeholders the
+// owner replaces with her own. Labelled as samples wherever they appear.
 const services = [
-  { en: 'Balayage', es: 'Balayage', den: 'Hand-painted lightening. Bring a photo — reviewers say the result matched what they pictured.', des: 'Aclarado pintado a mano. Trae una foto — las reseñas dicen que el resultado fue igual al que imaginaban.', t: '2–3 hrs' },
-  { en: 'Colour & highlights', es: 'Color y rayitos', den: 'Full colour, root touch-ups, foils and toning.', des: 'Color completo, retoque de raíz, papel aluminio y matizado.', t: '1.5–3 hrs' },
-  { en: 'Cut & style', es: 'Corte y peinado', den: 'Women’s cutting and finishing, including the butterfly cut.', des: 'Corte y peinado para mujer, incluido el corte mariposa.', t: '45–75 min' },
-  { en: 'Men’s barbering', es: 'Barbería', den: 'Clipper work, scissor cuts and beard shaping.', des: 'Máquina, tijera y perfilado de barba.', t: '30–45 min' },
-  { en: 'Family cuts', es: 'Cortes familiares', den: 'Reviewers mention young, old, male and female in the same sentence. That is the room.', des: 'Las reseñas mencionan jóvenes, mayores, hombres y mujeres en la misma frase. Así es el salón.', t: '30–60 min' },
+  { en: 'Balayage', es: 'Balayage', den: 'Hand-painted lightening. Bring a photo — reviewers say the result matched what they pictured.', des: 'Aclarado pintado a mano. Trae una foto — las reseñas dicen que el resultado fue igual al que imaginaban.', t: '2–3 hrs', p: '$150+' },
+  { en: 'Colour & highlights', es: 'Color y rayitos', den: 'Full colour, root touch-ups, foils and toning.', des: 'Color completo, retoque de raíz, papel aluminio y matizado.', t: '1.5–3 hrs', p: '$95+' },
+  { en: 'Cut & style', es: 'Corte y peinado', den: 'Women’s cutting and finishing, including the butterfly cut.', des: 'Corte y peinado para mujer, incluido el corte mariposa.', t: '45–75 min', p: '$45' },
+  { en: 'Men’s barbering', es: 'Barbería', den: 'Clipper work, scissor cuts and beard shaping.', des: 'Máquina, tijera y perfilado de barba.', t: '30–45 min', p: '$25' },
+  { en: 'Family cuts', es: 'Cortes familiares', den: 'Cuts for every age — reviewers mention young, old, male and female in the same sentence.', des: 'Cortes para todas las edades — las reseñas mencionan jóvenes, mayores, hombres y mujeres en la misma frase.', t: '30–60 min', p: '$20+' },
 ]
 ---
 
@@ -126,7 +128,7 @@ const services = [
       <div style="display:flex;justify-content:space-between;align-items:end;gap:22px;flex-wrap:wrap;margin-bottom:26px">
         <div>
           <p class="eyebrow"><T en="Services" es="Servicios" /></p>
-          <h2 class="h2" style="margin-top:12px;max-width:14ch"><T en="What she does." es="Lo que hace." /></h2>
+          <h2 class="h2" style="margin-top:12px;max-width:14ch"><T en="Sample menu." es="Menú de muestra." /></h2>
         </div>
         <a class="btn btn-o" href={`${base}/services`}><T en="Full service list" es="Lista completa" /></a>
       </div>
@@ -137,12 +139,15 @@ const services = [
               <h3 class="h3"><T en={s.en} es={s.es} /></h3>
               <p><T en={s.den} es={s.des} /></p>
             </div>
-            <span class="dur">{s.t}</span>
+            <span class="price">{s.p}<em class="dur">{s.t}</em></span>
           </div>
         ))}
       </div>
       <p class="small" style="margin-top:18px">
-        <T en="Times are typical, not fixed — colour depends on where your hair is starting from." es="Los tiempos son aproximados — el color depende del punto de partida de tu cabello." />
+        <T
+          en="Prices shown are samples for this demonstration — the salon sets its own. Times are typical, not fixed; colour depends on where your hair is starting from."
+          es="Los precios son de muestra para esta demostración — el salón pone los suyos. Los tiempos son aproximados; el color depende del punto de partida de tu cabello."
+        />
       </p>
     </div>
   </section>
@@ -152,8 +157,9 @@ const services = [
     <div class="wrap">
       <div class="rule" style="margin-bottom:clamp(36px,4.4vw,60px)"></div>
       <p class="eyebrow">{biz.rating.value} · {biz.rating.count} <T en="Google reviews" es="reseñas en Google" /></p>
-      <div class="qs" style="margin-top:clamp(26px,3vw,40px)">
-        {biz.reviews.map((r) => (<div class="q"><blockquote>“{r.excerpt}”</blockquote><cite>Google</cite></div>))}
+      {/* the first review is already quoted in full in the chair section above */}
+      <div class="qs" style="margin-top:clamp(26px,3vw,40px);grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        {biz.reviews.slice(1).map((r) => (<div class="q"><blockquote>“{r.excerpt}”</blockquote><cite>Google</cite></div>))}
       </div>
     </div>
   </section>
@@ -189,8 +195,8 @@ const services = [
 
             <div data-step hidden>
               <div class="opts">
-                <button class="opt" type="button" data-g="who" aria-pressed="true">Ivonne<small><T en="Owner · colour specialist" es="Dueña · especialista en color" /></small></button>
-                <button class="opt" type="button" data-g="who" aria-pressed="false"><T en="Next available stylist" es="Primer estilista disponible" /><small><T en="Usually sooner" es="Normalmente antes" /></small></button>
+                <button class="opt" type="button" data-g="who" aria-pressed="true"><span class="opt-name">Ivonne</span><small><T en="Owner · colour specialist" es="Dueña · especialista en color" /></small></button>
+                <button class="opt" type="button" data-g="who" aria-pressed="false"><span class="opt-name"><T en="Next available stylist" es="Primer estilista disponible" /></span><small><T en="Usually sooner" es="Normalmente antes" /></small></button>
               </div>
               <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
                 <button class="btn btn-o" type="button" data-back><T en="Back" es="Atrás" /></button>
@@ -302,7 +308,13 @@ const services = [
     )
   }
   const pick = (g) => document.querySelector(`[data-g="${g}"][aria-pressed="true"]`)
-  const pickText = (g) => { const el = pick(g); return el ? el.querySelector('[data-l]:not([hidden])')?.textContent.trim() || el.textContent.trim() : '—' }
+  const pickText = (g) => {
+    const el = pick(g)
+    if (!el) return '—'
+    // .opt-name marks the label; without it we would pick up the small print underneath
+    const scope = el.querySelector('.opt-name') || el
+    return scope.querySelector('[data-l]:not([hidden])')?.textContent.trim() || scope.textContent.trim()
+  }
 
   function summary() {
     document.getElementById('s-svc').textContent = pickText('svc')
