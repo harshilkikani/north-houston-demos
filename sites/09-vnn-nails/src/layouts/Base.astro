@@ -1,0 +1,78 @@
+---
+import '../styles/site.css'
+import biz from '../../content/business.json'
+import { hourRows, telHref } from '@nhd/shared/content'
+
+const { title, description } = Astro.props
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const tel = telHref(biz.phone.value)
+const rows = hourRows(biz.hours.value)
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${base}/assets/og.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#120a14" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="stylesheet" href={`${base}/fonts/fonts.css`} />
+  </head>
+  <body>
+    <a href="#main" style="position:absolute;left:-9999px;background:#ff2e88;color:#fff;padding:12px 18px;z-index:99" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+    <div class="top">
+      <a class="brand" href={`${base}/`}>VNN<span>.</span>Nails</a>
+      <a class="btn btn-o btn-sm" href={tel}>{biz.phone.value}</a>
+    </div>
+
+    <main id="main"><slot /></main>
+
+    <nav class="pillnav" aria-label="Primary">
+      <a href={`${base}/#builder`}>Prices</a>
+      <a href={`${base}/gallery`}>Gallery</a>
+      <a href={`${base}/#visit`}>Visit</a>
+      <a class="cta" href={`${base}/#builder`}>Book</a>
+    </nav>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <p class="eyebrow">{biz.display_name}</p>
+            <p class="h2" style="margin-top:10px;max-width:12ch;font-size:clamp(24px,3.2vw,40px)">You should know the price before you sit down.</p>
+            <p class="small" style="margin-top:14px">{biz.address.value}</p>
+            <p style="display:grid;gap:8px;margin-top:16px;font-size:15px">
+              <a href={tel} style="justify-self:start">{biz.phone.value}</a>
+              <a href={biz.map_url} target="_blank" rel="noopener" style="justify-self:start">Directions</a>
+              <a href={biz.socials.instagram.value} target="_blank" rel="noopener" style="justify-self:start">Instagram</a>
+              <a href={biz.socials.facebook.value} target="_blank" rel="noopener" style="justify-self:start">Facebook</a>
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow">Hours</p>
+            <dl class="hrs" style="margin-top:12px">
+              {rows.map((r) => (<div class={r.closed ? 'off' : ''}><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>))}
+            </dl>
+          </div>
+          <div>
+            <p class="eyebrow">On Google</p>
+            <p style="font-family:var(--font-display);font-weight:800;font-size:58px;margin:6px 0 0;line-height:1">{biz.rating.value}</p>
+            <p class="small" style="margin:0">from {biz.rating.count} reviews</p>
+          </div>
+        </div>
+        <div class="fine">
+          <p style="margin:0">Speculative redesign concept for {biz.display_name}. Not the salon's official website, not published and not indexed. The price builder and booking are demonstrations and transmit nothing.</p>
+          <p style="margin:0">Nail photography is licensed stock used as design reference.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

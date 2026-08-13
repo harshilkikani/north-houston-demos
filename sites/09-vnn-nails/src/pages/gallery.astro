@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const all = [
+  { n: 'art-abstract', t: 'Freehand abstract', d: 'Colour blocking painted by hand, no two nails the same.' },
+  { n: 'art-navy-gold', t: 'Gold foil', d: 'Foil laid over a deep base, sealed under gel so it stays flat.' },
+  { n: 'art-long', t: 'Long almond', d: 'Length plus line work — the two things that move the price most.' },
+  { n: 'art-web', t: 'Fine line work', d: 'Detail this small is brush work, not a stamp.' },
+  { n: 'art-chrome', t: 'Chrome', d: 'A powder buffed into the topcoat for a mirror finish.' },
+  { n: 'art-winter', t: 'Painted scene', d: 'Seasonal art, done freehand on a pale base.' },
+  { n: 'art-onyx', t: 'Gloss black', d: 'The hardest finish to get right — every flaw shows.' },
+  { n: 'art-red', t: 'Hand lettering', d: 'Text on a nail is steadier work than it looks.' },
+]
+---
+
+<Base
+  title="Gallery — VNN Nails"
+  description="Nail art and finishes at VNN Nails on Veterans Memorial Drive, Houston. Chrome, foil, freehand and fine line work."
+>
+  <section class="sect" style="padding-top:96px">
+    <div class="wrap">
+      <p class="eyebrow">Gallery</p>
+      <h1 class="h1" style="margin-top:12px;max-width:12ch">Bring a photo. Or point at one of these.</h1>
+      <p class="lead" style="margin-top:18px">
+        Every design here has a price tier in the builder, so you can see roughly what a set like it costs before you
+        ask.
+      </p>
+      <a class="btn" href={`${base}/#builder`} style="margin-top:22px">Price a set like this</a>
+    </div>
+  </section>
+
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="gal" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
+        {all.map((a) => {
+          const im = img(base, a.n)
+          return (
+            <figure>
+              <picture>
+                <source type="image/webp" srcset={im.webp} sizes="(min-width:760px) 24vw, 50vw" />
+                <img src={im.fallback} alt={`${a.t} — ${a.d}`} loading="lazy" width="1200" height="900" />
+              </picture>
+              <figcaption style="position:absolute;inset:auto 0 0;padding:30px 16px 14px;background:linear-gradient(to top,rgba(18,10,20,.94),transparent)">
+                <b style="font-family:var(--font-display);font-weight:700;font-size:15px;display:block">{a.t}</b>
+                <span class="small" style="font-size:12.5px">{a.d}</span>
+              </figcaption>
+            </figure>
+          )
+        })}
+      </div>
+      <p class="small" style="margin-top:20px">
+        Design references under licence, showing the finishes offered. They are not photographs of sets done at
+        {' '}{biz.display_name}.
+      </p>
+    </div>
+  </section>
+</Base>

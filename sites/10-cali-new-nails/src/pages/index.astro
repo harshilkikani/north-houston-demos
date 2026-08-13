@@ -1,4 +1,260 @@
 ---
-const t = "Cali New Nails"
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const hero = img(base, 'hero-gentle')
+const feet = img(base, 'care-feet')
+const polish = img(base, 'care-polish')
+
+const care = [
+  { t: 'Sensitive feet', p: 'Thickened, ingrown or curled toenails need patience and a light hand. Reviewers describe being handled gently here after being handled roughly somewhere else.' },
+  { t: 'We go at your pace', p: 'Two technicians, one client each. Nobody is being rushed through to clear a queue, because there is no queue to clear.' },
+  { t: 'Say what hurts', p: 'Tell us where it is tender before we start. It changes how we work, and it is the whole reason people keep coming back.' },
+]
+
+const services = [
+  { t: 'Classic manicure', p: 'Shape, cuticle care and polish.', v: '$22' },
+  { t: 'Classic pedicure', p: 'Soak, shape, and careful attention to anything tender.', v: '$35' },
+  { t: 'Gentle-care pedicure', p: 'Extra time for thickened or ingrown nails, and sensitive skin.', v: '$45' },
+  { t: 'Shellac / gel', p: 'Long-wearing colour, cured and sealed.', v: '$35' },
+  { t: 'Solar nails', p: 'Full set with a durable finish.', v: '$45' },
+  { t: 'Eyebrows', p: 'Shaping and tidy-up.', v: '$12' },
+]
 ---
-<h1>{t}</h1>
+
+<Base
+  title="Cali New Nails — gentle manicures and pedicures, Veterans Memorial, Houston"
+  description="A two-chair nail salon known for being gentle with sensitive feet and difficult toenails. Reserve a quiet time at 12285 Veterans Memorial Dr, Houston."
+>
+  <!-- HERO -->
+  <div class="wrap hero">
+    <figure class="hero-img" style="margin:0">
+      <picture>
+        <source type="image/webp" srcset={hero.webp} sizes="(min-width:940px) 40vw, 100vw" />
+        <img src={hero.fallback} alt="Two hands supporting a foot with slow, careful pressure during a treatment" fetchpriority="high" width="1200" height="900" />
+      </picture>
+    </figure>
+    <div>
+      <p class="eyebrow">Veterans Memorial · Houston</p>
+      <h1 class="h1" style="margin-top:16px">
+        Everywhere else was <span class="serif">too rough.</span>
+      </h1>
+      <p class="lead" style="margin-top:20px">
+        That sentence appears again and again in the reviews for this salon, usually about a mother, a grandmother, or a
+        pair of feet that other places did not take care with. Gentleness is the whole reason people drive back here.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+        <a class="btn" href="#reserve">Reserve a quiet time</a>
+        <a class="btn btn-o" href="#gentle">Why it's different</a>
+      </div>
+      <dl class="marks">
+        <div><dt>Google</dt><dd>{biz.rating.value} ★ · {biz.rating.count} reviews</dd></div>
+        <div><dt>Open</dt><dd>Seven days</dd></div>
+        <div><dt>Technicians</dt><dd>Two</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <!-- PROMISE -->
+  <section class="sect">
+    <div class="wrap">
+      <div class="promise">
+        <p class="eyebrow">The reason people come back</p>
+        <blockquote style="margin-top:18px">
+          “My mom has really sensitive feet and curled toe nails and everywhere we go she has problems with people being
+          too harsh to her feet, but here they were extremely gentle!”
+        </blockquote>
+        <p class="small" style="margin-top:16px">Google review</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GENTLE -->
+  <section class="sect" id="gentle" style="padding-top:0">
+    <div class="wrap care">
+      <figure class="care-img" style="margin:0">
+        <picture>
+          <source type="image/webp" srcset={feet.webp} sizes="(min-width:900px) 46vw, 100vw" />
+          <img src={feet.fallback} alt="Careful work on toes, a hand resting flat alongside for support" loading="lazy" width="1200" height="800" />
+        </picture>
+      </figure>
+      <div>
+        <p class="eyebrow">Gentle care</p>
+        <h2 class="h2" style="margin:14px 0 16px;max-width:16ch">A pedicure should not be something you brace for.</h2>
+        <p class="lead">
+          Feet get harder to look after as we get older, and a lot of salons treat that as an inconvenience. Here it is
+          the specialty. Slower work, a lighter hand, and someone who checks before they press.
+        </p>
+      </div>
+    </div>
+
+    <div class="wrap" style="margin-top:clamp(30px,3.8vw,52px)">
+      <div class="cards">
+        {care.map((c) => (<div class="card"><h3 class="h3">{c.t}</h3><p>{c.p}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:22px;flex-wrap:wrap;margin-bottom:24px">
+        <div>
+          <p class="eyebrow">Services</p>
+          <h2 class="h2" style="margin-top:12px;max-width:14ch">Sample menu</h2>
+        </div>
+        <a class="btn btn-o" href={`${base}/services`}>Full list</a>
+      </div>
+      <div class="menu">
+        {services.map((s) => (<div><div><h3 class="h3">{s.t}</h3><p>{s.p}</p></div><b>{s.v}</b></div>))}
+      </div>
+      <p class="small" style="margin-top:18px">
+        These figures are samples for the demonstration — {biz.display_name} sets its own. Reviewers describe the prices
+        here as affordable, which is worth publishing once they are confirmed.
+      </p>
+    </div>
+  </section>
+
+  <!-- RESERVE -->
+  <section class="sect" id="reserve" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Reserve</p>
+      <h2 class="h2" style="margin:14px 0 16px;max-width:16ch">Two chairs. Pick the one that's free.</h2>
+      <p class="lead" style="margin-bottom:clamp(26px,3.2vw,42px)">
+        There are two of us, so a walk-in sometimes means waiting. Taking a time means it does not. Here is today.
+      </p>
+
+      <div class="chairs" id="chairs"></div>
+
+      <div class="book-panel">
+        <form id="rf" novalidate>
+          <p class="eyebrow" id="picked-note" style="margin-bottom:16px">Select a time above to continue</p>
+          <div class="grid2">
+            <div class="f">
+              <label for="r-svc">Service</label>
+              <select id="r-svc">{services.map((s) => (<option>{s.t}</option>))}</select>
+            </div>
+            <div class="f">
+              <label for="r-name">Your name</label>
+              <input id="r-name" type="text" autocomplete="name" data-required />
+              <p class="err" data-error-for="r-name" hidden>Please add your name.</p>
+            </div>
+            <div class="f">
+              <label for="r-phone">Phone</label>
+              <input id="r-phone" type="tel" autocomplete="tel" data-required />
+              <p class="err" data-error-for="r-phone" hidden>Please add a number.</p>
+            </div>
+            <div class="f">
+              <label for="r-note">Anything tender we should know about?</label>
+              <input id="r-note" type="text" placeholder="Ingrown big toe, sensitive left heel…" />
+            </div>
+          </div>
+          <button class="btn" type="submit" style="justify-content:center">Reserve this time</button>
+          <p class="small" style="margin-top:12px">Demonstration only — nothing is sent or stored.</p>
+        </form>
+
+        <div class="reserved" id="done" hidden tabindex="-1" style="margin:-4px">
+          <p class="eyebrow" style="color:#dcebdf">Reserved</p>
+          <h3 class="h2" style="margin-top:10px;color:#fff;font-size:clamp(23px,2.8vw,32px)">Your chair is held.</h3>
+          <dl style="margin-top:20px">
+            <div><dt>Chair</dt><dd id="d-chair" style="margin:0">—</dd></div>
+            <div><dt>Time</dt><dd id="d-time" style="margin:0">—</dd></div>
+            <div><dt>Service</dt><dd id="d-svc" style="margin:0">—</dd></div>
+            <div><dt>Name</dt><dd id="d-name" style="margin:0">—</dd></div>
+            <div><dt>Notes</dt><dd id="d-note" style="margin:0">—</dd></div>
+          </dl>
+          <button class="btn btn-o" type="button" id="again" style="margin-top:22px;color:#fff;border-color:rgba(255,255,255,.55)">Start over</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="care" style="align-items:center">
+        <div>
+          <p class="eyebrow">{biz.rating.value} on Google · {biz.rating.count} reviews</p>
+          <h2 class="h2" style="margin:14px 0 20px;max-width:16ch">Ten years is a long time to keep choosing the same two people.</h2>
+          <div class="qs" style="grid-template-columns:1fr;gap:24px">
+            {biz.reviews.slice(1).map((r) => (<div class="q"><blockquote>“{r.excerpt}”</blockquote><cite>Google</cite></div>))}
+          </div>
+        </div>
+        <figure class="care-img" style="margin:0">
+          <picture>
+            <source type="image/webp" srcset={polish.webp} sizes="(min-width:900px) 46vw, 100vw" />
+            <img src={polish.fallback} alt="A technician steadying a hand while applying polish" loading="lazy" width="1200" height="800" />
+          </picture>
+        </figure>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { validate } from '@nhd/shared/ui'
+
+  const CHAIRS = [
+    { name: 'Chair one', slots: [['10:00', 1], ['11:00', 0], ['12:00', 1], ['1:30', 1], ['3:00', 0], ['4:30', 1]] },
+    { name: 'Chair two', slots: [['10:00', 0], ['11:30', 1], ['1:00', 1], ['2:30', 1], ['4:00', 0], ['5:00', 1]] },
+  ]
+  let picked = null
+  const el = document.getElementById('chairs')
+
+  function render() {
+    el.innerHTML = CHAIRS.map(
+      (c, ci) => `
+      <div class="chair">
+        <h3 class="h3"><span></span>${c.name}</h3>
+        <div class="slot-list">
+          ${c.slots
+            .map(
+              ([t, free], si) =>
+                `<button class="slot" type="button" data-c="${ci}" data-s="${si}" ${free ? '' : 'disabled'} aria-pressed="${picked && picked.c === ci && picked.s === si}">
+                  <span>${t}</span><em>${free ? 'available' : 'taken'}</em>
+                </button>`
+            )
+            .join('')}
+        </div>
+      </div>`
+    ).join('')
+    el.querySelectorAll('.slot:not([disabled])').forEach((b) =>
+      b.addEventListener('click', () => {
+        picked = { c: Number(b.dataset.c), s: Number(b.dataset.s) }
+        render()
+        const c = CHAIRS[picked.c]
+        document.getElementById('picked-note').textContent = `${c.name} · ${c.slots[picked.s][0]}`
+      })
+    )
+  }
+  render()
+
+  const f = document.getElementById('rf')
+  const done = document.getElementById('done')
+  f.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(f)) { f.querySelector('[aria-invalid="true"]')?.focus(); return }
+    if (!picked) {
+      document.getElementById('picked-note').textContent = 'Please choose a time above first'
+      document.getElementById('chairs').scrollIntoView({ behavior: 'smooth', block: 'center' })
+      return
+    }
+    const c = CHAIRS[picked.c]
+    document.getElementById('d-chair').textContent = c.name
+    document.getElementById('d-time').textContent = c.slots[picked.s][0]
+    document.getElementById('d-svc').textContent = document.getElementById('r-svc').value
+    document.getElementById('d-name').textContent = document.getElementById('r-name').value
+    document.getElementById('d-note').textContent = document.getElementById('r-note').value || 'Nothing noted'
+    CHAIRS[picked.c].slots[picked.s][1] = 0
+    render()
+    f.hidden = true; done.hidden = false; done.focus()
+  })
+  document.getElementById('again').addEventListener('click', () => {
+    if (picked) CHAIRS[picked.c].slots[picked.s][1] = 1
+    picked = null; render()
+    document.getElementById('picked-note').textContent = 'Select a time above to continue'
+    f.reset(); f.hidden = false; done.hidden = true
+  })
+</script>

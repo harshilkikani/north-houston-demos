@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const hands = img(base, 'care-hands')
+const towel = img(base, 'amb-towel')
+const soft = img(base, 'set-soft')
+const nude = img(base, 'set-nude')
+
+const groups = [
+  {
+    t: 'Hands',
+    items: [
+      { t: 'Classic manicure', p: 'Shape, cuticle care and polish.', v: '$22' },
+      { t: 'Shellac / gel', p: 'Long-wearing colour, cured and sealed.', v: '$35' },
+      { t: 'Solar nails', p: 'Full set with a durable finish.', v: '$45' },
+      { t: 'Fill / rebalance', p: 'Maintenance on an existing set.', v: '$32' },
+      { t: 'Soak-off removal', p: 'Taken off properly rather than picked off.', v: '$10' },
+    ],
+  },
+  {
+    t: 'Feet',
+    items: [
+      { t: 'Classic pedicure', p: 'Soak, shape and polish, at an unhurried pace.', v: '$35' },
+      { t: 'Gentle-care pedicure', p: 'Extra time for thickened, ingrown or curled nails and sensitive skin. Tell us where it hurts before we start.', v: '$45' },
+      { t: 'Polish change', p: 'Colour only, no soak.', v: '$15' },
+    ],
+  },
+  {
+    t: 'Also',
+    items: [
+      { t: 'Eyebrow shaping', p: 'Tidy-up and shape.', v: '$12' },
+      { t: 'Nail repair', p: 'A single broken nail rebuilt.', v: '$5' },
+    ],
+  },
+]
+---
+
+<Base
+  title="Services — Cali New Nails"
+  description="Manicures, pedicures, solar nails, shellac and gentle care for sensitive feet at Cali New Nails, Veterans Memorial Drive, Houston."
+>
+  <section class="sect">
+    <div class="wrap care" style="align-items:center">
+      <div>
+        <p class="eyebrow">Services</p>
+        <h1 class="h1" style="margin-top:14px;max-width:12ch">Unhurried, <span class="serif">on purpose.</span></h1>
+        <p class="lead" style="margin-top:18px">
+          Two technicians means fewer appointments in a day and more time in each one. That is the trade, and it is why
+          the reviews read the way they do.
+        </p>
+        <a class="btn" href={`${base}/#reserve`} style="margin-top:24px">Reserve a time</a>
+      </div>
+      <figure class="care-img" style="margin:0">
+        <picture>
+          <source type="image/webp" srcset={hands.webp} sizes="(min-width:900px) 46vw, 100vw" />
+          <img src={hands.fallback} alt="Hands resting together on a folded white towel" loading="lazy" width="1200" height="800" />
+        </picture>
+      </figure>
+    </div>
+  </section>
+
+  {groups.map((g) => (
+    <section class="sect" style="padding-top:0">
+      <div class="wrap">
+        <h2 class="h2" style="margin-bottom:18px">{g.t}</h2>
+        <div class="menu">
+          {g.items.map((it) => (<div><div><h3 class="h3">{it.t}</h3><p>{it.p}</p></div><b>{it.v}</b></div>))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        {[soft, nude, towel].map((i, n) => (
+          <figure class="hero-img" style="margin:0">
+            <picture>
+              <source type="image/webp" srcset={i.webp} sizes="(min-width:900px) 30vw, 100vw" />
+              <img src={i.fallback} alt="" loading="lazy" width="1200" height="900" style="aspect-ratio:4/3" />
+            </picture>
+          </figure>
+        ))}
+      </div>
+      <p class="small" style="margin-top:18px">
+        Sample pricing for the demonstration — {biz.display_name} sets its own figures. Photography is licensed stock
+        used as finish reference, not a record of work done at this salon.
+      </p>
+    </div>
+  </section>
+</Base>

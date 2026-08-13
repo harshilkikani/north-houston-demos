@@ -1,4 +1,273 @@
 ---
-const t = "VNN Nails"
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const band = [
+  { n: 'art-abstract', c: 'Freehand abstract' },
+  { n: 'art-navy-gold', c: 'Gold foil' },
+  { n: 'art-long', c: 'Long almond, line work' },
+  { n: 'art-web', c: 'Fine hand-painted detail' },
+  { n: 'art-chrome', c: 'Chrome finish' },
+  { n: 'art-winter', c: 'Painted scene' },
+]
+const gallery = ['art-onyx', 'art-red', 'art-navy-gold', 'art-long']
 ---
-<h1>{t}</h1>
+
+<Base
+  title="VNN Nails — nail art and full sets, Veterans Memorial, Houston"
+  description="Build your set and see the price before you book. Nail art, full sets, dip powder and pedicures at 12033 Veterans Memorial Dr, Houston."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="band" id="band">
+      {band.map((b, i) => {
+        const im = img(base, b.n)
+        return (
+          <figure>
+            <picture>
+              <source type="image/webp" srcset={im.webp} sizes="320px" />
+              <img src={im.fallback} alt={b.c} loading={i < 2 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : null} width="1200" height="900" />
+            </picture>
+            <figcaption>{b.c}</figcaption>
+          </figure>
+        )
+      })}
+    </div>
+
+    <div class="wrap hero-copy">
+      <div class="band-hint"><span>Scroll →</span></div>
+      <p class="eyebrow" style="margin-top:14px">12033 Veterans Memorial Dr · Houston</p>
+      <h1 class="h1" style="margin-top:12px">No surprises<br />at the <em>register.</em></h1>
+      <p class="lead" style="margin-top:18px">
+        Pick your service, your length and how much art you want. The number moves as you tap, so the price you see is
+        the price you pay. Ben does the designs — that part is worth the appointment on its own.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
+        <a class="btn" href="#builder">Build my set</a>
+        <a class="btn btn-o" href={`${base}/gallery`}>See the gallery</a>
+      </div>
+      <dl class="stat-row">
+        <div class="stat"><dt>Google</dt><dd>{biz.rating.value} ★</dd></div>
+        <div class="stat"><dt>Reviews</dt><dd>{biz.rating.count}</dd></div>
+        <div class="stat"><dt>Walk-ins</dt><dd>Welcome</dd></div>
+        <div class="stat"><dt>Designs by</dt><dd>Ben</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- PRICE BUILDER -->
+  <section class="sect" id="builder">
+    <div class="wrap">
+      <p class="eyebrow">Price builder</p>
+      <h2 class="h2" style="margin:12px 0 14px;max-width:15ch">Watch it add up.</h2>
+      <p class="lead" style="margin-bottom:clamp(26px,3vw,40px)">
+        Every tap changes the total. Length and design are the two things that quietly move the price everywhere else —
+        here they are on the screen in front of you.
+      </p>
+
+      <div class="builder">
+        <div>
+          <div class="bgroup">
+            <p class="eyebrow">1 — Service</p>
+            <div class="opts" role="group" aria-label="Service">
+              {[['Full set', 45], ['Gel / shellac manicure', 35], ['Dip powder', 45], ['Classic manicure', 22], ['Pedicure', 35], ['Mani + pedi', 55]].map(([t, v], i) => (
+                <button class="opt" type="button" data-g="svc" data-v={v} aria-pressed={i === 0 ? 'true' : 'false'}>{t}<b>${v}</b></button>
+              ))}
+            </div>
+          </div>
+
+          <div class="bgroup">
+            <p class="eyebrow">2 — Length</p>
+            <div class="opts" role="group" aria-label="Length">
+              {[['Natural', 0], ['Medium', 5], ['Long', 10], ['Extra long', 15]].map(([t, v], i) => (
+                <button class="opt" type="button" data-g="len" data-v={v} aria-pressed={i === 0 ? 'true' : 'false'}>{t}<b>{v ? `+$${v}` : 'incl.'}</b></button>
+              ))}
+            </div>
+          </div>
+
+          <div class="bgroup">
+            <p class="eyebrow">3 — Design</p>
+            <div class="opts" role="group" aria-label="Design">
+              {[['None', 0], ['Simple accent', 5], ['Two accent nails', 10], ['Full set art', 20], ['Custom freehand', 30]].map(([t, v], i) => (
+                <button class="opt" type="button" data-g="art" data-v={v} aria-pressed={i === 0 ? 'true' : 'false'}>{t}<b>{v ? `+$${v}` : '—'}</b></button>
+              ))}
+            </div>
+          </div>
+
+          <div class="bgroup" style="margin-bottom:0">
+            <p class="eyebrow">4 — Add-ons</p>
+            <div class="opts" role="group" aria-label="Add-ons">
+              {[['Chrome / cat-eye', 8], ['Rhinestones', 6], ['French tips', 8], ['Soak-off removal', 10], ['Nail repair', 5]].map(([t, v]) => (
+                <button class="opt" type="button" data-add data-v={v} aria-pressed="false">{t}<b>+${v}</b></button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="total" id="total-card">
+            <p class="eyebrow">Your total</p>
+            <p class="total-num" id="total">$45</p>
+            <dl style="margin:16px 0 0">
+              <div><dt>Service</dt><dd id="t-svc" style="margin:0">Full set</dd></div>
+              <div><dt>Length</dt><dd id="t-len" style="margin:0">Natural</dd></div>
+              <div><dt>Design</dt><dd id="t-art" style="margin:0">None</dd></div>
+              <div><dt>Add-ons</dt><dd id="t-add" style="margin:0">None</dd></div>
+            </dl>
+
+            <form id="bf" novalidate style="margin-top:20px">
+              <div class="f">
+                <label for="b-name">Name</label>
+                <input id="b-name" type="text" autocomplete="name" data-required />
+                <p class="err" data-error-for="b-name" hidden>Please add your name.</p>
+              </div>
+              <div class="f">
+                <label for="b-phone">Phone</label>
+                <input id="b-phone" type="tel" autocomplete="tel" data-required />
+                <p class="err" data-error-for="b-phone" hidden>Please add a number.</p>
+              </div>
+              <div class="f">
+                <label for="b-when">When</label>
+                <select id="b-when"><option>Today, if there's room</option><option>Tomorrow morning</option><option>Tomorrow afternoon</option><option>This weekend</option></select>
+              </div>
+              <button class="btn" type="submit" style="width:100%;justify-content:center">Book at this price</button>
+              <p class="small" style="margin-top:10px">Demonstration — nothing is sent or stored.</p>
+            </form>
+
+            <div id="booked-in" hidden tabindex="-1">
+              <div class="booked">
+                <p class="eyebrow" style="color:#ffe0ef">Requested</p>
+                <p class="total-num" id="b-total" style="color:#fff;margin:6px 0 12px">—</p>
+                <dl>
+                  <div><dt>Set</dt><dd id="b-set" style="margin:0">—</dd></div>
+                  <div><dt>When</dt><dd id="b-when-out" style="margin:0">—</dd></div>
+                  <div><dt>Name</dt><dd id="b-name-out" style="margin:0">—</dd></div>
+                </dl>
+                <p class="small" style="color:rgba(255,255,255,.85);margin-top:14px">On the live site the salon confirms by text. The price above is what you were quoted — it does not change at the register.</p>
+              </div>
+              <button class="btn btn-o" type="button" id="again" style="width:100%;justify-content:center;margin-top:14px">Start over</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:20px">
+        Sample pricing for the demonstration. {biz.display_name} sets its own figures — the structure is what matters
+        here, and it is ready for their real numbers.
+      </p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px">
+        <div>
+          <p class="eyebrow">Design</p>
+          <h2 class="h2" style="margin-top:12px;max-width:14ch">Ben's work deserves a gallery.</h2>
+        </div>
+        <a class="btn btn-o" href={`${base}/gallery`}>See all</a>
+      </div>
+      <div class="gal">
+        {gallery.map((g) => {
+          const im = img(base, g)
+          return (
+            <figure>
+              <picture>
+                <source type="image/webp" srcset={im.webp} sizes="(min-width:760px) 24vw, 50vw" />
+                <img src={im.fallback} alt="" loading="lazy" width="1200" height="900" />
+              </picture>
+            </figure>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">{biz.rating.value} on Google · {biz.rating.count} reviews</p>
+      <div class="revs" style="margin-top:20px">
+        {biz.reviews.map((r) => (<div><blockquote>“{r.excerpt}”</blockquote><cite>Google</cite></div>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="sect" id="visit" style="padding-top:0">
+    <div class="wrap">
+      <div class="total" style="position:static;display:grid;gap:16px">
+        <div>
+          <p class="eyebrow">Visit</p>
+          <h2 class="h2" style="margin-top:10px;max-width:16ch">Walk in, or take a time.</h2>
+        </div>
+        <p class="lead" style="margin:0">
+          {biz.address.value}. Open Monday to Saturday — closed Sundays. Reviewers say they were attended to right away,
+          which is worth knowing if you are deciding on the way past.
+        </p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href={biz.map_url} target="_blank" rel="noopener">Directions</a>
+          <a class="btn btn-o" href={`tel:+1${biz.phone.value.replace(/\D/g, '')}`}>{biz.phone.value}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { validate } from '@nhd/shared/ui'
+
+  const money = (n) => `$${n}`
+  const pick = (g) => document.querySelector(`[data-g="${g}"][aria-pressed="true"]`)
+  const label = (el) => (el ? el.childNodes[0].textContent.trim() : '—')
+
+  function compute() {
+    const svc = pick('svc'), len = pick('len'), art = pick('art')
+    const adds = [...document.querySelectorAll('[data-add][aria-pressed="true"]')]
+    const total =
+      Number(svc?.dataset.v || 0) + Number(len?.dataset.v || 0) + Number(art?.dataset.v || 0) +
+      adds.reduce((a, b) => a + Number(b.dataset.v), 0)
+    document.getElementById('total').textContent = money(total)
+    document.getElementById('t-svc').textContent = label(svc)
+    document.getElementById('t-len').textContent = label(len)
+    document.getElementById('t-art').textContent = label(art)
+    document.getElementById('t-add').textContent = adds.length ? adds.map(label).join(', ') : 'None'
+    return total
+  }
+
+  document.querySelectorAll('.opt[data-g]').forEach((o) =>
+    o.addEventListener('click', () => {
+      document.querySelectorAll(`[data-g="${o.dataset.g}"]`).forEach((x) => x.setAttribute('aria-pressed', 'false'))
+      o.setAttribute('aria-pressed', 'true')
+      compute()
+    })
+  )
+  document.querySelectorAll('[data-add]').forEach((o) =>
+    o.addEventListener('click', () => {
+      o.setAttribute('aria-pressed', String(o.getAttribute('aria-pressed') !== 'true'))
+      compute()
+    })
+  )
+  compute()
+
+  const f = document.getElementById('bf')
+  const out = document.getElementById('booked-in')
+  f.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(f)) { f.querySelector('[aria-invalid="true"]')?.focus(); return }
+    const total = compute()
+    document.getElementById('b-total').textContent = money(total)
+    document.getElementById('b-set').textContent = [
+      document.getElementById('t-svc').textContent,
+      document.getElementById('t-len').textContent,
+      document.getElementById('t-art').textContent,
+    ].join(' · ')
+    document.getElementById('b-when-out').textContent = document.getElementById('b-when').value
+    document.getElementById('b-name-out').textContent = document.getElementById('b-name').value
+    f.hidden = true; out.hidden = false; out.focus()
+  })
+  document.getElementById('again').addEventListener('click', () => { f.reset(); f.hidden = false; out.hidden = true })
+</script>
