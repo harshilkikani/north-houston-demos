@@ -76,11 +76,13 @@ for (const s of cfg.sites) {
   const mp = await mctx.newPage()
   try {
     await mp.goto(url, { waitUntil: 'networkidle', timeout: 45000 })
+    await mp.evaluate(() => document.fonts && document.fonts.ready)
     await mp.waitForTimeout(600)
-    await mp.screenshot({ path: path.join(outDir, 'mobile.png'), fullPage: false })
-    await mp.screenshot({ path: path.join(outDir, 'mobile-full.png'), fullPage: true })
+    // measure before any full-page screenshot: that resizes the viewport and briefly skews scrollWidth
     const over = await mp.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)
     if (over) issues.push('horizontal overflow at 390px live')
+    await mp.screenshot({ path: path.join(outDir, 'mobile.png'), fullPage: false })
+    await mp.screenshot({ path: path.join(outDir, 'mobile-full.png'), fullPage: true })
   } catch (e) {
     issues.push(`mobile load failed: ${e.message.split('\n')[0]}`)
   }
