@@ -23,8 +23,8 @@ a { color: inherit; }
 :focus-visible { outline: 2px solid var(--color-red-lift); outline-offset: 3px; }
 
 h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 500; text-transform: uppercase; letter-spacing: .005em; line-height: .98; }
-.h1 { font-size: clamp(40px, 8vw, 108px); font-weight: 600; }
-.h2 { font-size: clamp(28px, 4.2vw, 58px); }
+.h1 { font-size: clamp(32px, 5.4vw, 68px); font-weight: 600; }
+.h2 { font-size: clamp(25px, 3.2vw, 42px); }
 .h3 { font-size: clamp(18px, 1.9vw, 24px); letter-spacing: .04em; }
 .tag { font-family: var(--font-display); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--color-red-lift); font-weight: 500; margin: 0; }
 .tag-d { color: var(--color-bone-dim); }

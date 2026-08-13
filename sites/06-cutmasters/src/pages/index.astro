@@ -44,7 +44,7 @@ const services = [
       <div class="hero-card">
         <p class="eyebrow"><T en="Open seven days · Veterans Memorial" es="Abierto los siete días · Veterans Memorial" /></p>
         <h1 class="h1" style="margin-top:10px">
-          <T en="Don't book a salon." es="No reserves un salón." /><br /><T en="Book your person." es="Reserva a tu persona." />
+          <T en="Book with the stylist" es="Reserva con el estilista" /><br /><T en="you want." es="que tú quieras." />
         </h1>
         <p class="lead" style="margin-top:14px">
           <T
@@ -74,7 +74,7 @@ const services = [
     <div class="wrap">
       <p class="eyebrow"><T en="The team" es="El equipo" /></p>
       <h2 class="h2" style="margin:12px 0 14px;max-width:16ch">
-        <T en="Named, not anonymous." es="Con nombre, no anónimos." />
+        <T en="Who's on the floor." es="Quién está en el salón." />
       </h2>
       <p class="lead" style="margin-bottom:clamp(24px,3vw,38px)">
         <T
@@ -122,7 +122,7 @@ const services = [
   <section class="sect" id="services" style="padding-top:0">
     <div class="wrap">
       <p class="eyebrow"><T en="Services" es="Servicios" /></p>
-      <h2 class="h2" style="margin:12px 0 22px;max-width:15ch"><T en="Whatever the chair needs." es="Lo que la silla necesite." /></h2>
+      <h2 class="h2" style="margin:12px 0 22px;max-width:15ch"><T en="What we do." es="Lo que hacemos." /></h2>
       <div class="svc">
         {services.map((s) => (<div><h3 class="h3"><T en={s.en} es={s.es} /></h3><p><T en={s.den} es={s.des} /></p></div>))}
       </div>
@@ -228,7 +228,7 @@ const services = [
     <div class="wrap">
       <p class="eyebrow">{biz.rating.value} · {biz.rating.count} <T en="Google reviews" es="reseñas de Google" /></p>
       <h2 class="h2" style="margin:12px 0 22px;max-width:18ch">
-        <T en="The first haircut is the one they remember." es="El primer corte es el que se recuerda." />
+        <T en="What families have said." es="Lo que dicen las familias." />
       </h2>
       <div class="rev">
         {biz.reviews.map((r) => (<div><blockquote>“{r.excerpt}”</blockquote><cite>Google</cite></div>))}

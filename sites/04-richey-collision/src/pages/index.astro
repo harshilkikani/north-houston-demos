@@ -31,10 +31,10 @@ const claim = [
     </div>
     <div class="hero-in wrap">
       <p class="tag">Veterans Memorial Drive · Houston</p>
-      <h1 class="h1" style="margin-top:16px">Two shops<br />couldn't match it.<br /><em>He did.</em></h1>
+      <h1 class="h1" style="margin-top:16px">Custom paint,<br />body work and<br /><em>colour matching.</em></h1>
       <p class="lead hero-sub">
-        Custom paint and body work, including the tri-coat reds that dedicated body shops turn away. If your Corvette
-        people already told you where to go, this is usually the address.
+        Collision repair and refinishing on Veterans Memorial, including tri-coat colours that take more work to get
+        right. Corvette and performance cars are a regular part of what comes through the door.
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px">
         <a class="btn" href="#estimate">Request an estimate</a>
@@ -81,11 +81,11 @@ const claim = [
       <div class="split wide" style="align-items:end">
         <div>
           <p class="tag">02 — Reputation</p>
-          <h2 class="h2" style="margin:14px 0 18px;max-width:16ch">The Corvette crowd sends each other here.</h2>
+          <h2 class="h2" style="margin:14px 0 18px;max-width:16ch">Corvette and performance work.</h2>
           <p class="lead">
             Performance cars are unforgiving to paint. The panels are large, the curves are continuous, and there is
-            nowhere for a bad blend to hide. Word inside an owners' community travels faster than any advertising, and
-            more than one review here starts with a version of the same sentence.
+            nowhere for a bad blend to hide. A fair amount of the work here arrives by word of mouth inside the Houston
+            owners' community.
           </p>
           <blockquote style="margin:26px 0 0;font-family:var(--font-display);font-weight:500;text-transform:uppercase;font-size:clamp(20px,2.4vw,30px);line-height:1.15;color:var(--color-bone);border-left:3px solid var(--color-red);padding-left:20px">
             “All my Corvette buddies in Houston recommended me to Richey Collision.”
@@ -128,8 +128,8 @@ const claim = [
   <section class="sect" id="estimate">
     <div class="wrap">
       <p class="tag">04 — Estimate</p>
-      <h2 class="h2" style="margin:14px 0 18px;max-width:16ch">Show us the damage from where you're standing.</h2>
-      <p class="lead" style="margin-bottom:clamp(26px,3vw,40px)">Three steps. Tap the panels that took the hit.</p>
+      <h2 class="h2" style="margin:14px 0 18px;max-width:16ch">Request an estimate.</h2>
+      <p class="lead" style="margin-bottom:clamp(26px,3vw,40px)">Three steps — tap the panels that took the damage, add a couple of photos, and we'll come back to you.</p>
 
       <div class="est">
         <div class="diagram">
@@ -229,7 +229,7 @@ const claim = [
   <section class="sect" id="reviews">
     <div class="wrap">
       <p class="tag">05 — {biz.rating.value} on Google from {biz.rating.count} reviews</p>
-      <h2 class="h2" style="margin:14px 0 clamp(28px,3.4vw,44px);max-width:18ch">People do not write paragraphs about a body shop unless something happened.</h2>
+      <h2 class="h2" style="margin:14px 0 clamp(28px,3.4vw,44px);max-width:18ch">What customers have said.</h2>
       <div class="rq">
         {biz.reviews.map((r) => (<div><blockquote>{r.excerpt}</blockquote><cite>Google review</cite></div>))}
       </div>

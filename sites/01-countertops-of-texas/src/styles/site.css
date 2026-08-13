@@ -40,9 +40,9 @@ a { color: inherit; }
 
 /* ── type ───────────────────────────────────────────── */
 .d { font-family: var(--font-display); font-weight: 400; line-height: .96; letter-spacing: -.015em; }
-.d-xl { font-size: clamp(44px, 9.2vw, 132px); }
-.d-lg { font-size: clamp(32px, 5.4vw, 68px); }
-.d-md { font-size: clamp(24px, 3.4vw, 40px); }
+.d-xl { font-size: clamp(32px, 5.8vw, 74px); }
+.d-lg { font-size: clamp(26px, 3.8vw, 46px); }
+.d-md { font-size: clamp(21px, 2.6vw, 31px); }
 
 .lbl {
   font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
@@ -121,7 +121,7 @@ a { color: inherit; }
     linear-gradient(to right, color-mix(in srgb, var(--color-ink) 72%, transparent), transparent 62%);
 }
 .hero-in { position: relative; padding-block: clamp(28px, 6vw, 68px) clamp(28px, 5vw, 56px); }
-.hero h1 { margin: 14px 0 0; max-width: 15ch; }
+.hero h1 { margin: 14px 0 0; max-width: 26ch; }
 .hero h1 em { font-style: italic; color: var(--color-copper-lift); }
 .hero-sub { margin-top: 22px; max-width: 46ch; font-size: 13.5px; color: color-mix(in srgb, var(--color-bone) 82%, transparent); }
 @media (min-width: 760px) { .hero-sub { font-size: 15px; } }

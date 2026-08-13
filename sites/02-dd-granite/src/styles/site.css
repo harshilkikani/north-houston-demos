@@ -27,8 +27,8 @@ a { color: inherit; }
 :focus-visible { outline: 3px solid var(--color-verd); outline-offset: 2px; border-radius: 4px; }
 
 h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: -.02em; line-height: 1.05; margin: 0; }
-.h1 { font-size: clamp(34px, 5.6vw, 66px); }
-.h2 { font-size: clamp(27px, 3.6vw, 44px); }
+.h1 { font-size: clamp(29px, 4.4vw, 52px); }
+.h2 { font-size: clamp(24px, 3vw, 36px); }
 .h3 { font-size: clamp(19px, 2vw, 24px); letter-spacing: -.01em; }
 .eyebrow { font-family: var(--font-display); font-weight: 500; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-verd); margin: 0; }
 .lead { font-size: clamp(16px, 1.5vw, 19px); color: var(--color-ink-soft); max-width: 58ch; }

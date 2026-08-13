@@ -24,8 +24,8 @@ a { color: inherit; }
 [hidden] { display: none !important; }
 
 h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 300; line-height: 1.12; letter-spacing: -.02em; }
-.h1 { font-size: clamp(36px, 5.6vw, 68px); letter-spacing: -.028em; }
-.h2 { font-size: clamp(26px, 3.4vw, 42px); }
+.h1 { font-size: clamp(30px, 4.4vw, 52px); letter-spacing: -.024em; }
+.h2 { font-size: clamp(23px, 2.9vw, 34px); }
 .h3 { font-size: clamp(19px, 1.9vw, 23px); font-weight: 400; }
 .eyebrow { font-weight: 600; font-size: 11.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--color-euc); margin: 0; }
 .lead { color: var(--color-ink-soft); font-size: clamp(16px, 1.4vw, 18.5px); max-width: 54ch; }

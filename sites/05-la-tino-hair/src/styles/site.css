@@ -24,8 +24,8 @@ a { color: inherit; }
 [hidden] { display: none !important; }
 
 h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; }
-.h1 { font-size: clamp(42px, 7.2vw, 96px); }
-.h2 { font-size: clamp(30px, 4.2vw, 56px); }
+.h1 { font-size: clamp(33px, 5vw, 62px); }
+.h2 { font-size: clamp(25px, 3.2vw, 40px); }
 .h3 { font-size: clamp(20px, 2.1vw, 27px); }
 .it { font-style: italic; color: var(--color-plum); }
 .eyebrow { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--color-plum); font-weight: 500; margin: 0; }

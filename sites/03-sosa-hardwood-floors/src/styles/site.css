@@ -26,8 +26,8 @@ a { color: inherit; }
 :focus-visible { outline: 2px solid var(--color-brass); outline-offset: 3px; }
 
 h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 600; line-height: 1.04; letter-spacing: -.02em; font-variation-settings: 'SOFT' 0, 'WONK' 0; }
-.h1 { font-size: clamp(36px, 6.4vw, 82px); }
-.h2 { font-size: clamp(27px, 3.8vw, 48px); }
+.h1 { font-size: clamp(30px, 4.8vw, 58px); }
+.h2 { font-size: clamp(24px, 3vw, 37px); }
 .h3 { font-size: clamp(18px, 1.9vw, 23px); font-weight: 600; }
 .kicker { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--color-brass); font-weight: 700; margin: 0; }
 .lead { color: var(--color-ink-soft); font-size: clamp(16px, 1.4vw, 18.5px); max-width: 60ch; }

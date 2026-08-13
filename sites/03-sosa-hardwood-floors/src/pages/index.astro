@@ -37,10 +37,11 @@ const species = [
   <section class="hero">
     <div class="wrap">
       <p class="kicker">Hardwood · Engineered · LVP · Stairs</p>
-      <h1 class="h1" style="margin-top:12px">Carpet comes up.<br />Wood goes down.<br />Furniture gets moved.</h1>
+      <h1 class="h1" style="margin-top:12px">Hardwood floors,<br />installed start to finish.</h1>
       <p class="lead" style="margin-top:18px">
-        {biz.owner_or_contact.value} pulls the old carpet, moves what's in the way and lays the floor himself. The word
-        his reviews keep using is <em>hassle-free</em> — drag the handle and you'll see why people bother writing it down.
+        {biz.owner_or_contact.value} pulls the old carpet, moves what's in the way and lays the floor himself — which is
+        why <em>hassle-free</em> is the phrase that keeps coming up in his reviews. Drag the handle below to compare the
+        two underfoot.
       </p>
 
       <div class="ba" id="ba">
@@ -70,7 +71,7 @@ const species = [
       <div style="display:flex;justify-content:space-between;align-items:end;gap:22px;flex-wrap:wrap;margin-bottom:26px">
         <div>
           <p class="kicker">Rooms</p>
-          <h2 class="h2" style="margin-top:10px;max-width:17ch">Flooring is the one surface you see all of at once.</h2>
+          <h2 class="h2" style="margin-top:10px;max-width:17ch">Finished rooms, room by room.</h2>
         </div>
         <a class="btn btn-o" href={`${base}/floors`}>Compare materials</a>
       </div>
@@ -123,7 +124,7 @@ const species = [
     <div class="wrap">
       <div style="margin-bottom:clamp(26px,3vw,40px)">
         <p class="kicker">Free in-home estimate</p>
-        <h2 class="h2" style="margin-top:10px;max-width:18ch">Build the scope. He'll bring the number.</h2>
+        <h2 class="h2" style="margin-top:10px;max-width:18ch">Tell him what needs doing.</h2>
         <p class="lead" style="margin-top:14px">
           Add the rooms you want done and roughly how big they are. No price appears here on purpose — a floor is quoted
           on your subfloor, your stairs and your thresholds, and anyone giving you a figure before seeing it is guessing.
@@ -177,7 +178,7 @@ const species = [
   <section class="sect" id="reviews">
     <div class="wrap">
       <p class="kicker">{biz.rating.value} on Google · {biz.rating.count} reviews</p>
-      <h2 class="h2" style="margin:10px 0 28px;max-width:20ch">Eighty-six people wrote it down. Not one of them had a website to find him on.</h2>
+      <h2 class="h2" style="margin:10px 0 28px;max-width:20ch">What homeowners have said.</h2>
       <div class="qgrid">
         {biz.reviews.map((r) => (
           <div class="qcard"><blockquote>“{r.excerpt}”</blockquote><cite>Google review</cite></div>

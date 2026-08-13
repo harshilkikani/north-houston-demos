@@ -23,8 +23,8 @@ a { color: inherit; }
 
 /* Anton carries tall accents (QUIÉN) — .88 clips them and collides the lines */
 h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; text-transform: uppercase; line-height: 1.02; letter-spacing: -.005em; }
-.h1 { font-size: clamp(44px, 12vw, 152px); }
-.h2 { font-size: clamp(32px, 6vw, 78px); }
+.h1 { font-size: clamp(32px, 6.4vw, 78px); }
+.h2 { font-size: clamp(25px, 3.6vw, 44px); }
 .h3 { font-size: clamp(20px, 2.4vw, 30px); line-height: 1; }
 .eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--color-marigold); margin: 0; }
 .lead { font-size: clamp(15.5px, 1.4vw, 18px); max-width: 56ch; color: color-mix(in srgb, var(--color-paper) 78%, transparent); }
@@ -83,7 +83,7 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; text
 .hero h1 .b { color: var(--color-paper); }
 .hero h1 .c { color: var(--color-vermilion); }
 .hero-grid { display: grid; gap: 24px; margin-top: clamp(24px, 3vw, 40px); }
-@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; } }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: start; } }
 /* duotone: greyscale base with a multiplied vermilion wash, so detail survives */
 .hero-shot { border: 3px solid var(--color-paper); background: var(--color-ink); position: relative; }
 .hero-shot img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: grayscale(1) contrast(1.12) brightness(1.06); }
