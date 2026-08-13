@@ -57,7 +57,9 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 800; line
 .hero { position: relative; padding-top: 82px; }
 .band { display: flex; gap: 12px; overflow-x: auto; padding: 0 var(--gut) 6px; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .band::-webkit-scrollbar { display: none; }
-.band figure { margin: 0; flex: 0 0 min(78vw, 320px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; position: relative; }
+/* shorter tiles on phones so the primary CTA clears the floating pill nav */
+.band figure { margin: 0; flex: 0 0 min(58vw, 230px); scroll-snap-align: start; border-radius: 24px; overflow: hidden; position: relative; }
+@media (min-width: 760px) { .band figure { flex: 0 0 320px; } }
 .band img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
 .band figcaption { position: absolute; inset: auto 0 0; padding: 26px 16px 13px; background: linear-gradient(to top, color-mix(in srgb, var(--color-void) 92%, transparent), transparent); font-family: var(--font-display); font-weight: 700; font-size: 14px; }
 .band-hint { display: flex; align-items: center; gap: 8px; margin-top: 10px; }

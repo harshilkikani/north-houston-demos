@@ -71,8 +71,13 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; line
 .x { width: 42px; height: 42px; border-radius: 999px; border: 1px solid color-mix(in srgb,var(--color-ink) 18%,transparent); background: none; cursor: pointer; font-size: 17px; }
 
 /* hero — asymmetric split, image right */
-.hero { display: grid; gap: 30px; padding-top: clamp(28px, 4vw, 56px); }
-@media (min-width: 940px) { .hero { grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; padding-block: clamp(40px, 5vw, 80px); } }
+/* on phones the colour work leads — this salon's whole case is made by the photograph */
+.hero { display: grid; gap: 26px; padding-top: clamp(22px, 4vw, 56px); }
+.hero > .hero-img { order: -1; }
+@media (min-width: 940px) {
+  .hero { grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; padding-block: clamp(40px, 5vw, 80px); }
+  .hero > .hero-img { order: 0; }
+}
 .hero h1 { max-width: 12ch; }
 .hero-img { position: relative; isolation: isolate; }
 .hero-img picture, .hero-img img { position: relative; z-index: 1; }
