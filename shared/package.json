@@ -1,0 +1,11 @@
+{
+  "name": "@nhd/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./content": "./lib/content.mjs",
+    "./seo": "./lib/seo.mjs",
+    "./ui": "./lib/ui.mjs"
+  }
+}

@@ -1,0 +1,11 @@
+import { defineConfig } from 'astro/config'
+import tailwind from '@tailwindcss/vite'
+
+export default defineConfig({
+  site: 'https://harshilkikani.github.io',
+  base: '/north-houston-demos/dd-granite',
+  output: 'static',
+  trailingSlash: 'ignore',
+  build: { format: 'directory', inlineStylesheets: 'auto' },
+  vite: { plugins: [tailwind()] },
+})

@@ -1,0 +1,147 @@
+{
+  "site_id": "09",
+  "slug": "vnn-nails",
+  "display_name": "VNN Nails",
+  "legal_name": {
+    "value": "VNN Nails",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Nail salon — nail art and custom design",
+  "phone": {
+    "value": "(281) 444-8778",
+    "tel": "+12814448778",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "address": {
+    "value": "12033 Veterans Memorial Dr, Houston, TX 77067",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SALON",
+    "display_note": "A suite number (Ste 135) appears on directories only — REPORTED, omitted from display."
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "9:30 AM – 7:00 PM",
+      "tue": "9:30 AM – 7:00 PM",
+      "wed": "9:30 AM – 7:00 PM",
+      "thu": "9:30 AM – 7:00 PM",
+      "fri": "9:30 AM – 7:00 PM",
+      "sat": "9:00 AM – 7:00 PM",
+      "sun": "Closed"
+    }
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=3709193722454066641",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE",
+    "status": "VERIFIED"
+  },
+  "socials": {
+    "facebook": {
+      "value": "https://www.facebook.com/p/VNN-Nails-12033-Veterans-Memorial-61570826164768/",
+      "status": "VERIFIED",
+      "display_safe": true,
+      "note": "Page name includes the exact street address."
+    },
+    "instagram": {
+      "value": "https://www.instagram.com/vnnnails12033/",
+      "status": "VERIFIED",
+      "display_safe": true,
+      "note": "Handle contains the street number 12033."
+    }
+  },
+  "rating": {
+    "value": 4.2,
+    "count": 147,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "owner_or_contact": {
+    "value": "UNKNOWN — NOT FOUND",
+    "status": "UNKNOWN",
+    "display_safe": false
+  },
+  "staff": [
+    {
+      "name": "Ben",
+      "specialty": "Nail art and custom design",
+      "status": "VERIFIED",
+      "source": "google_reviews",
+      "display_safe": true
+    },
+    {
+      "name": "Tammy",
+      "specialty": "Full sets",
+      "status": "VERIFIED",
+      "source": "google_reviews",
+      "display_safe": true
+    }
+  ],
+  "services": [
+    {
+      "name": "Full sets",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Shellac / gel",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Powder / dip",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Pedicures",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Nail art & custom design",
+      "status": "VERIFIED"
+    }
+  ],
+  "review_themes_positive": [
+    "Walk-ins attended to right away",
+    "Ben's design work praised repeatedly",
+    "Nails delivered exactly as requested"
+  ],
+  "internal_only_problems": {
+    "display_safe": false,
+    "note": "NEVER display. Drives feature selection only.",
+    "themes": [
+      "Pricing not disclosed up front",
+      "Final price higher than the quote",
+      "Length-based upcharges not explained in advance"
+    ]
+  },
+  "reviews": [
+    {
+      "excerpt": "They attended me right away and did my nails exactly how I wanted them. Highly recommend Ben!",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "Tammy did my nails and Ben did my design. They both did an excellent job!",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "en",
+    "bilingual": false,
+    "evidence": "No non-English review evidence located."
+  },
+  "primary_cta": "Build your set — see the price first",
+  "wow_thesis": "Showing that the complaint appearing over and over in their reviews — surprise pricing — disappears the moment the price is built in front of the customer, and that Ben's design work finally has a gallery.",
+  "demo_moment": "Build a set in the price builder — service, length, design tier, add-ons — and watch the running total update live before you book."
+}

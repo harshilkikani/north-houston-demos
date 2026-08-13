@@ -1,0 +1,136 @@
+{
+  "site_id": "05",
+  "slug": "la-tino-hair",
+  "display_name": "La-Tino Hair",
+  "legal_name": {
+    "value": "La-Tino Hair",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Hair salon and barbershop — colour specialist",
+  "phone": {
+    "value": "(281) 880-8700",
+    "tel": "+12818808700",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "address": {
+    "value": "13213 Veterans Memorial Dr, Houston, TX 77014",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SALON"
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "9:30 AM – 7:00 PM",
+      "tue": "9:30 AM – 7:00 PM",
+      "wed": "Closed",
+      "thu": "9:30 AM – 7:00 PM",
+      "fri": "9:30 AM – 7:00 PM",
+      "sat": "9:00 AM – 6:00 PM",
+      "sun": "9:00 AM – 2:00 PM"
+    },
+    "highlight": "Open Sundays. Closed Wednesdays."
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=8974631798531501121",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE",
+    "status": "VERIFIED"
+  },
+  "socials": {
+    "facebook": {
+      "value": "UNKNOWN — AMBIGUOUS",
+      "status": "UNKNOWN",
+      "display_safe": false,
+      "note": "At least three candidate pages exist (61578477653079, latinohair1, 102101883214196). Linking the wrong one is a contamination failure, so no Facebook link ships. The fragmented presence is a sales talking point."
+    },
+    "instagram": {
+      "value": "UNKNOWN — NOT FOUND",
+      "status": "UNKNOWN",
+      "display_safe": false
+    }
+  },
+  "rating": {
+    "value": 4.7,
+    "count": 163,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "owner_or_contact": {
+    "value": "Ivonne",
+    "role": "Owner / lead stylist",
+    "status": "VERIFIED",
+    "source": "google_business_profile_photos_and_reviews",
+    "display_safe": true,
+    "display_note": "First name only. 'Ivonne Garcia' is REPORTED; surname not displayed."
+  },
+  "services": [
+    {
+      "name": "Balayage",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Colour and highlights",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Women's cut and style",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Butterfly haircut",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Men's barbering",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Family cuts — all ages",
+      "status": "VERIFIED"
+    }
+  ],
+  "review_themes": [
+    "Decade-plus client loyalty; customers drive an hour to keep the appointment",
+    "Balayage and colour matching the client's vision exactly",
+    "Genuine relationship, not transactional",
+    "Serves men, women, young and old",
+    "Consistently above expectations"
+  ],
+  "reviews": [
+    {
+      "excerpt": "I've trusted her with my hair for many years… and I'd still drive an hour just to see her.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "The balayage turned out exactly as I envisioned.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "Have plenty of experience and always consistently providing above and beyond to young, old, male and female.",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "en",
+    "secondary": "es",
+    "bilingual": true,
+    "evidence": "Spanish-language reviews present; Spanish-adjacent business name; heavily bilingual corridor. Warranted per §20."
+  },
+  "primary_cta": "Book with Ivonne",
+  "wow_thesis": "She already markets on Facebook and has nowhere to send anyone — seeing 163 reviews and a decade of loyal clients turned into a bookable, bilingual salon site.",
+  "demo_moment": "Switch the whole page to Spanish, then run the four-step booking flow to the styled confirmation card."
+}

@@ -1,0 +1,141 @@
+{
+  "site_id": "07",
+  "slug": "latin-cuts",
+  "display_name": "Latin Cuts",
+  "legal_name": {
+    "value": "Latin Cuts",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Beauty salon and barbershop",
+  "phone": {
+    "value": "(281) 580-4549",
+    "tel": "+12815804549",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "address": {
+    "value": "13122 Veterans Memorial Dr, Houston, TX 77014",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SALON"
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "10:00 AM – 8:00 PM",
+      "tue": "10:00 AM – 8:00 PM",
+      "wed": "10:00 AM – 8:00 PM",
+      "thu": "10:00 AM – 8:00 PM",
+      "fri": "10:00 AM – 8:00 PM",
+      "sat": "9:00 AM – 8:00 PM",
+      "sun": "10:00 AM – 5:00 PM"
+    },
+    "highlight": "Open until 8 PM six days a week — the latest hours on the strip."
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=13986690455817901347",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE",
+    "status": "VERIFIED",
+    "note": "An unclaimed Fresha directory listing exists and explicitly states the business is not affiliated with Fresha — they have no booking system of their own."
+  },
+  "socials": {
+    "facebook": {
+      "value": "UNKNOWN — NOT FOUND",
+      "status": "UNKNOWN",
+      "display_safe": false
+    },
+    "instagram": {
+      "value": "UNKNOWN — NOT FOUND",
+      "status": "UNKNOWN",
+      "display_safe": false
+    }
+  },
+  "rating": {
+    "value": 4.1,
+    "count": 121,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "owner_or_contact": {
+    "value": "UNKNOWN — NOT FOUND",
+    "status": "UNKNOWN",
+    "display_safe": false
+  },
+  "staff": [
+    {
+      "name": "Tito",
+      "specialty": "Cuts",
+      "status": "VERIFIED",
+      "source": "google_reviews",
+      "display_safe": true
+    }
+  ],
+  "services": [
+    {
+      "name": "Men's haircuts",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Women's cuts",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Colour",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Hair treatments",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Blow-dry",
+      "status": "VERIFIED"
+    }
+  ],
+  "review_themes_positive": [
+    "Long-tenured customers — years of visits without a bad experience",
+    "Tito and the women stylists praised for skill",
+    "Strong on colour and women's hair treatments",
+    "They listen to what the customer asks for"
+  ],
+  "internal_only_problems": {
+    "display_safe": false,
+    "note": "NEVER display. Drives feature selection only.",
+    "themes": [
+      "No greeting on arrival",
+      "No queue tracking — customers must self-manage their turn",
+      "Inconsistent pricing between stylists"
+    ]
+  },
+  "reviews": [
+    {
+      "excerpt": "I have been coming to this place for years and I have never had a bad experience. Tito is very good and the other ladies work very well.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "They always listen to what I want.",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "es",
+    "secondary": "en",
+    "bilingual": true,
+    "evidence": "Spanish-language reviews present; Spanish business name; heavily bilingual corridor. Warranted per §20. Spanish is the DEFAULT language on this site — the only one in the portfolio that opens in Spanish."
+  },
+  "primary_cta": "Take a time slot — skip the wait",
+  "wow_thesis": "Showing the owner that the two complaints repeated in his reviews — nobody tracks whose turn it is, and prices vary — are both solved by a booking page and a published price list.",
+  "demo_moment": "Open the live queue board, claim the next open slot, and watch the queue reorder with your name on it."
+}

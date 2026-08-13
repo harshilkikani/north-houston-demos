@@ -1,0 +1,146 @@
+{
+  "site_id": "03",
+  "slug": "sosa-hardwood-floors",
+  "display_name": "Sosa Hardwood Floors",
+  "legal_name": {
+    "value": "Sosa Hardwood Floors",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Flooring contractor — hardwood, engineered, LVP, stairs",
+  "phone": {
+    "value": "(346) 244-3801",
+    "tel": "+13462443801",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "address": {
+    "value": "9721 Cypresswood Dr, Houston, TX 77070",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SERVICE_AREA_ANCHOR",
+    "display_note": "No suite number, contractor-only categorisation. Present as service-area anchor. No showroom language."
+  },
+  "service_area": {
+    "value": "Houston and surrounding Harris County",
+    "status": "VERIFIED",
+    "source": "google_business_profile_service_area",
+    "display_safe": true
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "8:00 AM – 8:00 PM",
+      "tue": "8:00 AM – 8:00 PM",
+      "wed": "8:00 AM – 8:00 PM",
+      "thu": "8:00 AM – 8:00 PM",
+      "fri": "8:00 AM – 8:00 PM",
+      "sat": "8:00 AM – 8:00 PM",
+      "sun": "Closed"
+    },
+    "highlight": "Estimates six days a week, 8 AM to 8 PM — including after work."
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=13728330450343533774",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE",
+    "status": "VERIFIED"
+  },
+  "socials": {
+    "facebook": {
+      "value": "https://www.facebook.com/sosahardwoodfloors",
+      "status": "VERIFIED",
+      "display_safe": true,
+      "note": "Exact-name vanity handle. A second page (sosa.hardwood.floors.2025) also exists."
+    },
+    "instagram": {
+      "value": "UNKNOWN — NOT FOUND",
+      "status": "UNKNOWN",
+      "display_safe": false
+    }
+  },
+  "rating": {
+    "value": 4.8,
+    "count": 86,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "owner_or_contact": {
+    "value": "Ismael Sosa",
+    "role": "Owner / installer",
+    "status": "VERIFIED",
+    "source": "google_business_profile_photos_and_reviews",
+    "display_safe": true
+  },
+  "services": [
+    {
+      "name": "Hardwood flooring installation",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Engineered wood flooring",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Luxury vinyl plank (LVP)",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Stair installation & refinishing",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Carpet removal & replacement",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Whole-home flooring",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Furniture moved as part of the job",
+      "status": "VERIFIED"
+    }
+  ],
+  "review_themes": [
+    "Fast and efficient",
+    "Neat and sharp workmanship",
+    "Moves furniture and removes old carpet as part of the job",
+    "Creative problem-solving on a difficult stair match (zebra wood)",
+    "Cost-effective compared with other quotes",
+    "Hassle-free, works with the customer's budget"
+  ],
+  "reviews": [
+    {
+      "excerpt": "Ismael the installer works very fast, and efficient. His work is very neat and sharp.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "They went above and beyond by coming up with a solution for our stairs that we had really been struggling with.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "He removes all carpet and also moves furniture around. Hassle free professional installation!",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "en",
+    "bilingual": false,
+    "evidence": "No Spanish-language review evidence located. Not warranted per §20."
+  },
+  "primary_cta": "Request a free in-home estimate",
+  "wow_thesis": "He has the strongest reputation in his trade for miles and literally nothing online — seeing 86 reviews at 4.8 and his finished floors turned into a portfolio that looks like a design firm's.",
+  "demo_moment": "Drag the carpet-to-hardwood before/after slider, then run the room-by-room estimate builder to a styled summary."
+}

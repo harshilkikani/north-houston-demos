@@ -1,0 +1,357 @@
+---
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const hero = img(base, 'hero-stone', [1920, 1280, 800])
+
+const mats = [
+  { n: 'mat-onyx', name: 'Absolute black', kind: 'Granite' },
+  { n: 'mat-swirl', name: 'Grey tide', kind: 'Granite' },
+  { n: 'mat-bronze', name: 'Bronze vein', kind: 'Marble' },
+  { n: 'mat-carnelian', name: 'Carnelian', kind: 'Granite' },
+]
+
+const steps = [
+  { n: '01', t: 'Measure', p: 'Victor comes out, measures the run himself, and looks at what you already have. Bring up anything you want matched.' },
+  { n: '02', t: 'Template', p: 'A physical template comes off your cabinets, so the cut follows your walls instead of a drawing.' },
+  { n: '03', t: 'Fabricate', p: 'Cutting, edge profiling and polishing. Sink and cooktop openings are cut to the fixture you actually bought.' },
+  { n: '04', t: 'Install', p: 'Set, levelled, seamed and sealed. The install date is the install date — his reviews are built on that.' },
+]
+---
+
+<Base
+  title="Countertops of Texas — granite &amp; quartz fabrication and installation, North Houston"
+  description="Owner-fabricated and owner-installed granite and quartz countertops for North Houston. Edge profiles matched to what you already have."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <picture>
+        <source type="image/webp" srcset={hero.webp} sizes="100vw" />
+        <img src={hero.fallback} alt="Close detail of black granite with pale gold crystalline veining" fetchpriority="high" width="1920" height="1080" />
+      </picture>
+    </div>
+    <div class="hero-in wrap">
+      <p class="lbl lbl-c">{biz.address.value.split(',').slice(-2).join(',').trim()} &nbsp;·&nbsp; Granite &amp; quartz</p>
+      <h1 class="d d-xl">I am the fabricator.<br /><em>I am the installer.</em></h1>
+      <p class="hero-sub">
+        One pair of hands measures your kitchen, cuts the slab, profiles the edge and sets it on your cabinets.
+        Nothing gets handed off, so nothing gets lost.
+      </p>
+      <div style="margin-top:30px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="#quote">Request a free measure</a>
+        <a class="btn btn-ghost" href="#studio">Try the edge studio</a>
+      </div>
+
+      <dl class="plate">
+        <div>
+          <dt>Google rating</dt>
+          <dd>{biz.rating.value} <span class="stars" aria-hidden="true">★★★★★</span></dd>
+        </div>
+        <div><dt>Reviews</dt><dd>{biz.rating.count} on Google</dd></div>
+        <div><dt>Open</dt><dd>7 days · from 6 AM</dd></div>
+        <div><dt>Serving</dt><dd>{biz.service_area.value}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- EDGE STUDIO -->
+  <section class="sect" id="studio">
+    <div class="wrap">
+      <div class="sect-head rv">
+        <p class="lbl">01 / Edge studio</p>
+        <div>
+          <h2 class="d d-lg" style="margin:0;max-width:18ch">The edge is the part you touch every day.</h2>
+          <p class="prose" style="margin-top:16px">
+            Customers ask him to match the profile on counters they already own more than anything else. Pick a profile
+            and watch the section redraw — then send it with your quote so he knows what you are after before he arrives.
+          </p>
+        </div>
+      </div>
+
+      <div class="studio rv">
+        <div class="profiles" role="group" aria-label="Edge profile">
+          <button type="button" data-p="eased" aria-pressed="true"><span>A</span><em>Eased</em></button>
+          <button type="button" data-p="bullnose" aria-pressed="false"><span>B</span><em>Bullnose</em></button>
+          <button type="button" data-p="ogee" aria-pressed="false"><span>C</span><em>Ogee</em></button>
+          <button type="button" data-p="mitred" aria-pressed="false"><span>D</span><em>Mitred apron</em></button>
+        </div>
+
+        <div>
+          <div class="stage">
+            <svg viewBox="0 0 620 300" role="img" aria-labelledby="edge-title">
+              <title id="edge-title">Cross-section drawing of the selected countertop edge profile</title>
+              <defs>
+                <pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+                  <line x1="0" y1="0" x2="0" y2="8" stroke="#efe9df" stroke-opacity=".16" stroke-width="2" />
+                </pattern>
+              </defs>
+
+              <!-- cabinet line -->
+              <line x1="20" y1="232" x2="600" y2="232" stroke="#efe9df" stroke-opacity=".18" stroke-width="1" />
+              <rect x="60" y="196" width="360" height="36" fill="url(#hatch)" stroke="#efe9df" stroke-opacity=".14" />
+              <text x="60" y="256" fill="#a49b8d" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">CABINET</text>
+
+              <!-- profiles -->
+              <g id="edges" fill="url(#hatch)" stroke="#b4622d" stroke-width="2" stroke-linejoin="round">
+                <path data-e="eased" d="M20 120 H556 Q576 120 576 140 V172 Q576 192 556 192 H20 Z" />
+                <path data-e="bullnose" opacity="0" d="M20 120 H540 A36 36 0 0 1 540 192 H20 Z" />
+                <path data-e="ogee" opacity="0" d="M20 120 H528 C566 120 528 142 552 156 C576 170 566 192 528 192 H20 Z" />
+                <path data-e="mitred" opacity="0" d="M20 120 H576 V236 H540 V192 H20 Z" />
+              </g>
+
+              <!-- dimension -->
+              <line x1="600" y1="120" x2="600" y2="192" stroke="#a49b8d" stroke-width="1" />
+              <line x1="594" y1="120" x2="606" y2="120" stroke="#a49b8d" stroke-width="1" />
+              <line x1="594" y1="192" x2="606" y2="192" stroke="#a49b8d" stroke-width="1" />
+              <text x="590" y="112" text-anchor="end" fill="#a49b8d" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">SLAB</text>
+
+              <text x="20" y="96" fill="#efe9df" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="3" id="edge-name">EASED</text>
+            </svg>
+
+            <div class="stage-note">
+              <p id="edge-copy">
+                A soft break on a square edge. The most common finish in a kitchen, and the easiest one to match to a
+                counter you already have.
+              </p>
+              <button class="btn" type="button" id="use-edge">Use this in my quote</button>
+            </div>
+          </div>
+
+          <p style="margin-top:18px;font-size:12px;color:color-mix(in srgb,#efe9df 52%,transparent);max-width:64ch">
+            Reviewers mention seams as often as they mention edges — one describes an awkward angle beside a sink being
+            set in a single piece rather than two. If your run has a corner like that, say so on the form.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIALS -->
+  <section class="sect" id="materials">
+    <div class="wrap">
+      <div class="sect-head rv">
+        <p class="lbl">02 / Materials</p>
+        <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+          <h2 class="d d-lg" style="margin:0;max-width:16ch">Granite and quartz, cut for your run.</h2>
+          <a class="btn btn-ghost" href={`${base}/materials`}>See the full library</a>
+        </div>
+      </div>
+      <div class="mats rv">
+        {mats.map((m) => {
+          const i = img(base, m.n)
+          return (
+            <figure class="mat" style="margin:0">
+              <picture>
+                <source type="image/webp" srcset={i.webp} sizes="(min-width:1060px) 25vw, (min-width:660px) 50vw, 100vw" />
+                <img src={i.fallback} alt={`${m.kind} surface — ${m.name}`} loading="lazy" width="1200" height="900" />
+              </picture>
+              <figcaption><small>{m.kind}</small><b>{m.name}</b></figcaption>
+            </figure>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="sect" id="process">
+    <div class="wrap">
+      <div class="sect-head rv">
+        <p class="lbl">03 / How it goes</p>
+        <h2 class="d d-lg" style="margin:0;max-width:18ch">Four steps, one person, no handoffs.</h2>
+      </div>
+      <div class="steps rv">
+        {steps.map((s) => (
+          <div class="step"><b>{s.n}</b><h3>{s.t}</h3><p>{s.p}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect" id="reviews">
+    <div class="wrap">
+      <div class="sect-head rv">
+        <p class="lbl">04 / What customers say</p>
+        <div>
+          <h2 class="d d-lg" style="margin:0 0 26px;max-width:17ch">Eight reviews. Every one of them five stars.</h2>
+          <div class="score">
+          <b class="d">{biz.rating.value}</b>
+          <span>
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span style="display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#a49b8d">
+              {biz.rating.count} reviews on Google
+            </span>
+          </span>
+          </div>
+        </div>
+      </div>
+      <div class="quotes rv">
+        {biz.reviews.map((r) => (
+          <div class="quote">
+            <blockquote>{r.excerpt}</blockquote>
+            <footer>Google review</footer>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="sect" id="quote">
+    <div class="wrap">
+      <div class="sect-head rv">
+        <p class="lbl">05 / Free quote</p>
+        <div>
+          <h2 class="d d-lg" style="margin:0;max-width:16ch">Tell him what you have. He'll tell you what it takes.</h2>
+          <p class="prose" style="margin-top:16px">No charge for the measure. Reviewers consistently say his number came in under what they were quoted elsewhere.</p>
+        </div>
+      </div>
+
+      <form class="form rv" id="quote-form" novalidate>
+        <div class="fset">
+          <div class="f">
+            <span class="lbl" style="letter-spacing:.2em">Project</span>
+            <div class="chips" role="group" aria-label="Project type">
+              {['Kitchen', 'Bathroom vanity', 'Island only', 'Tile work'].map((c, i) => (
+                <button class="chip" type="button" data-g="project" aria-pressed={i === 0 ? 'true' : 'false'}>{c}</button>
+              ))}
+            </div>
+          </div>
+          <div class="f">
+            <span class="lbl" style="letter-spacing:.2em">Material</span>
+            <div class="chips" role="group" aria-label="Material">
+              {['Granite', 'Quartz', 'Not sure yet'].map((c, i) => (
+                <button class="chip" type="button" data-g="material" aria-pressed={i === 0 ? 'true' : 'false'}>{c}</button>
+              ))}
+            </div>
+          </div>
+          <div class="f">
+            <span class="lbl" style="letter-spacing:.2em">Edge profile</span>
+            <div class="chips" role="group" aria-label="Edge profile">
+              {['Eased', 'Bullnose', 'Ogee', 'Mitred apron', 'Match what I have'].map((c, i) => (
+                <button class="chip" type="button" data-g="edge" aria-pressed={i === 0 ? 'true' : 'false'}>{c}</button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="fset">
+          <div class="f">
+            <label for="q-name">Your name</label>
+            <input id="q-name" name="name" type="text" autocomplete="name" data-required />
+            <p class="err" data-error-for="q-name" hidden>Please add your name.</p>
+          </div>
+          <div class="f">
+            <label for="q-phone">Phone</label>
+            <input id="q-phone" name="phone" type="tel" autocomplete="tel" data-required />
+            <p class="err" data-error-for="q-phone" hidden>Please add a number he can reach you on.</p>
+          </div>
+          <div class="f">
+            <label for="q-notes">Anything he should know</label>
+            <textarea id="q-notes" name="notes" rows="3" placeholder="Corner beside the sink, matching an existing counter, sink already bought…"></textarea>
+          </div>
+          <button class="btn" type="submit" style="justify-content:center">Send the request</button>
+          <p style="margin:0;font-size:11px;color:color-mix(in srgb,#efe9df 44%,transparent)">
+            Demonstration form. Nothing is sent, stored or transmitted anywhere.
+          </p>
+        </div>
+      </form>
+
+      <div class="done rv" id="quote-done" hidden tabindex="-1">
+        <h3>Request ready.</h3>
+        <p class="prose" style="margin:0">
+          In the finished site this lands on Victor's phone the moment you send it. Here it just shows you what he'd see.
+        </p>
+        <dl>
+          <div><dt>Project</dt><dd id="d-project">—</dd></div>
+          <div><dt>Material</dt><dd id="d-material">—</dd></div>
+          <div><dt>Edge profile</dt><dd id="d-edge">—</dd></div>
+          <div><dt>Contact</dt><dd id="d-contact">—</dd></div>
+        </dl>
+        <button class="btn btn-ghost" type="button" id="quote-again" style="margin-top:24px">Start over</button>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { validate } from '@nhd/shared/ui'
+
+  /* ---- edge studio ---- */
+  const COPY = {
+    eased: 'A soft break on a square edge. The most common finish in a kitchen, and the easiest one to match to a counter you already have.',
+    bullnose: 'A full half-round. Nothing to catch a hip or a sleeve, which is why it turns up in family kitchens and bathrooms.',
+    ogee: 'A double curve that throws its own shadow line. It makes a counter read as furniture rather than as a surface.',
+    mitred: 'Two pieces folded at the corner so the slab reads far thicker than it is. The seam is the entire job — done well you cannot find it.',
+  }
+  const LABEL = { eased: 'Eased', bullnose: 'Bullnose', ogee: 'Ogee', mitred: 'Mitred apron' }
+
+  const paths = document.querySelectorAll('#edges path')
+  const nameEl = document.getElementById('edge-name')
+  const copyEl = document.getElementById('edge-copy')
+  let current = 'eased'
+
+  function setEdge(k) {
+    current = k
+    paths.forEach((p) => p.setAttribute('opacity', p.dataset.e === k ? '1' : '0'))
+    nameEl.textContent = LABEL[k].toUpperCase()
+    copyEl.textContent = COPY[k]
+    document.querySelectorAll('.profiles button').forEach((b) =>
+      b.setAttribute('aria-pressed', String(b.dataset.p === k))
+    )
+  }
+  document.querySelectorAll('.profiles button').forEach((b) =>
+    b.addEventListener('click', () => setEdge(b.dataset.p))
+  )
+  document.querySelectorAll('#edges path').forEach((p) => {
+    p.style.transition = 'opacity .35s ease'
+  })
+
+  /* ---- chips ---- */
+  const pick = (g) => {
+    const el = document.querySelector(`[data-g="${g}"][aria-pressed="true"]`)
+    return el ? el.textContent.trim() : '—'
+  }
+  document.querySelectorAll('.chip').forEach((c) =>
+    c.addEventListener('click', () => {
+      document.querySelectorAll(`[data-g="${c.dataset.g}"]`).forEach((s) => s.setAttribute('aria-pressed', 'false'))
+      c.setAttribute('aria-pressed', 'true')
+    })
+  )
+
+  document.getElementById('use-edge').addEventListener('click', () => {
+    const want = LABEL[current]
+    document.querySelectorAll('[data-g="edge"]').forEach((s) =>
+      s.setAttribute('aria-pressed', String(s.textContent.trim() === want))
+    )
+    document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+
+  /* ---- mock quote (never transmits) ---- */
+  const form = document.getElementById('quote-form')
+  const done = document.getElementById('quote-done')
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(form)) {
+      form.querySelector('[aria-invalid="true"]')?.focus()
+      return
+    }
+    document.getElementById('d-project').textContent = pick('project')
+    document.getElementById('d-material').textContent = pick('material')
+    document.getElementById('d-edge').textContent = pick('edge')
+    document.getElementById('d-contact').textContent = `${form.name.value} · ${form.phone.value}`
+    form.hidden = true
+    done.hidden = false
+    done.focus()
+  })
+  document.getElementById('quote-again').addEventListener('click', () => {
+    form.reset()
+    form.hidden = false
+    done.hidden = true
+    form.querySelector('input')?.focus()
+  })
+</script>

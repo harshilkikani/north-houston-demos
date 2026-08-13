@@ -1,0 +1,156 @@
+{
+  "site_id": "04",
+  "slug": "richey-collision",
+  "display_name": "Richey Collision",
+  "legal_name": {
+    "value": "Richey Collision Inc",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Collision repair, custom paint and body work",
+  "phone": {
+    "value": "(281) 893-6341",
+    "tel": "+12818936341",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "address": {
+    "value": "12221 Veterans Memorial Dr, Houston, TX 77067",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SHOP"
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "8:00 AM – 6:00 PM",
+      "tue": "8:00 AM – 6:00 PM",
+      "wed": "8:00 AM – 6:00 PM",
+      "thu": "8:00 AM – 6:00 PM",
+      "fri": "8:00 AM – 6:00 PM",
+      "sat": "Closed",
+      "sun": "Closed"
+    }
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=5353556403408169858",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE FUNCTIONING",
+    "status": "VERIFIED",
+    "note": "richeycollision.com resolves to an empty page (independently re-confirmed 2026-08-13). richeycollisioninc.com is non-functional. Google website field is empty. This is the central sales fact — it is NOT site content."
+  },
+  "socials": {
+    "facebook": {
+      "value": "https://www.facebook.com/RicheyCollision",
+      "status": "VERIFIED",
+      "display_safe": true,
+      "descriptor_observed": "Custom Paint and Body work."
+    },
+    "instagram": {
+      "value": "UNKNOWN — NOT FOUND",
+      "status": "UNKNOWN",
+      "display_safe": false
+    }
+  },
+  "rating": {
+    "value": 4.7,
+    "count": 99,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "secondary_rating": {
+    "value": 4.5,
+    "count": 14,
+    "source": "yelp",
+    "status": "VERIFIED",
+    "display_safe": false,
+    "note": "Not displayed — one rating source keeps the credibility block clean."
+  },
+  "years_in_business": {
+    "value": "25",
+    "status": "REPORTED",
+    "source": "nextdoor_business_page",
+    "display_safe": false,
+    "display_note": "MUST NOT APPEAR ON THE SITE. Not independently verified."
+  },
+  "owner_or_contact": {
+    "value": "Chris",
+    "role": "Owner / painter",
+    "status": "VERIFIED",
+    "source": "google_reviews_multiple",
+    "display_safe": true,
+    "display_note": "First name only on site. 'Chris Watts' appears on a third-party licensee page — REPORTED, surname not displayed."
+  },
+  "front_desk": {
+    "value": "Marie",
+    "status": "VERIFIED",
+    "source": "google_review",
+    "display_safe": true
+  },
+  "services": [
+    {
+      "name": "Collision repair",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Custom paint",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Paint matching, including tri-coat finishes",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Insurance claim handling and advocacy",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Aftermarket body component sourcing, paint and fitting",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Corvette and performance-car work",
+      "status": "VERIFIED"
+    }
+  ],
+  "review_themes": [
+    "Paint matching on colours other shops could not match, including red tri-coat",
+    "Corvette expertise — recommended inside the Houston Corvette community",
+    "Advocates with the insurance company on the customer's behalf",
+    "Front-desk service quality",
+    "Attention to detail"
+  ],
+  "reviews": [
+    {
+      "excerpt": "I have a very difficult color to match; it's a red tricoat, which two other (dedicated) body shops were unable to match. Chris was able to do so near-perfectly.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "All my Corvette buddies in Houston recommended me to Richey Collision.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "He actually helped me with the insurance company and got them to replace the rear bumper cover instead of trying to repair it.",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "en",
+    "bilingual": false,
+    "evidence": "No bilingual signal located."
+  },
+  "primary_cta": "Request a repair estimate",
+  "wow_thesis": "\"Your domain doesn't load — did you know?\" Then showing him a site that finally matches the caliber of work his Corvette customers already talk about.",
+  "demo_moment": "Run the three-step estimate request — vehicle, damage area on an interactive car diagram, photo drop — to a styled confirmation with a claim reference."
+}

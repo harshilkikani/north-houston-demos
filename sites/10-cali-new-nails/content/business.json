@@ -1,0 +1,147 @@
+{
+  "site_id": "10",
+  "slug": "cali-new-nails",
+  "display_name": "Cali New Nails",
+  "legal_name": {
+    "value": "Cali New Nails",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Nail salon — gentle care specialists",
+  "phone": {
+    "value": "(281) 580-6258",
+    "tel": "+12815806258",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "address": {
+    "value": "12285 Veterans Memorial Dr, Houston, TX 77067",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SALON"
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "10:00 AM – 7:00 PM",
+      "tue": "10:00 AM – 7:00 PM",
+      "wed": "10:00 AM – 7:00 PM",
+      "thu": "10:00 AM – 7:00 PM",
+      "fri": "10:00 AM – 7:00 PM",
+      "sat": "9:30 AM – 7:00 PM",
+      "sun": "12:00 – 5:00 PM"
+    },
+    "highlight": "Open seven days, including Sunday afternoons."
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=5877838967152258387",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE",
+    "status": "VERIFIED"
+  },
+  "socials": {
+    "facebook": {
+      "value": "UNKNOWN — AMBIGUOUS",
+      "status": "UNKNOWN",
+      "display_safe": false,
+      "note": "A 'Cali's New Nails' page exists under a legacy numeric ID but the name variant could not be tied to this address. Not linked — linking the wrong business is a contamination failure."
+    },
+    "instagram": {
+      "value": "UNKNOWN — NOT FOUND",
+      "status": "UNKNOWN",
+      "display_safe": false
+    }
+  },
+  "rating": {
+    "value": 4.3,
+    "count": 57,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "owner_or_contact": {
+    "value": "UNKNOWN — NOT FOUND",
+    "status": "UNKNOWN",
+    "display_safe": false
+  },
+  "team": {
+    "value": "Two technicians run the salon",
+    "status": "VERIFIED",
+    "source": "google_review",
+    "display_safe": true,
+    "display_note": "Names not found. Referred to as 'the two of us' / 'both technicians' — never invented names."
+  },
+  "services": [
+    {
+      "name": "Manicures",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Pedicures",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Solar nails",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Shellac",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Full sets",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Eyebrow services",
+      "status": "VERIFIED"
+    }
+  ],
+  "review_themes": [
+    "Exceptional gentleness — sensitive feet and difficult toenails handled with care where other salons were rough",
+    "Walk-ins accepted",
+    "Affordable",
+    "Ten-plus-year customers",
+    "Mother-and-daughter and family visits"
+  ],
+  "internal_only_problems": {
+    "display_safe": false,
+    "note": "NEVER display. Drives feature selection only.",
+    "themes": [
+      "Long waits because only two technicians work",
+      "Unclear queue order"
+    ]
+  },
+  "reviews": [
+    {
+      "excerpt": "My mom has really sensitive feet and curled toe nails and everywhere we go she has problems with people being too harsh to her feet, but here they were extremely gentle!",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "Affordable, professional, and wonderful work!!!",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "Been coming here 10+ yrs. Love how they take care of me.",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "en",
+    "bilingual": false,
+    "evidence": "No non-English review evidence located."
+  },
+  "primary_cta": "Reserve a quiet time",
+  "wow_thesis": "Seeing the thing their customers actually praise — that they are gentle when nobody else is — become the headline of the whole site, plus appointments that end the waiting.",
+  "demo_moment": "Reserve a time on the two-chair day view — watch both chairs fill and the chosen slot lock in."
+}

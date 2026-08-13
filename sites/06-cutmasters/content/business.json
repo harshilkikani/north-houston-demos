@@ -1,0 +1,160 @@
+{
+  "site_id": "06",
+  "slug": "cutmasters",
+  "display_name": "CutMasters",
+  "legal_name": {
+    "value": "CutMasters",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Family hair salon and barbershop",
+  "phone": {
+    "value": "(281) 444-1540",
+    "tel": "+12814441540",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "address": {
+    "value": "13180 Veterans Memorial Dr, Houston, TX 77014",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SALON"
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "10:00 AM – 7:00 PM",
+      "tue": "10:00 AM – 7:00 PM",
+      "wed": "10:00 AM – 7:00 PM",
+      "thu": "10:00 AM – 7:00 PM",
+      "fri": "10:00 AM – 7:00 PM",
+      "sat": "9:00 AM – 7:00 PM",
+      "sun": "9:00 AM – 3:00 PM"
+    },
+    "highlight": "Open seven days, including Sunday mornings."
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=4299897261007149891",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE",
+    "status": "VERIFIED"
+  },
+  "socials": {
+    "instagram": {
+      "value": "https://www.instagram.com/cutmastershair/",
+      "status": "VERIFIED",
+      "display_safe": true,
+      "note": "Handle 'cutmastershair' matches the business exactly."
+    },
+    "facebook": {
+      "value": "UNKNOWN — NOT FOUND",
+      "status": "UNKNOWN",
+      "display_safe": false
+    }
+  },
+  "rating": {
+    "value": 4.4,
+    "count": 123,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "owner_or_contact": {
+    "value": "UNKNOWN — NOT FOUND",
+    "status": "UNKNOWN",
+    "display_safe": false,
+    "display_note": "No owner named. Site is built around the named stylists instead."
+  },
+  "staff": [
+    {
+      "name": "Mario",
+      "specialty": "Men's and children's cuts; first haircuts",
+      "status": "VERIFIED",
+      "source": "google_reviews",
+      "display_safe": true
+    },
+    {
+      "name": "Angie",
+      "specialty": "Colour, reference-photo accuracy, hair-care education",
+      "status": "VERIFIED",
+      "source": "google_reviews",
+      "display_safe": true
+    },
+    {
+      "name": "Amanda",
+      "specialty": "Cuts and styling",
+      "status": "VERIFIED",
+      "source": "google_reviews",
+      "display_safe": true
+    },
+    {
+      "name": "Ricky",
+      "specialty": "Trims and blow-dry styling",
+      "status": "VERIFIED",
+      "source": "google_reviews",
+      "display_safe": true
+    }
+  ],
+  "services": [
+    {
+      "name": "Men's haircuts",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Women's cuts and styling",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Children's haircuts & first haircuts",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Colour",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Blow-dry and styling",
+      "status": "VERIFIED"
+    }
+  ],
+  "review_themes": [
+    "Exceptional patience with young children and first haircuts",
+    "Colour matched closely to a reference photo",
+    "Stylists who teach clients how to care for their hair",
+    "Comfort and attentiveness",
+    "Reasonable pricing"
+  ],
+  "reviews": [
+    {
+      "excerpt": "Mario gave our 1 year old son's first hair cut today and honestly he couldn't have been more perfect with how he tackled his hair.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "I showed her a reference photo and she completely knocked it out of the park.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "Educated me on how to properly take care of my hair.",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "en",
+    "secondary": "es",
+    "bilingual": true,
+    "evidence": "A review notes a stylist who only spoke Spanish; heavily bilingual corridor. Warranted per §20."
+  },
+  "primary_cta": "Book with a stylist",
+  "wow_thesis": "Seeing Mario, Angie, Amanda and Ricky presented as named specialists customers can choose and book directly — turning \"a salon\" into \"your stylist\".",
+  "demo_moment": "Tap a stylist card, watch the booking panel pre-fill with that stylist, pick a time and reach the confirmation."
+}

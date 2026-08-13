@@ -1,0 +1,107 @@
+{
+  "_note": "Strict partition: no raw image is assigned to more than one site. Alt text describes the photograph only — it NEVER claims the image is this business's own work, premises, staff or customers. All sources are Unsplash License (commercial use, no attribution required).",
+  "01-countertops-of-texas": [
+    { "id": "photo-1747696766706-5485b39bf358", "name": "hero-stone", "ar": "16/9", "role": "hero", "alt": "Close detail of black granite with pale gold crystalline veining" },
+    { "id": "photo-1550053808-52a75a05955d", "name": "mat-onyx", "ar": "4/3", "role": "material", "alt": "Dark stone surface with fine white mineral veining" },
+    { "id": "photo-1651395284328-a77bd96df726", "name": "mat-swirl", "ar": "4/3", "role": "material", "alt": "Granite surface with dense grey and rose swirling grain" },
+    { "id": "photo-1694382224140-cb7443c6a3ec", "name": "mat-bronze", "ar": "4/3", "role": "material", "alt": "Warm brown marble with soft white veining" },
+    { "id": "photo-1612476477553-ec93b571bfe4", "name": "mat-carnelian", "ar": "4/3", "role": "material", "alt": "Coarse-grained red granite with black and green mineral flecks" },
+    { "id": "photo-1643913589016-b0111a4888e7", "name": "kitchen", "ar": "16/9", "role": "context", "alt": "A kitchen island finished in warm speckled stone under pendant lighting" }
+  ],
+  "02-dd-granite": [
+    { "id": "photo-1560185127-1902ccdc5094", "name": "hero-kitchen", "ar": "16/9", "role": "hero", "alt": "A bright kitchen with speckled granite counters and a wood-topped island" },
+    { "id": "photo-1628977614615-f5f4068361ed", "name": "slab-santa-cecilia", "ar": "1/1", "role": "slab", "alt": "Warm speckled granite with cream, black and amber mineral grain" },
+    { "id": "photo-1566305977571-5666677c6e98", "name": "slab-carrara-grey", "ar": "1/1", "role": "slab", "alt": "Grey and white marble with soft cloudy veining" },
+    { "id": "photo-1640280882429-204f63d777e7", "name": "slab-verde-mist", "ar": "1/1", "role": "slab", "alt": "White marble with deep green veining" },
+    { "id": "photo-1694378060976-66ee61c4f427", "name": "slab-bianco", "ar": "1/1", "role": "slab", "alt": "White marble with fine grey veining" },
+    { "id": "photo-1623197532650-bacb8a68914e", "name": "slab-alabaster", "ar": "1/1", "role": "slab", "alt": "Pale marble with faint grey clouding" },
+    { "id": "photo-1558066858-246fbbf9446f", "name": "slab-peach-travertine", "ar": "1/1", "role": "slab", "alt": "Warm peach stone with soft mottled surface" },
+    { "id": "photo-1733085097228-548654f926c1", "name": "slab-sandstorm", "ar": "1/1", "role": "slab", "alt": "Fine beige granite with dense dark speckling" },
+    { "id": "photo-1649602525817-bd46677c117b", "name": "slab-steel-wave", "ar": "1/1", "role": "slab", "alt": "Grey granite with pale swirling movement through the grain" },
+    { "id": "photo-1694381873603-a91836993910", "name": "slab-verde-scuro", "ar": "1/1", "role": "slab", "alt": "Dark green stone with diagonal mineral banding" },
+    { "id": "photo-1733085097233-66441dedba94", "name": "slab-salt-pepper", "ar": "1/1", "role": "slab", "alt": "Grey granite with even black and white speckling" },
+    { "id": "photo-1603323978104-4c1c0d1bfc72", "name": "slab-cream-travertine", "ar": "1/1", "role": "slab", "alt": "Cream stone with fine horizontal bedding lines" },
+    { "id": "photo-1584354273341-3eb96574e5be", "name": "slab-calacatta-gold", "ar": "1/1", "role": "slab", "alt": "White marble tiles with warm gold veining" },
+    { "id": "photo-1600095355173-b970ea5ceb46", "name": "slab-rosa-dune", "ar": "1/1", "role": "slab", "alt": "Rose-toned stone with rippled sedimentary layering" },
+    { "id": "photo-1694381873620-4bf6396eccce", "name": "slab-forest", "ar": "1/1", "role": "slab", "alt": "Deep green stone with fine mineral striations" },
+    { "id": "photo-1551554781-c46200ea959d", "name": "slab-statuario", "ar": "1/1", "role": "slab", "alt": "Bright white marble with soft grey veining" }
+  ],
+  "03-sosa-hardwood-floors": [
+    { "id": "photo-1560185008-b033106af5c3", "name": "hero-room", "ar": "21/9", "role": "hero", "alt": "An open living and dining room floored in warm red-toned hardwood" },
+    { "id": "photo-1770751188038-2e66bf63561d", "name": "room-dining", "ar": "16/9", "role": "room", "alt": "A dining room with wide plank hardwood running toward bay windows" },
+    { "id": "photo-1560449752-3fd4bdbe7df0", "name": "room-living", "ar": "16/9", "role": "room", "alt": "A living room with hardwood flooring and built-in shelving" },
+    { "id": "photo-1560184897-1ee3713708ee", "name": "room-fireplace", "ar": "16/9", "role": "room", "alt": "A living room with dark hardwood flooring beside a fireplace" },
+    { "id": "photo-1783125126960-1af242a2931c", "name": "room-empty-light", "ar": "16/9", "role": "room", "alt": "An empty room with pale hardwood flooring and corner windows" },
+    { "id": "photo-1782353863064-838f7200ba61", "name": "room-empty-grey", "ar": "16/9", "role": "room", "alt": "An empty living room with grey-toned plank flooring and a bay window" },
+    { "id": "photo-1783125126731-b0999cb19aa4", "name": "room-empty-bright", "ar": "16/9", "role": "room", "alt": "A bright empty room with wood flooring and white walls" },
+    { "id": "photo-1611072337226-1140ab367200", "name": "species-white-oak", "ar": "3/2", "role": "species", "alt": "Light oak plank with fine straight grain" },
+    { "id": "photo-1605367615038-4e3f139fa991", "name": "species-red-oak", "ar": "3/2", "role": "species", "alt": "Warm oak grain with darker figure running through it" },
+    { "id": "photo-1625496235025-d783abf061c8", "name": "species-weathered", "ar": "3/2", "role": "species", "alt": "Weathered wood surface with raised grain and knots" },
+    { "id": "photo-1611600700192-d87eaeed4f81", "name": "species-rustic", "ar": "3/2", "role": "species", "alt": "Rustic sawn board with silvered surface and dark knots" },
+    { "id": "photo-1564512533667-015a90133f04", "name": "species-hickory", "ar": "3/2", "role": "species", "alt": "Pale wood planks with pronounced knots and colour variation" },
+    { "id": "photo-1525947088131-b701cd0f6dc3", "name": "species-espresso", "ar": "3/2", "role": "species", "alt": "Dark stained vertical boards with strong grain contrast" },
+    { "id": "photo-1545078194-2ec3c4e53ed1", "name": "compare-carpet", "ar": "16/9", "role": "compare", "alt": "Close view of beige cut-pile carpet" },
+    { "id": "photo-1699245111017-658557db0abb", "name": "compare-carpet-grey", "ar": "3/2", "role": "compare", "alt": "Close view of flat grey carpet fibre" }
+  ],
+  "04-richey-collision": [
+    { "id": "photo-1779048611509-e1bd641a8d7a", "name": "hero-paint", "ar": "16/9", "role": "hero", "alt": "Extreme close view of a deep red car body panel, light curving across the clear coat" },
+    { "id": "photo-1780568239721-9922fabf2fed", "name": "paint-reflection", "ar": "16/9", "role": "feature", "alt": "A dark glossy car surface carrying long red and amber reflections" },
+    { "id": "photo-1645534685131-9917f79bb1e8", "name": "paint-handle", "ar": "4/3", "role": "detail", "alt": "Close view of a red door handle and the panel gap around it" },
+    { "id": "photo-1779174669110-307d718ba066", "name": "paint-scoop", "ar": "4/3", "role": "detail", "alt": "A red hood scoop photographed close, reflecting the sky" },
+    { "id": "photo-1567410508636-da81b03875a7", "name": "paint-macro", "ar": "4/3", "role": "detail", "alt": "Soft-focus macro of a red car body with a highlight running along the crease" },
+    { "id": "photo-1673473300808-d85ecd5e8414", "name": "paint-front", "ar": "16/9", "role": "detail", "alt": "The front corner of a red car, headlight and painted panel in tight crop" }
+  ],
+  "05-la-tino-hair": [
+    { "id": "photo-1638064432648-bc2f9a91b06b", "name": "hero-colour", "ar": "4/5", "role": "hero", "alt": "A hand lifting a section of long caramel-toned wavy hair" },
+    { "id": "photo-1605980766335-d3a41c7332a1", "name": "work-blonde", "ar": "4/5", "role": "work", "alt": "Long hair in soft blonde waves with graduated lighter ends" },
+    { "id": "photo-1605980625600-88b46abafa8d", "name": "work-silver", "ar": "4/5", "role": "work", "alt": "Shoulder-length waves in a cool silver-lilac tone" },
+    { "id": "photo-1554519880-ffe46861d570", "name": "work-brunette", "ar": "4/5", "role": "work", "alt": "Long brunette hair falling in loose waves" },
+    { "id": "photo-1731454141650-0c046128413e", "name": "flatlay", "ar": "3/2", "role": "detail", "alt": "Colour swatches, shears and clips arranged on a pale wood surface" },
+    { "id": "photo-1695527081848-1e46c06e6458", "name": "salon", "ar": "3/2", "role": "context", "alt": "A stylist finishing a blow-dry in a bright salon with a window behind" }
+  ],
+  "06-cutmasters": [
+    { "id": "photo-1776850476481-2bccba2e35c7", "name": "hero-shop", "ar": "3/2", "role": "hero", "alt": "A busy salon floor with several chairs in use at once" },
+    { "id": "photo-1626383137804-ff908d2753a2", "name": "shop-bright", "ar": "16/9", "role": "context", "alt": "A bright open salon with a row of chairs and a product wall" },
+    { "id": "photo-1593702275687-f8b402bf1fb5", "name": "cut-clipper", "ar": "1/1", "role": "service", "alt": "A haircut in progress, clipper working along the side of the head" },
+    { "id": "photo-1746723378067-83a345ff3160", "name": "shop-reception", "ar": "16/9", "role": "context", "alt": "A salon reception desk with shelves of colour products behind it" },
+    { "id": "photo-1647140655214-e4a2d914971f", "name": "cut-scissor", "ar": "1/1", "role": "service", "alt": "Shears and comb working through the top of a short haircut" },
+    { "id": "photo-1648221122323-572c13a31663", "name": "cut-short", "ar": "1/1", "role": "service", "alt": "A close, tidy clipper cut being finished at the back of the head" }
+  ],
+  "07-latin-cuts": [
+    { "id": "photo-1635273051937-a0ddef9573b6", "name": "hero-barber", "ar": "4/5", "role": "hero", "alt": "A barber in a hat combing out a sharp fade" },
+    { "id": "photo-1781455793310-8427c96454c7", "name": "shop-row", "ar": "16/9", "role": "context", "alt": "A row of barber chairs in a dark panelled shop" },
+    { "id": "photo-1672642150228-3fcd5826ec26", "name": "cut-detail", "ar": "1/1", "role": "service", "alt": "A trimmer working a clean line along the temple" },
+    { "id": "photo-1657105052497-f996284ffff8", "name": "cut-comb", "ar": "1/1", "role": "service", "alt": "Comb and shears lifting hair on the side of the head" },
+    { "id": "photo-1635273051839-003bf06a8751", "name": "cut-close", "ar": "1/1", "role": "service", "alt": "Close view of hair being cut over a comb" },
+    { "id": "photo-1786057424913-6954b0f424af", "name": "shop-sweep", "ar": "16/9", "role": "context", "alt": "A barbershop floor being swept between clients" }
+  ],
+  "08-marytere-image-salon": [
+    { "id": "photo-1781450090585-1a511b7066d9", "name": "hero-salon", "ar": "3/4", "role": "hero", "alt": "A salon interior of arched mirrors and styling chairs, photographed in black and white" },
+    { "id": "photo-1626379501846-0df4067b8bb9", "name": "salon-mirror", "ar": "3/4", "role": "context", "alt": "A round mirror and styling chair beside a bright window" },
+    { "id": "photo-1767442989822-1f8efcfefc15", "name": "look-pearl", "ar": "3/4", "role": "look", "alt": "Long brown hair gathered low and fastened with a pearl clasp" },
+    { "id": "photo-1784630433711-530e3556c6e2", "name": "look-curls", "ar": "3/4", "role": "look", "alt": "Dark curly hair falling past the shoulders, seen from behind" },
+    { "id": "photo-1762342019448-5b7721c89b1d", "name": "look-long", "ar": "3/4", "role": "look", "alt": "Long straight brunette hair seen from behind in daylight" },
+    { "id": "photo-1777979513824-ef281e350cb3", "name": "look-braid", "ar": "3/4", "role": "look", "alt": "A loose plaited braid worked down the back of the head" },
+    { "id": "photo-1630827020718-3433092696e7", "name": "look-beard", "ar": "3/4", "role": "look", "alt": "A shaped full beard and short fade in profile" },
+    { "id": "photo-1532710093739-9470acff878f", "name": "look-shave", "ar": "3/4", "role": "look", "alt": "A traditional lather shave in progress, photographed in black and white" }
+  ],
+  "09-vnn-nails": [
+    { "id": "photo-1571290274554-6a2eaa771e5f", "name": "art-abstract", "ar": "4/3", "role": "hero", "alt": "Nails painted with bold abstract colour blocking in blue, yellow and orange" },
+    { "id": "photo-1754799670312-8e7da8e40ad7", "name": "art-navy-gold", "ar": "4/3", "role": "art", "alt": "Nails in navy and amber with gold foil detailing" },
+    { "id": "photo-1735236007245-9dc6e28bbe56", "name": "art-winter", "ar": "4/3", "role": "art", "alt": "Nails with fine white tree line-work over a pale blue base" },
+    { "id": "photo-1572814601679-4ef8f7b5ebd1", "name": "art-web", "ar": "4/3", "role": "art", "alt": "Nails in nude and black with fine hand-painted web line-work" },
+    { "id": "photo-1604654894611-6973b376cbde", "name": "art-chrome", "ar": "4/3", "role": "art", "alt": "Short nails in black and bronze chrome finishes" },
+    { "id": "photo-1604654894610-df63bc536371", "name": "art-onyx", "ar": "4/3", "role": "art", "alt": "Glossy black nails with a mirrored chrome accent" },
+    { "id": "photo-1720343409646-960f6dcccae3", "name": "art-long", "ar": "4/3", "role": "art", "alt": "Long almond nails with hand-painted line and dot detailing" },
+    { "id": "photo-1519014816548-bf5fe059798b", "name": "art-red", "ar": "4/3", "role": "art", "alt": "Deep red nails with fine white hand-lettering" }
+  ],
+  "10-cali-new-nails": [
+    { "id": "photo-1757689314932-bec6e9c39e51", "name": "hero-gentle", "ar": "4/3", "role": "hero", "alt": "Two hands supporting a foot with slow, careful pressure during a treatment" },
+    { "id": "photo-1772322586785-3a34772cbc61", "name": "set-soft", "ar": "4/3", "role": "work", "alt": "Almond nails in soft grey with a fine glitter edge" },
+    { "id": "photo-1588015810531-dd522c9c8bbb", "name": "set-nude", "ar": "4/3", "role": "work", "alt": "Short nude nails with a small stone detail" },
+    { "id": "photo-1690749138086-7422f71dc159", "name": "care-polish", "ar": "3/2", "role": "care", "alt": "A technician steadying a hand while applying polish" },
+    { "id": "photo-1633526543913-d30e3c230d1f", "name": "care-feet", "ar": "3/2", "role": "care", "alt": "Careful work on toes, a hand resting flat alongside for support" },
+    { "id": "photo-1712638932314-e2b185ca0930", "name": "care-hands", "ar": "3/2", "role": "care", "alt": "Hands resting together on a folded white towel" },
+    { "id": "photo-1775642545871-ba7503fec638", "name": "amb-towel", "ar": "3/2", "role": "ambient", "alt": "A folded towel at a basin beside a lit candle" }
+  ]
+}

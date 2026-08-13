@@ -1,0 +1,129 @@
+---
+import '../styles/site.css'
+import biz from '../../content/business.json'
+import { hourRows, telHref } from '@nhd/shared/content'
+
+const { title, description, page = 'home' } = Astro.props
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const tel = telHref(biz.phone.value)
+const rows = hourRows(biz.hours.value)
+const nav = [
+  { href: `${base}/#studio`, label: 'Edge studio' },
+  { href: `${base}/materials`, label: 'Materials' },
+  { href: `${base}/#process`, label: 'Process' },
+  { href: `${base}/#reviews`, label: 'Reviews' },
+  { href: `${base}/#quote`, label: 'Quote' },
+]
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${base}/assets/og.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#16130f" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="preload" as="style" href={`${base}/fonts/fonts.css`} />
+    <link rel="stylesheet" href={`${base}/fonts/fonts.css`} />
+    <script is:inline>document.documentElement.classList.add('js')</script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      style="position:absolute;left:-9999px;top:0;z-index:99;background:#b4622d;color:#fff;padding:12px 18px"
+      onfocus="this.style.left='8px';this.style.top='8px'"
+      onblur="this.style.left='-9999px'">Skip to content</a
+    >
+
+    <header class="nav" id="nav">
+      <a class="mark" href={`${base}/`} aria-label={`${biz.display_name} — home`}>
+        <span>Countertops<br /><b>of Texas</b></span>
+      </a>
+      <div class="nav-r">
+        <nav class="nav-links" aria-label="Primary">
+          {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+        </nav>
+        <a class="btn tel-lg" href={tel}>{biz.phone.value}</a>
+        <a class="btn tel-sm" href={tel} aria-label={`Call ${biz.phone.value}`}>Call</a>
+        <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="sheet"><i></i></button>
+      </div>
+    </header>
+
+    <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="sheet-top">
+        <span class="lbl">Menu</span>
+        <button class="x" type="button" id="sheet-close" aria-label="Close menu">✕</button>
+      </div>
+      <nav aria-label="Mobile">
+        {nav.map((n) => <a class="d" href={n.href}>{n.label}</a>)}
+      </nav>
+      <div>
+        <a class="btn" href={tel} style="width:100%;justify-content:center">Call {biz.phone.value}</a>
+      </div>
+    </div>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <p class="lbl lbl-c">{biz.display_name}</p>
+            <p class="d d-md" style="margin:10px 0 0;max-width:14ch">Granite &amp; quartz, measured and set by the man who cuts it.</p>
+            <p style="margin-top:22px;display:grid;gap:8px;font-size:13px">
+              <a class="line" href={tel} style="justify-self:start">{biz.phone.value}</a>
+              <a class="line" href={biz.map_url} target="_blank" rel="noopener" style="justify-self:start">Directions on Google Maps</a>
+              <a class="line" href={biz.socials.facebook.value} target="_blank" rel="noopener" style="justify-self:start">Facebook</a>
+            </p>
+          </div>
+          <div>
+            <p class="lbl">Hours</p>
+            <dl class="hrs" style="margin-top:14px">
+              {rows.map((r) => (
+                <div class={r.closed ? 'off' : ''}><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>
+              ))}
+            </dl>
+          </div>
+          <div>
+            <p class="lbl">Service area</p>
+            <p style="margin:14px 0 0;font-size:13px;color:color-mix(in srgb,#efe9df 74%,transparent)">
+              {biz.service_area.value}. Shop address is {biz.address.value} — measures and installs happen at your home,
+              so call before you drive out.
+            </p>
+          </div>
+        </div>
+        <div class="colophon">
+          <p style="margin:0">
+            Speculative redesign concept prepared for {biz.display_name}. Not the company's official website. Not
+            published, not indexed. Enquiry forms are demonstrations and do not send or store anything.
+          </p>
+          <p style="margin:0">Photography is licensed stock used to show materials and finishes.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import { dialog } from '@nhd/shared/ui'
+      const sheet = document.getElementById('sheet')
+      const burger = document.getElementById('burger')
+      const d = dialog(sheet, { onClose: () => burger.setAttribute('aria-expanded', 'false') })
+      burger.addEventListener('click', () => { d.open(); burger.setAttribute('aria-expanded', 'true') })
+      document.getElementById('sheet-close').addEventListener('click', d.close)
+      sheet.querySelectorAll('a').forEach((a) => a.addEventListener('click', d.close))
+
+      const nav = document.getElementById('nav')
+      const onScroll = () => nav.setAttribute('data-stuck', String(window.scrollY > 16))
+      onScroll(); window.addEventListener('scroll', onScroll, { passive: true })
+    </script>
+  </body>
+</html>

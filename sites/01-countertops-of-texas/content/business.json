@@ -1,0 +1,136 @@
+{
+  "site_id": "01",
+  "slug": "countertops-of-texas",
+  "display_name": "Countertops of Texas",
+  "legal_name": {
+    "value": "Countertops of Texas, LLC",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Countertop fabrication and installation (granite & quartz)",
+  "phone": {
+    "value": "(832) 923-1991",
+    "tel": "+18329231991",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "address": {
+    "value": "11902 Proctor St, Houston, TX 77086",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SERVICE_AREA_ANCHOR",
+    "display_note": "No evidence of a public showroom; Proctor St appears in residential property indexes. Present as a service-area anchor. NEVER use 'visit our showroom' language."
+  },
+  "service_area": {
+    "value": "North Houston and Harris County",
+    "status": "VERIFIED",
+    "source": "google_business_profile_service_area",
+    "display_safe": true,
+    "note": "Stated radius not published; use area language only, never a mileage figure."
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "6:00 AM – 6:00 PM",
+      "tue": "6:00 AM – 6:00 PM",
+      "wed": "6:00 AM – 6:00 PM",
+      "thu": "6:00 AM – 6:00 PM",
+      "fri": "6:00 AM – 6:00 PM",
+      "sat": "6:00 AM – 6:00 PM",
+      "sun": "9:00 AM – 5:00 PM"
+    },
+    "highlight": "Open seven days a week, from 6 AM."
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=15419462754814470229",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE",
+    "status": "VERIFIED",
+    "note": "Google Business Profile website field is empty."
+  },
+  "socials": {
+    "facebook": {
+      "value": "https://www.facebook.com/countertopsoftexas",
+      "status": "VERIFIED",
+      "display_safe": true,
+      "tagline_observed": "I am the Fabricator, I am the Installer!!"
+    },
+    "instagram": {
+      "value": "UNKNOWN — NOT FOUND",
+      "status": "UNKNOWN",
+      "display_safe": false
+    }
+  },
+  "rating": {
+    "value": 5,
+    "count": 8,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "owner_or_contact": {
+    "value": "Victor",
+    "role": "Owner / fabricator / installer",
+    "status": "VERIFIED",
+    "source": "google_reviews_multiple",
+    "display_safe": true,
+    "display_note": "First name only. No surname verified."
+  },
+  "services": [
+    {
+      "name": "Granite countertops",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Quartz countertops",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Kitchen countertops",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Bathroom vanities & countertops",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Tile work",
+      "status": "VERIFIED"
+    }
+  ],
+  "review_themes": [
+    "Exact matching of colour, pattern and edge profile to existing counters",
+    "Held the install date despite bad weather",
+    "Responsive, direct communication with the owner",
+    "Pricing better than competing quotes",
+    "Repeat and referral customers",
+    "Seam craft — solved an awkward sink angle in one piece instead of two"
+  ],
+  "reviews": [
+    {
+      "excerpt": "We asked to match the color, pattern, and edge profile as our other countertops and it came out perfect!",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "The awkward angle near our sink was able to be installed in one piece instead of having 2 pieces with a seam.",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "en",
+    "bilingual": false,
+    "evidence": "No Spanish-language review or bilingual signal located. Translation not warranted per §20 evidence rule."
+  },
+  "primary_cta": "Request a free measure & quote",
+  "wow_thesis": "Seeing his one-man fabrication craft presented like a premium stone studio, with the seam-and-edge precision his reviews praise made visible.",
+  "demo_moment": "Open the Edge Profile studio, tap through four profiles and watch the stone edge redraw live, then send a mock quote."
+}

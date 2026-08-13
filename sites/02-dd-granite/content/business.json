@@ -1,0 +1,136 @@
+{
+  "site_id": "02",
+  "slug": "dd-granite",
+  "display_name": "D&D Granite",
+  "legal_name": {
+    "value": "D&D Granite",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Countertop fabrication and installation (granite, quartz, marble, solid surface)",
+  "phone": {
+    "value": "(346) 599-2367",
+    "tel": "+13465992367",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "address": {
+    "value": "12390 TX-249, Houston, TX 77086",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SHOWROOM",
+    "display_note": "Unit designation is contested — Google Business Profile shows Unit C1, Birdeye and Chamber of Commerce show Unit A1. Unit number is OMITTED from display; the CID map link resolves the exact suite."
+  },
+  "service_area": {
+    "value": "North Houston and Harris County",
+    "status": "REPORTED",
+    "display_safe": false
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "9:00 AM – 5:00 PM",
+      "tue": "9:00 AM – 5:00 PM",
+      "wed": "9:00 AM – 5:00 PM",
+      "thu": "9:00 AM – 5:00 PM",
+      "fri": "9:00 AM – 5:00 PM",
+      "sat": "9:00 AM – 4:00 PM",
+      "sun": "Closed"
+    },
+    "highlight": "Open Saturdays for weekend slab viewing."
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=16927571535995707567",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE",
+    "status": "VERIFIED"
+  },
+  "socials": {
+    "facebook": {
+      "value": "https://www.facebook.com/61583551970358",
+      "status": "VERIFIED",
+      "display_safe": true,
+      "note": "Two pages exist ('D&D granite' 61583551970358 and 'D&D Granite and Marble' 61559365115214). The newer numeric page is linked; the duplicate is a sales talking point, not site content."
+    },
+    "instagram": {
+      "value": "UNKNOWN — NOT FOUND",
+      "status": "UNKNOWN",
+      "display_safe": false
+    }
+  },
+  "rating": {
+    "value": 5,
+    "count": 7,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "owner_or_contact": {
+    "value": "Diana",
+    "role": "Customer contact",
+    "status": "VERIFIED",
+    "source": "google_review",
+    "display_safe": true,
+    "display_note": "First name only."
+  },
+  "services": [
+    {
+      "name": "Granite countertops",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Quartz countertops",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Solid surface countertops",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Kitchen countertops",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Bathroom vanities & sinks",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Slab selection",
+      "status": "VERIFIED"
+    }
+  ],
+  "review_themes": [
+    "Variety and breadth of slab selection",
+    "Speed of installation",
+    "Quality of the finished work",
+    "Professionalism",
+    "Strong value"
+  ],
+  "reviews": [
+    {
+      "excerpt": "We were happy about everything—the variety of slabs, the time they installed and the quality of their work.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "D & D Granite did a great job installing our master bath sinks and counter top.",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "en",
+    "bilingual": false,
+    "evidence": "One short Spanish-language review noted; insufficient for a full bilingual build. Spanish-language greeting used in copy where natural, no toggle."
+  },
+  "primary_cta": "See the slabs in person",
+  "wow_thesis": "Seeing their slab inventory and finished installs presented as a browsable showroom experience instead of two half-built Facebook pages.",
+  "demo_moment": "Filter the stone wall by material (granite / quartz / marble / solid surface), open a slab into the full-bleed viewer, and add it to a quote request."
+}

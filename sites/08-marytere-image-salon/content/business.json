@@ -1,0 +1,122 @@
+{
+  "site_id": "08",
+  "slug": "marytere-image-salon",
+  "display_name": "Marytere Image Salon & Barbershop",
+  "legal_name": {
+    "value": "Marytere Image Salon & Barbershop",
+    "status": "VERIFIED",
+    "source": "google_business_profile"
+  },
+  "industry": "Hair salon and barbershop",
+  "phone": {
+    "value": "(713) 231-8940",
+    "tel": "+17132318940",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "conflict_note": "RESOLVED. ShowMeLocal and YellowPages list (281) 781-7534 — REPORTED. The business's own Fresha listing independently shows (713) 231-8940, matching the Google Business Profile. Two business-controlled sources agree; the GBP number ships."
+  },
+  "address": {
+    "value": "13626 Veterans Memorial Dr, Houston, TX 77014",
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "display_mode": "SALON"
+  },
+  "hours": {
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true,
+    "value": {
+      "mon": "Closed",
+      "tue": "10:00 AM – 7:00 PM",
+      "wed": "10:00 AM – 7:00 PM",
+      "thu": "10:00 AM – 7:00 PM",
+      "fri": "10:00 AM – 7:00 PM",
+      "sat": "10:00 AM – 7:00 PM",
+      "sun": "10:00 AM – 3:00 PM"
+    },
+    "highlight": "Closed Mondays. Open Sundays."
+  },
+  "map_url": {
+    "value": "https://maps.google.com/?cid=5961629947103935359",
+    "status": "VERIFIED",
+    "display_safe": true
+  },
+  "website": {
+    "value": "NONE",
+    "status": "VERIFIED"
+  },
+  "socials": {
+    "facebook": {
+      "value": "https://www.facebook.com/MarytereImageSalon",
+      "status": "VERIFIED",
+      "display_safe": true
+    },
+    "instagram": {
+      "value": "https://www.instagram.com/maritere_salazar/",
+      "status": "VERIFIED",
+      "display_safe": true,
+      "note": "Instagram display name reads MARYTERE IMAGE SALON — it is the business account despite the personal handle."
+    }
+  },
+  "rating": {
+    "value": 4.3,
+    "count": 22,
+    "status": "VERIFIED",
+    "source": "google_business_profile",
+    "display_safe": true
+  },
+  "owner_or_contact": {
+    "value": "UNKNOWN — NOT VERIFIED",
+    "status": "REPORTED",
+    "display_safe": false,
+    "display_note": "The Instagram handle @maritere_salazar and the business name imply an owner named Maritere Salazar, but this is inferred, not observed as a stated fact. HER NAME MUST NOT BE PRINTED AS THE OWNER. The personal-brand direction is built on the business name and the Instagram identity only."
+  },
+  "services": [
+    {
+      "name": "Women's cuts",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Men's cuts",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Beard trim & shape-up",
+      "status": "VERIFIED"
+    },
+    {
+      "name": "Children's haircuts",
+      "status": "VERIFIED",
+      "source": "fresha_listing"
+    }
+  ],
+  "review_themes": [
+    "Hair and beard done exactly as asked",
+    "Good prices",
+    "Fast service",
+    "Warm hospitality"
+  ],
+  "reviews": [
+    {
+      "excerpt": "The ladies provided great service and good haircuts. Great prices too.",
+      "source": "google",
+      "status": "VERIFIED"
+    },
+    {
+      "excerpt": "Great service and hospitality, got my hair and beard done just the way I wanted.",
+      "source": "google",
+      "status": "VERIFIED"
+    }
+  ],
+  "languages": {
+    "primary": "en",
+    "secondary": "es",
+    "bilingual": true,
+    "evidence": "Spanish business-owner naming, Spanish-language market, bilingual corridor. Warranted per §20. English default (the verified reviews are in English); Spanish toggle available. Latin Cuts is the site that opens in Spanish — keeping these two different avoids a second Spanish-first salon in the same cluster."
+  },
+  "primary_cta": "Reserve a chair",
+  "wow_thesis": "Turning a personal Instagram into an actual salon brand — the smallest shop on the street looking like the most established one.",
+  "demo_moment": "Scroll the vertical lookbook column, tap a look, and carry it straight into the booking sheet as the requested style."
+}

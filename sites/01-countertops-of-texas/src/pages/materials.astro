@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const kitchen = img(base, 'kitchen', [1920, 1280, 800])
+
+const library = [
+  { n: 'mat-onyx', name: 'Absolute black', kind: 'Granite', note: 'Near-uniform black with fine white movement. Shows dust and fingerprints — worth knowing before you commit.' },
+  { n: 'mat-swirl', name: 'Grey tide', kind: 'Granite', note: 'Heavy directional movement. Slab layout matters here: the pattern should run with the counter, not fight it.' },
+  { n: 'mat-bronze', name: 'Bronze vein', kind: 'Marble', note: 'Warm brown with soft veining. Softer than granite, so it wants a sealed finish and a little more care.' },
+  { n: 'mat-carnelian', name: 'Carnelian', kind: 'Granite', note: 'Coarse red grain with black and green flecks. Busy, forgiving, and very hard to stain.' },
+]
+
+const compare = [
+  { t: 'Granite', p: 'Quarried stone. Every slab is different, which is the point — and the reason you should look at the actual slab, not a sample chip.' },
+  { t: 'Quartz', p: 'Engineered, so colour and pattern repeat predictably. Non-porous, no sealing. Choose it when you want the run to match end to end.' },
+]
+---
+
+<Base
+  title="Materials — Countertops of Texas"
+  description="Granite and quartz surfaces, edge profiles and the difference between the two, for North Houston kitchens and bathrooms."
+>
+  <section class="sect" style="border-top:0;padding-top:clamp(104px,14vw,180px)">
+    <div class="wrap">
+      <p class="lbl lbl-c">Materials</p>
+      <h1 class="d d-xl" style="margin:14px 0 0;max-width:12ch">Stone first.<br />Then the edge.</h1>
+      <p class="prose" style="margin-top:22px">
+        Pick the surface you want to live with, then decide how it should finish. Both choices go on the same quote —
+        and if you are matching a counter you already own, a photo of it is worth more than any sample.
+      </p>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="wrap">
+      <div class="sect-head rv">
+        <p class="lbl">Library</p>
+        <h2 class="d d-lg" style="margin:0;max-width:18ch">Four surfaces, four very different kitchens.</h2>
+      </div>
+      <div class="rv" style="display:grid;gap:2px">
+        {library.map((m, i) => {
+          const im = img(base, m.n)
+          return (
+            <article style={`display:grid;gap:0;${i % 2 ? 'direction:rtl' : ''}`} class="mat-row">
+              <picture style="direction:ltr">
+                <source type="image/webp" srcset={im.webp} sizes="(min-width:900px) 50vw, 100vw" />
+                <img src={im.fallback} alt={`${m.kind} surface — ${m.name}`} loading="lazy" width="1200" height="900" style="width:100%;aspect-ratio:4/3;object-fit:cover" />
+              </picture>
+              <div style="direction:ltr;padding:clamp(22px,4vw,48px);display:flex;flex-direction:column;justify-content:center;background:var(--color-ink-2)">
+                <small class="lbl">{m.kind}</small>
+                <h3 class="d d-md" style="margin:10px 0 12px">{m.name}</h3>
+                <p style="margin:0;font-size:14px;color:color-mix(in srgb,#efe9df 74%,transparent);max-width:44ch">{m.note}</p>
+              </div>
+            </article>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="wrap">
+      <div class="sect-head rv">
+        <p class="lbl">Granite or quartz</p>
+        <h2 class="d d-lg" style="margin:0;max-width:16ch">Two answers to the same question.</h2>
+      </div>
+      <div class="rv" style="display:grid;gap:2px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        {compare.map((c) => (
+          <div style="padding:clamp(22px,3vw,36px);background:var(--color-ink-2);border:1px solid var(--rule)">
+            <h3 class="d d-md" style="margin:0 0 12px">{c.t}</h3>
+            <p style="margin:0;font-size:14px;color:color-mix(in srgb,#efe9df 74%,transparent)">{c.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="wrap rv">
+      <picture>
+        <source type="image/webp" srcset={kitchen.webp} sizes="100vw" />
+        <img src={kitchen.fallback} alt="A kitchen island finished in warm speckled stone under pendant lighting" loading="lazy" width="1920" height="1080" style="width:100%;aspect-ratio:16/9;object-fit:cover" />
+      </picture>
+      <div style="display:grid;gap:20px;margin-top:clamp(28px,4vw,44px);align-items:end" class="cta-row">
+        <h2 class="d d-lg" style="margin:0;max-width:16ch">Bring a photo of what you have now.</h2>
+        <a class="btn" href={`${base}/#quote`} style="justify-self:start">Request a free measure</a>
+      </div>
+      <p style="margin-top:18px;font-size:12px;color:color-mix(in srgb,#efe9df 44%,transparent)">
+        Photography above is licensed stock showing stone types and finishes. It is not a record of {biz.display_name}'s
+        own installations.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  @media (min-width: 900px) {
+    .mat-row { grid-template-columns: 1fr 1fr !important; }
+    .cta-row { grid-template-columns: 1fr auto; }
+  }
+</style>
