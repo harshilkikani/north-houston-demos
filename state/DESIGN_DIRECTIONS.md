@@ -11,7 +11,7 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Edge Profile Studio** — an SVG cross-section that redraws live as you pick Eased / Bullnose / Ogee / Mitred. Chosen because edge-profile matching is his single most-praised skill.
 - **Wow thesis:** The thing most likely to make Victor say "wow" is *seeing the seam-and-edge precision his reviews praise turned into an interactive drawing that a customer can actually operate.*
 - **Demo moment (20s):** Open Edge Studio → tap through four profiles → the stone edge redraws → carry the choice into the quote request.
-- **Routes:** `/` · `/materials` · `/quote`
+- **Routes:** `/` · `/materials`
 - **Anti-overlap note:** The only dark *and* sparse *and* serif site. 02 must never go dark.
 - **Copy voice:** First-person, plain, tradesman-proud. Short sentences. No adjectives he wouldn't use.
 
@@ -21,7 +21,7 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Filterable Stone Wall** — filter by granite / quartz / marble / solid surface, open any slab into a full-bleed viewer, add it to a quote request.
 - **Wow thesis:** The thing most likely to make Diana say "wow" is *seeing their slab selection — the thing every review mentions — turned into something a customer can browse before they drive out.*
 - **Demo moment (30s):** Tap a material filter → the wall re-flows → open a slab full-bleed → "add to my quote" → the quote panel shows the chosen stone.
-- **Routes:** `/` · `/stone` · `/quote`
+- **Routes:** `/` · `/stone`
 - **Anti-overlap note:** Showroom language is allowed here and **only** here among the stone pair (01 has no verified showroom).
 - **Copy voice:** Welcoming, practical, showroom-floor.
 
@@ -31,7 +31,7 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Room-by-room scope builder** — add rooms, set approximate square footage, pick material; outputs a styled scope sheet for a free in-home estimate. Deliberately no dollar figure (never a fabricated price).
 - **Wow thesis:** The thing most likely to make Ismael say "wow" is *seeing the strongest reputation on Cypresswood — 86 reviews at 4.8 — finally have somewhere to live, with his carpet-to-hardwood transformations as the headline.*
 - **Demo moment (20s):** Drag the hero slider back and forth, then build a two-room scope sheet.
-- **Routes:** `/` · `/work` · `/estimate`
+- **Routes:** `/` · `/floors`
 - **Anti-overlap note:** Wide letterbox crops are this site's signature; no other site uses 21:9.
 - **Copy voice:** Calm, competent, homeowner-reassuring. Emphasise *hassle-free* — the recurring review word.
 
@@ -41,7 +41,7 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Three-step estimate request** — vehicle → damage location picked on an interactive top-down car diagram → photo drop → styled confirmation with a reference code.
 - **Wow thesis:** The thing most likely to make Chris say "wow" is *"your domain doesn't load — here is the site your Corvette customers already assume you have."*
 - **Demo moment (45s):** Tap two panels on the car diagram, drop a photo, submit, land on the confirmation card.
-- **Routes:** `/` · `/paint` · `/estimate`
+- **Routes:** `/` · `/paint`
 - **Anti-overlap note:** Only site permitted to go full cinematic-dark. 09 is dark but saturated-fashion, not automotive.
 - **Copy voice:** Understated specialist. Let the tri-coat story and the Corvette community do the bragging. **Never print "25 years."**
 
@@ -51,7 +51,7 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Four-step booking** (service → stylist → day/time → contact) plus a full **ES/EN** page toggle.
 - **Wow thesis:** The thing most likely to make Ivonne say "wow" is *watching the whole page turn into Spanish in one tap, and then booking an appointment — the destination her Facebook posts have never had.*
 - **Demo moment (40s):** Tap **ES** → the entire page re-renders in Spanish → run the booking flow to the confirmation card.
-- **Routes:** `/` · `/services` · `/book`
+- **Routes:** `/` · `/services`
 - **Anti-overlap note:** The only high-contrast serif in the hair cluster. Wednesday-closed must render correctly everywhere hours appear.
 - **Copy voice:** Warm, personal, first-person-plural. Loyalty is the theme, not luxury.
 
@@ -61,7 +61,7 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Stylist-first booking** — every stylist card is a button that opens the booking panel pre-filled with that stylist.
 - **Wow thesis:** The thing most likely to make this owner say "wow" is *seeing Mario, Angie, Amanda and Ricky as named specialists a customer can pick — the salon stops being "a salon" and becomes "your stylist."*
 - **Demo moment (25s):** Tap Mario's card → booking panel opens with Mario selected → pick a slot → confirm.
-- **Routes:** `/` · `/team` · `/book`
+- **Routes:** `/` · `/team`
 - **Anti-overlap note:** Only site with a mobile bottom tab bar. Only site using circular crops.
 - **Copy voice:** Friendly, plain, parent-to-parent. The first-haircut review is the emotional centre.
 
@@ -71,7 +71,7 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Live queue board** — see today's slots, claim the next open one, watch the board reorder with your name on it. Plus a published sample price list.
 - **Wow thesis:** The thing most likely to make this owner say "wow" is *"the two complaints in your reviews — nobody tracks whose turn it is, and prices change — are both fixed on this one screen."*
 - **Demo moment (30s):** Open the queue board → claim 4:30 → the board reorders and shows the position and estimated start.
-- **Routes:** `/` · `/precios` (prices) · `/turno` (queue/booking)
+- **Routes:** `/` · `/precios`
 - **Anti-overlap note:** **Opens in Spanish** — the only site in the portfolio that does. Never display the negative reviews.
 - **Copy voice:** Direct, energetic, bilingual-native. Spanish written idiomatically, not translated word-for-word.
 
@@ -81,7 +81,7 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Lookbook column → booking carry-over.** Tap a look in the vertical lookbook and it travels into the reservation sheet as the requested style.
 - **Wow thesis:** The thing most likely to make this owner say "wow" is *seeing a personal Instagram become an actual salon brand — arched frames, a real lookbook, and a reservation sheet with her shop's name on it.*
 - **Demo moment (30s):** Scroll the lookbook → tap a look → the reserve sheet opens with that look attached → confirm.
-- **Routes:** `/` · `/lookbook` · `/reserve`
+- **Routes:** `/` · `/lookbook`
 - **Anti-overlap note:** Only site using arched image frames and a single narrow column. **Never print an owner's personal name** — unverified.
 - **Copy voice:** Soft, first-person, hospitable. "Hospitality" is the verified review word — build on it.
 
@@ -91,7 +91,7 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Price Builder with a live running total** — service → length → design tier → add-ons, total updating as you tap, before you book.
 - **Wow thesis:** The thing most likely to make this owner say "wow" is *watching the price appear on screen as the customer builds their set — the surprise-pricing complaint that costs them stars simply cannot happen anymore — and seeing Ben's design work finally get a gallery.*
 - **Demo moment (35s):** Build a set — full set → long → custom art → chrome — and watch the total tick up, then reserve.
-- **Routes:** `/` · `/prices` · `/book`
+- **Routes:** `/` · `/gallery`
 - **Anti-overlap note:** Dark like 04, but fashion-saturated rather than automotive. Floating bottom pill nav is unique to this site.
 - **Copy voice:** Confident, current, a little playful. Price transparency framed as respect, never as an apology.
 
@@ -101,6 +101,6 @@ Columns for hero/nav/type/radius/palette/motion live in `DIFFERENTIATION_LEDGER.
 - **Industry feature:** **Two-chair day view** — the salon's real constraint (two technicians) presented as intimacy; reserve a time and watch both chairs fill.
 - **Wow thesis:** The thing most likely to make this owner say "wow" is *seeing the one thing customers keep writing about — that they are gentle when nobody else is — become the headline of the entire site.*
 - **Demo moment (25s):** Open the two-chair day view → pick a time → the chair locks in and the day view updates.
-- **Routes:** `/` · `/services` · `/reserve`
+- **Routes:** `/` · `/services`
 - **Anti-overlap note:** Lowest content density in the portfolio. Nothing on this site may be loud.
 - **Copy voice:** Gentle, unhurried, specific. Lead with sensitive-care competence, not spa clichés.
