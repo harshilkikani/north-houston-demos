@@ -62,5 +62,27 @@ Display sizes were cut across all ten (Latin Cuts hardest, 152px → 78px; Riche
 layout consequences were corrected in the same pass: Countertops' h1 max-width widened to 26ch, and
 Latin Cuts' hero grid realigned to the top so the shorter headline did not leave a gap.
 
+## D14 — Owner-seat audit outcomes
+Final pass run as each business owner rather than as a designer. Six changes were justified:
+
+- **Sample price menus are portfolio-wide.** 07/08/09/10 published prices while 05/06 told customers to
+  phone. Price is the first thing a salon customer looks for, and the inconsistency would have been
+  obvious to any owner shown a sibling demo. All four salons now carry a labelled sample menu.
+- **02 slab naming.** Seven of the fifteen surfaces had invented product-sounding names (Sandstorm,
+  Rosa Dune, Cream Linen). A customer could have walked in and asked for a stone that does not exist.
+  Only genuine generic industry names remain; the rest are plain descriptions.
+- **09 named one technician and not the other.** Ben appeared three times, Tammy — equally verified —
+  nowhere. Both are now named with what each does.
+- **Duplicate review quotes.** Sites 04 and 05 each printed the same review twice, once as a feature
+  quote and again in the reviews grid. The grids now exclude the already-quoted review.
+- **Stylist label bug (05 and 06).** The booking summary read the small print under the option instead
+  of the name — "Owner · colour specialist" where it should have said "Ivonne", and "Usually sooner"
+  for "Anyone available". Fixed with an explicit `.opt-name` element and covered by a regression test.
+- **Tone spot-fixes.** "Tito y las muchachas" → "Tito y el equipo"; Cali's hero stat "Technicians · Two"
+  → "Chairs · Two", which matches the site's own framing and reads as capacity rather than shortage.
+
+`shared/qa/interactions.mjs` now drives every site's demo feature end to end and asserts the visible
+result. Run it before any pitch — it is the only check that proves the demo moment still works.
+
 ## D12 — Required environment variable names
 None. Deployment authenticates through the existing `gh` keyring session and the Actions-provided `GITHUB_TOKEN`. No secrets are stored in the repo.
