@@ -7,8 +7,9 @@ import sharp from 'sharp'
 const ROOT = path.resolve(import.meta.dirname, '../..')
 const RAW = path.join(ROOT, 'research', 'raw')
 
-const WIDTHS = { hero: [1920, 1280, 800], default: [1200, 800, 480] }
-const BIG_ROLES = new Set(['hero', 'feature'])
+// One width ladder for every asset, so a page can never reference a size that was not generated.
+const WIDTHS = [1920, 1200, 800, 480]
+const JPG_WIDTH = 1200
 
 function ratio(ar) {
   const [w, h] = ar.split('/').map(Number)
@@ -27,7 +28,7 @@ for (const [siteDir, list] of Object.entries(assets)) {
 
   for (const a of list) {
     const src = path.join(RAW, `${a.id}.jpg`)
-    const widths = BIG_ROLES.has(a.role) ? WIDTHS.hero : WIDTHS.default
+    const widths = WIDTHS
     const r = ratio(a.ar)
     const written = []
 
@@ -38,8 +39,8 @@ for (const [siteDir, list] of Object.entries(assets)) {
       await base.clone().webp({ quality: 80, effort: 5 }).toFile(webp)
       written.push(`${a.name}-${w}.webp`)
     }
-    // one JPEG fallback at the middle width
-    const fw = widths[1]
+    // one JPEG fallback, always at the same width
+    const fw = JPG_WIDTH
     await sharp(src)
       .resize(fw, Math.round(fw / r), { fit: 'cover', position: 'attention' })
       .jpeg({ quality: 82, mozjpeg: true })

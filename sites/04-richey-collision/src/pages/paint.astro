@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const macro = img(base, 'paint-macro')
+const front = img(base, 'paint-front')
+
+const layers = [
+  { t: 'Ground coat', p: 'The opaque base. It decides how much light gets through to everything above it, which is why the same mid-coat over two different grounds gives two different colours.' },
+  { t: 'Mid-coat', p: 'Translucent, and the reason tri-coats are difficult. Colour builds with every pass, so the number of coats is part of the formula — not a detail left to whoever is holding the gun.' },
+  { t: 'Clear', p: 'Depth and protection. A correct clear is what makes a repaired panel disappear next to a factory one under Houston sun.' },
+]
+
+const work = [
+  { t: 'Collision repair', p: 'Panel replacement, alignment and refinishing after an impact.' },
+  { t: 'Custom paint', p: 'Colour changes and custom work — the shop describes itself, on its own Facebook page, as custom paint and body work.' },
+  { t: 'Colour matching', p: 'Including tri-coat finishes that other shops decline.' },
+  { t: 'Aftermarket parts', p: 'Sourcing, painting and fitting body components you have chosen yourself.' },
+  { t: 'Insurance work', p: 'Documentation and negotiation with the adjuster on your behalf.' },
+  { t: 'Performance cars', p: 'Large continuous panels where a blend has nowhere to hide.' },
+]
+---
+
+<Base
+  title="Custom paint &amp; colour matching — Richey Collision"
+  description="How tri-coat colour matching actually works, and what Richey Collision does beyond straightening panels."
+>
+  <section class="sect" style="border-top:0;padding-top:clamp(96px,12vw,150px)">
+    <div class="wrap">
+      <p class="tag">Custom paint</p>
+      <h1 class="h1" style="margin-top:16px;max-width:12ch">Matching is not mixing.</h1>
+      <p class="lead" style="margin-top:20px">
+        Anyone can look up a paint code. Getting a repaired panel to disappear beside a factory panel that has spent six
+        Houston summers in the sun is a different job entirely.
+      </p>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="wrap split wide">
+      <figure class="shot wide" style="margin:0">
+        <picture>
+          <source type="image/webp" srcset={macro.webp} sizes="(min-width:940px) 52vw, 100vw" />
+          <img src={macro.fallback} alt="Soft-focus macro of a red car body with a highlight running along the crease" loading="lazy" width="1200" height="900" />
+        </picture>
+      </figure>
+      <div>
+        <p class="tag">Three layers</p>
+        <h2 class="h2" style="margin:14px 0 20px;max-width:14ch">What a tri-coat actually is.</h2>
+        <div style="display:grid;gap:18px">
+          {layers.map((l, i) => (
+            <div style="display:grid;grid-template-columns:38px 1fr;gap:16px;align-items:start">
+              <span style="font-family:var(--font-display);font-size:22px;color:var(--color-red);line-height:1.1">0{i + 1}</span>
+              <div><h3 class="h3" style="margin-bottom:6px">{l.t}</h3><p class="lead" style="margin:0;font-size:15px">{l.p}</p></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="wrap">
+      <p class="tag">Blending</p>
+      <h2 class="h2" style="margin:14px 0 18px;max-width:18ch">The match happens on the neighbouring panel, not the damaged one.</h2>
+      <p class="lead">
+        A colour that measures correctly can still look wrong, because your eye compares it to what sits next to it. The
+        fix is to carry the new colour out into the adjacent panels so the transition happens somewhere the eye is not
+        looking. It costs more time and more material, and it is the entire difference between a repair you notice and
+        one you do not.
+      </p>
+      <figure class="shot wide" style="margin:clamp(26px,3.4vw,44px) 0 0">
+        <picture>
+          <source type="image/webp" srcset={front.webp} sizes="100vw" />
+          <img src={front.fallback} alt="The front corner of a red car, headlight and painted panel in tight crop" loading="lazy" width="1920" height="1080" />
+        </picture>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="wrap">
+      <p class="tag">What comes through the door</p>
+      <h2 class="h2" style="margin:14px 0 clamp(26px,3.2vw,42px);max-width:16ch">Six kinds of job.</h2>
+      <div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+        {work.map((w) => (<div class="tile"><h3 class="h3" style="margin-top:0">{w.t}</h3><p>{w.p}</p></div>))}
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,44px)">
+        <a class="btn" href={`${base}/#estimate`}>Request an estimate</a>
+        <a class="btn btn-o" href={`tel:+1${biz.phone.value.replace(/\D/g, '')}`}>Call {biz.phone.value}</a>
+      </div>
+      <p class="small" style="margin-top:22px">Photography on this page is licensed stock illustrating paint finishes. It is not a record of work carried out by {biz.legal_name.value}.</p>
+    </div>
+  </section>
+</Base>

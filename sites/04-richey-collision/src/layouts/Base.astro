@@ -1,0 +1,102 @@
+---
+import '../styles/site.css'
+import biz from '../../content/business.json'
+import { hourRows, telHref } from '@nhd/shared/content'
+
+const { title, description } = Astro.props
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const tel = telHref(biz.phone.value)
+const rows = hourRows(biz.hours.value)
+const nav = [
+  { href: `${base}/#colour`, label: 'Paint matching' },
+  { href: `${base}/paint`, label: 'Custom paint' },
+  { href: `${base}/#insurance`, label: 'Insurance claims' },
+  { href: `${base}/#estimate`, label: 'Get an estimate' },
+  { href: `${base}/#reviews`, label: 'Reviews' },
+]
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${base}/assets/og.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="stylesheet" href={`${base}/fonts/fonts.css`} />
+  </head>
+  <body>
+    <a href="#main" style="position:absolute;left:-9999px;background:#c8102e;color:#fff;padding:12px 18px;z-index:99" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+    <div class="corner">
+      <a class="mark" href={`${base}/`}><b>Richey</b><small>Collision · Houston</small></a>
+      <div class="corner-r">
+        <a class="btn btn-o btn-sm" href={tel}>{biz.phone.value}</a>
+        <button class="menu-btn" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sheet"><i></i></button>
+      </div>
+    </div>
+
+    <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menu">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="tag">Menu</span>
+        <button class="x" id="sheet-close" type="button" aria-label="Close menu">✕</button>
+      </div>
+      <nav aria-label="Mobile">{nav.map((n) => <a href={n.href}>{n.label}</a>)}</nav>
+      <a class="btn" href={tel} style="justify-content:center">Call {biz.phone.value}</a>
+    </div>
+
+    <main id="main"><slot /></main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <p class="tag">{biz.legal_name.value}</p>
+            <p class="h2" style="margin-top:12px;max-width:12ch;font-size:clamp(24px,3vw,38px)">Custom paint and body work.</p>
+            <p class="small" style="margin-top:14px;max-width:42ch">
+              {biz.address.value}. Ask for {biz.owner_or_contact.value} about paint, or {biz.front_desk.value} at the front
+              desk about scheduling.
+            </p>
+            <p style="display:grid;gap:8px;margin-top:18px;font-size:15px">
+              <a href={tel} style="justify-self:start">{biz.phone.value}</a>
+              <a href={biz.map_url} target="_blank" rel="noopener" style="justify-self:start">Directions on Google Maps</a>
+              <a href={biz.socials.facebook.value} target="_blank" rel="noopener" style="justify-self:start">Facebook</a>
+            </p>
+          </div>
+          <div>
+            <p class="tag tag-d">Hours</p>
+            <dl class="hrs" style="margin-top:12px">
+              {rows.map((r) => (<div class={r.closed ? 'off' : ''}><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>))}
+            </dl>
+          </div>
+          <div>
+            <p class="tag tag-d">On Google</p>
+            <p style="font-family:var(--font-display);font-weight:600;font-size:60px;margin:8px 0 0;line-height:1">{biz.rating.value}</p>
+            <p class="small" style="margin:0">from {biz.rating.count} reviews</p>
+          </div>
+        </div>
+        <div class="fine">
+          <p style="margin:0">Speculative redesign concept for {biz.legal_name.value}. Not the company's official website, not published and not indexed. The estimate request is a demonstration: nothing is uploaded, sent or stored.</p>
+          <p style="margin:0">Paint and vehicle photography is licensed stock, not a record of work done here.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import { dialog } from '@nhd/shared/ui'
+      const sheet = document.getElementById('sheet')
+      const burger = document.getElementById('burger')
+      const d = dialog(sheet, { onClose: () => burger.setAttribute('aria-expanded', 'false') })
+      burger.addEventListener('click', () => { d.open(); burger.setAttribute('aria-expanded', 'true') })
+      document.getElementById('sheet-close').addEventListener('click', d.close)
+      sheet.querySelectorAll('a').forEach((a) => a.addEventListener('click', d.close))
+    </script>
+  </body>
+</html>

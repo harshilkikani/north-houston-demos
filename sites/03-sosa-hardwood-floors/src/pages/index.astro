@@ -1,4 +1,244 @@
 ---
-const t = "Sosa Hardwood Floors"
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const after = img(base, 'hero-room')
+const before = img(base, 'compare-carpet')
+
+const rooms = [
+  { n: 'room-dining', c: 'Wide plank running the length of a dining room — the direction planks run changes how long a room reads.' },
+  { n: 'room-empty-light', c: 'Pale oak in an empty room. Flooring is the one thing easiest to install before the furniture arrives.' },
+  { n: 'room-living', c: 'Hardwood carried through a living room and into built-in shelving.' },
+  { n: 'room-empty-grey', c: 'Grey-toned plank. Cooler tones hide dust; warmer tones hide scratches.' },
+  { n: 'room-fireplace', c: 'Dark hardwood beside a fireplace, where heat and traffic are both concentrated.' },
+  { n: 'room-empty-bright', c: 'Bright rooms show every seam, so plank layout has to be planned before the first board goes down.' },
+]
+
+const species = [
+  { n: 'species-white-oak', t: 'White oak', s: 'Straight grain, takes any stain' },
+  { n: 'species-red-oak', t: 'Red oak', s: 'Warmer, more figure' },
+  { n: 'species-hickory', t: 'Hickory', s: 'Hardest, most colour variation' },
+  { n: 'species-rustic', t: 'Rustic sawn', s: 'Knots and character left in' },
+  { n: 'species-weathered', t: 'Wire-brushed', s: 'Raised grain, hides wear' },
+  { n: 'species-espresso', t: 'Espresso stain', s: 'Deep and formal' },
+]
 ---
-<h1>{t}</h1>
+
+<Base
+  title="Sosa Hardwood Floors — hardwood, LVP and stairs, Houston"
+  description="Hardwood, engineered and LVP flooring installed across Houston. Carpet removed, furniture moved, free in-home estimates six days a week."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Hardwood · Engineered · LVP · Stairs</p>
+      <h1 class="h1" style="margin-top:12px">Carpet comes up.<br />Wood goes down.<br />Furniture gets moved.</h1>
+      <p class="lead" style="margin-top:18px">
+        {biz.owner_or_contact.value} pulls the old carpet, moves what's in the way and lays the floor himself. The word
+        his reviews keep using is <em>hassle-free</em> — drag the handle and you'll see why people bother writing it down.
+      </p>
+
+      <div class="ba" id="ba">
+        <img src={before.fallback} srcset={before.webp} sizes="100vw" alt="Close view of beige cut-pile carpet" width="1200" height="675" fetchpriority="high" />
+        <div data-clip>
+          <img src={after.fallback} srcset={after.webp} sizes="100vw" alt="An open living and dining room floored in warm red-toned hardwood" width="1200" height="514" />
+        </div>
+        <span class="line" aria-hidden="true"></span>
+        <span class="tag l">Carpet</span>
+        <span class="tag r">Hardwood</span>
+        <input type="range" min="0" max="100" value="52" aria-label="Compare carpet with hardwood" />
+      </div>
+      <p class="small" style="margin-top:10px">A material comparison, not a single project — drag to see the difference underfoot.</p>
+
+      <dl class="stats">
+        <div><dt>Google rating</dt><dd>{biz.rating.value} ★</dd></div>
+        <div><dt>Reviews</dt><dd>{biz.rating.count} on Google</dd></div>
+        <div><dt>Estimates</dt><dd>Mon–Sat, 8 AM – 8 PM</dd></div>
+        <div><dt>Free</dt><dd>In-home, no charge</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="sect" id="work">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:22px;flex-wrap:wrap;margin-bottom:26px">
+        <div>
+          <p class="kicker">Rooms</p>
+          <h2 class="h2" style="margin-top:10px;max-width:17ch">Flooring is the one surface you see all of at once.</h2>
+        </div>
+        <a class="btn btn-o" href={`${base}/floors`}>Compare materials</a>
+      </div>
+      <div class="rooms">
+        {rooms.map((r, i) => {
+          const im = img(base, r.n)
+          return (
+            <figure class={`room ${i === 0 ? 'wide' : ''}`} style="margin:0">
+              <picture>
+                <source type="image/webp" srcset={im.webp} sizes="(min-width:900px) 50vw, 100vw" />
+                <img src={im.fallback} alt={r.c} loading="lazy" width="1200" height="675" />
+              </picture>
+              <figcaption>{r.c}</figcaption>
+            </figure>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIES -->
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="hr" style="margin-bottom:clamp(38px,4.6vw,64px)"></div>
+      <p class="kicker">Materials</p>
+      <h2 class="h2" style="margin-top:10px;max-width:18ch">Six finishes, six very different rooms.</h2>
+      <p class="lead" style="margin-top:14px;margin-bottom:28px">
+        Species and finish decide how the floor ages, not how it looks on day one. Bring this list up on the estimate and
+        {biz.owner_or_contact.value} will tell you what holds up in your house.
+      </p>
+      <div class="species">
+        {species.map((s) => {
+          const im = img(base, s.n)
+          return (
+            <figure class="sp" style="margin:0">
+              <picture>
+                <source type="image/webp" srcset={im.webp} sizes="(min-width:1040px) 16vw, (min-width:700px) 33vw, 50vw" />
+                <img src={im.fallback} alt={`${s.t} — ${s.s}`} loading="lazy" width="1200" height="1600" />
+              </picture>
+              <b>{s.t}</b><small>{s.s}</small>
+            </figure>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTIMATE BUILDER -->
+  <section class="sect" id="estimate" style="background:var(--color-cream-2)">
+    <div class="wrap">
+      <div style="margin-bottom:clamp(26px,3vw,40px)">
+        <p class="kicker">Free in-home estimate</p>
+        <h2 class="h2" style="margin-top:10px;max-width:18ch">Build the scope. He'll bring the number.</h2>
+        <p class="lead" style="margin-top:14px">
+          Add the rooms you want done and roughly how big they are. No price appears here on purpose — a floor is quoted
+          on your subfloor, your stairs and your thresholds, and anyone giving you a figure before seeing it is guessing.
+        </p>
+      </div>
+
+      <div class="builder">
+        <div>
+          <div class="rowset" id="rows"></div>
+          <button class="btn btn-o" type="button" id="add-room" style="margin-top:12px">+ Add a room</button>
+        </div>
+
+        <div class="sheetout">
+          <p class="kicker" style="color:#d6a86a">Your scope sheet</p>
+          <h3 class="h3" style="margin-top:8px;margin-bottom:14px" id="sum-title">Nothing added yet</h3>
+          <dl id="sum" style="margin:0 0 20px"></dl>
+
+          <form id="ef" novalidate>
+            <div class="f">
+              <label for="e-name">Your name</label>
+              <input id="e-name" type="text" autocomplete="name" data-required />
+              <p class="err" data-error-for="e-name" hidden>Please add your name.</p>
+            </div>
+            <div class="f">
+              <label for="e-phone">Phone</label>
+              <input id="e-phone" type="tel" autocomplete="tel" data-required />
+              <p class="err" data-error-for="e-phone" hidden>Please add a number.</p>
+            </div>
+            <div class="f">
+              <label for="e-when">Best time for him to come out</label>
+              <input id="e-when" type="text" placeholder="Weekday evening, Saturday morning…" />
+            </div>
+            <button class="btn btn-brass" type="submit" style="width:100%;justify-content:center">Request the estimate</button>
+            <p class="small" style="color:color-mix(in srgb,#faf6ef 60%,transparent);margin-top:10px">Demonstration form — nothing is sent or stored.</p>
+          </form>
+
+          <div id="ed" hidden tabindex="-1">
+            <h3 class="h3" style="margin-bottom:10px">Booked in the demo.</h3>
+            <p class="small" style="color:color-mix(in srgb,#faf6ef 74%,transparent)">
+              On the live site this reaches {biz.owner_or_contact.value} straight away, scope sheet attached.
+            </p>
+            <dl id="sum2" style="margin:18px 0 0"></dl>
+            <button class="btn btn-brass" type="button" id="ea" style="margin-top:18px">Start over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect" id="reviews">
+    <div class="wrap">
+      <p class="kicker">{biz.rating.value} on Google · {biz.rating.count} reviews</p>
+      <h2 class="h2" style="margin:10px 0 28px;max-width:20ch">Eighty-six people wrote it down. Not one of them had a website to find him on.</h2>
+      <div class="qgrid">
+        {biz.reviews.map((r) => (
+          <div class="qcard"><blockquote>“{r.excerpt}”</blockquote><cite>Google review</cite></div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { compareSlider, validate } from '@nhd/shared/ui'
+  compareSlider(document.getElementById('ba'))
+
+  const ROOMS = ['Living room', 'Dining room', 'Bedroom', 'Hallway', 'Stairs', 'Whole downstairs', 'Kitchen']
+  const MATS = ['Hardwood', 'Engineered', 'LVP', 'Not sure yet']
+  const rows = document.getElementById('rows')
+  let n = 0
+
+  function addRow(room = 'Living room', sqft = '220') {
+    const id = ++n
+    const el = document.createElement('div')
+    el.className = 'roomrow'
+    el.innerHTML =
+      `<select aria-label="Room ${id}">${ROOMS.map((r) => `<option${r === room ? ' selected' : ''}>${r}</option>`).join('')}</select>` +
+      `<input type="number" min="10" step="10" value="${sqft}" aria-label="Approximate square feet for room ${id}" />` +
+      `<button type="button" aria-label="Remove room ${id}">×</button>`
+    el.querySelector('button').addEventListener('click', () => { el.remove(); render() })
+    el.querySelectorAll('select,input').forEach((f) => f.addEventListener('input', render))
+    rows.appendChild(el)
+    render()
+  }
+
+  function scope() {
+    return [...rows.querySelectorAll('.roomrow')].map((r) => ({
+      room: r.querySelector('select').value,
+      sqft: Number(r.querySelector('input').value || 0),
+    }))
+  }
+
+  function render() {
+    const s = scope()
+    const total = s.reduce((a, b) => a + b.sqft, 0)
+    const mat = document.getElementById('mat-pick')?.value
+    document.getElementById('sum-title').textContent = s.length
+      ? `${s.length} ${s.length === 1 ? 'room' : 'rooms'} · about ${total.toLocaleString()} sq ft`
+      : 'Nothing added yet'
+    const html =
+      s.map((x) => `<div><dt>${x.room}</dt><dd style="margin:0">${x.sqft.toLocaleString()} sq ft</dd></div>`).join('') +
+      (mat ? `<div><dt>Material</dt><dd style="margin:0">${mat}</dd></div>` : '')
+    document.getElementById('sum').innerHTML = html
+    document.getElementById('sum2').innerHTML = html
+  }
+
+  document.getElementById('add-room').addEventListener('click', () => addRow('Bedroom', '160'))
+  addRow('Living room', '320')
+  addRow('Hallway', '90')
+
+  const f = document.getElementById('ef')
+  const done = document.getElementById('ed')
+  f.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(f)) { f.querySelector('[aria-invalid="true"]')?.focus(); return }
+    render()
+    f.hidden = true; done.hidden = false; done.focus()
+  })
+  document.getElementById('ea').addEventListener('click', () => { f.reset(); f.hidden = false; done.hidden = true })
+</script>

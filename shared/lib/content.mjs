@@ -56,14 +56,20 @@ export function withBase(base, p) {
   return `${b}${s}`
 }
 
-/** srcset + fallback for an asset produced by build-assets.mjs. */
-export function img(base, name, widths) {
-  const w = widths || [1200, 800, 480]
+/**
+ * srcset + fallback for an asset produced by build-assets.mjs.
+ * Every asset is generated at the same widths, so there is no per-call size to get wrong.
+ */
+export const ASSET_WIDTHS = [1920, 1200, 800, 480]
+export const ASSET_JPG = 1200
+
+export function img(base, name) {
+  const fallback = withBase(base, `/assets/${name}-${ASSET_JPG}.jpg`)
   return {
-    src: withBase(base, `/assets/${name}-${w[1]}.jpg`),
-    webp: w.map((x) => `${withBase(base, `/assets/${name}-${x}.webp`)} ${x}w`).join(', '),
-    fallback: withBase(base, `/assets/${name}-${w[1]}.jpg`),
-    widths: w,
+    src: fallback,
+    fallback,
+    webp: ASSET_WIDTHS.map((x) => `${withBase(base, `/assets/${name}-${x}.webp`)} ${x}w`).join(', '),
+    widths: ASSET_WIDTHS,
   }
 }
 

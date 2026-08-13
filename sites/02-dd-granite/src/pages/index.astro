@@ -1,4 +1,263 @@
 ---
-const t = "D&D Granite"
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+import { SLABS, CATS } from '../data/slabs.mjs'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const heroImg = img(base, 'hero-kitchen')
+// exactly six: the big cell spans 3 of 6 columns across two rows, leaving six single cells
+const mosaic = ['slab-santa-cecilia', 'slab-statuario', 'slab-verde-scuro', 'slab-calacatta-gold', 'slab-steel-wave', 'slab-rosa-dune']
+
+const services = [
+  { t: 'Kitchen countertops', p: 'Full runs, islands and breakfast bars, templated off your cabinets rather than a drawing.' },
+  { t: 'Bathroom vanities', p: 'Vanity tops and undermount sinks, cut to the fixture you have already chosen.' },
+  { t: 'Slab selection', p: 'Come and look at the actual stone. Every reviewer who mentions the selection mentions it first.' },
+]
 ---
-<h1>{t}</h1>
+
+<Base
+  title="D&amp;D Granite — granite, quartz and solid surface countertops, North Houston"
+  description="Browse the surfaces D&amp;D Granite works in, then come and see the slabs. Open Saturdays. 12390 TX-249, Houston."
+>
+  <section class="hero">
+    <div class="wrap">
+      <div class="mosaic">
+        <div class="big">
+          <picture>
+            <source type="image/webp" srcset={heroImg.webp} sizes="(min-width:780px) 50vw, 100vw" />
+            <img src={heroImg.fallback} alt="A bright kitchen with speckled granite counters and a wood-topped island" fetchpriority="high" width="1280" height="720" />
+          </picture>
+        </div>
+        {mosaic.map((n, i) => {
+          const s = SLABS.find((x) => x.n === n)
+          const im = img(base, n)
+          return (
+            <div class={i > 3 ? 'hide-s' : ''}>
+              <img src={im.fallback} srcset={im.webp} alt={`${s.cat} surface — ${s.name}`} loading={i < 2 ? 'eager' : 'lazy'} width="480" height="480" />
+            </div>
+          )
+        })}
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="hero-card">
+        <p class="eyebrow">Granite · Quartz · Solid surface</p>
+        <h1 class="h1" style="margin-top:10px">Pick the slab with your own eyes.</h1>
+        <p class="lead" style="margin-top:14px">
+          Every review D&amp;D has mentions the same two things: how much stone there is to choose from, and how quickly
+          it went in. Browse the surfaces here, then come and stand in front of the real thing.
+        </p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+          <a class="btn" href="#wall">Browse the stone wall</a>
+          <a class="btn btn-o" href={biz.map_url} target="_blank" rel="noopener">Get directions</a>
+        </div>
+        <dl class="facts">
+          <div><dt>Google</dt><dd>{biz.rating.value} ★ · {biz.rating.count} reviews</dd></div>
+          <div><dt>Open Saturdays</dt><dd>9 AM – 4 PM</dd></div>
+          <div><dt>Ask for</dt><dd>{biz.owner_or_contact.value}</dd></div>
+          <div><dt>Where</dt><dd style="font-size:15px">12390 TX-249,<br />Houston TX 77086</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- STONE WALL -->
+  <section class="sect" id="wall">
+    <div class="wrap">
+      <div class="sect-head">
+        <p class="eyebrow">The stone wall</p>
+        <h2 class="h2" style="max-width:16ch">Fifteen surfaces. Filter to the ones you'd actually live with.</h2>
+        <p class="lead">Tap any surface to see it larger and read what it's like to own. Add it to a quote and it travels with your enquiry.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter by material">
+        {CATS.map((c, i) => (
+          <button class="filt" type="button" data-cat={c} aria-pressed={i === 0 ? 'true' : 'false'}>{c}</button>
+        ))}
+      </div>
+
+      <div class="wall" id="wall-grid">
+        {SLABS.map((s) => {
+          const im = img(base, s.n)
+          return (
+            <button class="slab" type="button" data-slab={s.n} data-cat={s.cat} data-name={s.name} data-note={s.note} aria-label={`View ${s.name}, ${s.cat}`}>
+              <img src={im.fallback} alt={`${s.cat} surface — ${s.name}`} loading="lazy" width="480" height="480" />
+              <figcaption><b>{s.name}</b><small>{s.cat}</small></figcaption>
+            </button>
+          )
+        })}
+      </div>
+      <p class="small" style="margin-top:18px">
+        These are the surface types D&amp;D works in, not a live inventory list. Call {biz.phone.value} to ask what is on
+        the floor this week.
+      </p>
+    </div>
+  </section>
+
+  <!-- SHOWROOM -->
+  <section class="sect" id="showroom">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Come and see it</p>
+        <h2 class="h2" style="margin-top:10px;max-width:14ch">A photograph will not tell you what the stone does in your light.</h2>
+        <p class="lead" style="margin-top:14px">
+          Granite is quarried, so no two slabs match. That is exactly why the reviews keep mentioning the selection —
+          you get to pick the piece, not the category.
+        </p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+          <a class="btn" href={biz.map_url} target="_blank" rel="noopener">Directions</a>
+          <a class="btn btn-o" href={`tel:+1${biz.phone.value.replace(/\D/g, '')}`}>Call {biz.phone.value}</a>
+        </div>
+      </div>
+      <div class="cards" style="grid-template-columns:1fr">
+        {services.map((s) => (<div class="card"><h3 class="h3">{s.t}</h3><p>{s.p}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect">
+    <div class="wrap">
+      <div class="rev">
+        <p class="eyebrow">{biz.rating.value} on Google · {biz.rating.count} reviews</p>
+        <div style="display:grid;gap:26px;margin-top:18px">
+          {biz.reviews.map((r) => (
+            <blockquote>“{r.excerpt}”<cite>Google review</cite></blockquote>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="sect" id="quote">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Free quote</p>
+        <h2 class="h2" style="margin-top:10px;max-width:14ch">Send the surface you like and your rough measurements.</h2>
+        <p class="lead" style="margin-top:14px">
+          If you added a slab from the wall it is attached below. If you have not picked one yet, that is fine — say what
+          the room is and D&amp;D will come back with options.
+        </p>
+      </div>
+
+      <div>
+        <form id="qf" novalidate>
+          <div class="picked" id="picked" hidden>
+            <img id="picked-img" src="" alt="" />
+            <div><b id="picked-name" style="font-family:var(--font-display)"></b><br /><small class="small" id="picked-cat"></small></div>
+            <button type="button" class="btn btn-o btn-sm" id="picked-clear" style="margin-left:auto">Remove</button>
+          </div>
+          <div class="f">
+            <label for="q-room">What are we quoting?</label>
+            <select id="q-room"><option>Kitchen countertops</option><option>Kitchen island only</option><option>Bathroom vanity</option><option>Whole house</option></select>
+          </div>
+          <div class="f">
+            <label for="q-name">Your name</label>
+            <input id="q-name" type="text" autocomplete="name" data-required />
+            <p class="err" data-error-for="q-name" hidden>Please add your name.</p>
+          </div>
+          <div class="f">
+            <label for="q-phone">Phone</label>
+            <input id="q-phone" type="tel" autocomplete="tel" data-required />
+            <p class="err" data-error-for="q-phone" hidden>Please add a contact number.</p>
+          </div>
+          <div class="f">
+            <label for="q-notes">Measurements or notes (optional)</label>
+            <textarea id="q-notes" rows="3" placeholder="Roughly 24 feet of counter plus an island…"></textarea>
+          </div>
+          <button class="btn" type="submit" style="width:100%;justify-content:center">Send my quote request</button>
+          <p class="small" style="margin-top:10px">Demonstration form — nothing is sent or stored.</p>
+        </form>
+
+        <div class="done" id="qd" hidden tabindex="-1">
+          <h3 class="h2" style="font-size:clamp(22px,2.6vw,30px)">That's everything they need.</h3>
+          <p class="small" style="margin-top:10px">On the live site this reaches the shop straight away. Here it just shows you the summary.</p>
+          <dl style="margin-top:18px;display:grid;gap:0">
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid color-mix(in srgb,#1c2321 12%,transparent)"><dt class="small">Surface</dt><dd id="d-slab" style="margin:0;font-weight:600">Not selected</dd></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid color-mix(in srgb,#1c2321 12%,transparent)"><dt class="small">Project</dt><dd id="d-room" style="margin:0;font-weight:600">—</dd></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:10px 0"><dt class="small">Contact</dt><dd id="d-contact" style="margin:0;font-weight:600">—</dd></div>
+          </dl>
+          <button class="btn btn-o" type="button" id="qa" style="margin-top:20px">Start over</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lb-name">
+    <div class="lb-in">
+      <img id="lb-img" src="" alt="" />
+      <div class="lb-copy">
+        <p class="eyebrow" id="lb-cat"></p>
+        <h3 class="h2" style="font-size:clamp(24px,3vw,36px)" id="lb-name"></h3>
+        <p class="small" id="lb-note"></p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <button class="btn" type="button" id="lb-add">Add to my quote</button>
+          <button class="btn btn-o" type="button" id="lb-close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { dialog, validate } from '@nhd/shared/ui'
+
+  /* filters */
+  document.querySelectorAll('.filt').forEach((b) =>
+    b.addEventListener('click', () => {
+      const cat = b.dataset.cat
+      document.querySelectorAll('.filt').forEach((x) => x.setAttribute('aria-pressed', String(x === b)))
+      document.querySelectorAll('.slab').forEach((s) => { s.hidden = cat !== 'All' && s.dataset.cat !== cat })
+    })
+  )
+
+  /* lightbox */
+  const lb = document.getElementById('lb')
+  const d = dialog(lb)
+  let active = null
+  document.querySelectorAll('.slab').forEach((s) =>
+    s.addEventListener('click', () => {
+      active = s
+      document.getElementById('lb-img').src = s.querySelector('img').currentSrc || s.querySelector('img').src
+      document.getElementById('lb-img').alt = s.querySelector('img').alt
+      document.getElementById('lb-name').textContent = s.dataset.name
+      document.getElementById('lb-cat').textContent = s.dataset.cat
+      document.getElementById('lb-note').textContent = s.dataset.note
+      d.open()
+    })
+  )
+  document.getElementById('lb-close').addEventListener('click', d.close)
+  lb.addEventListener('click', (e) => { if (e.target === lb) d.close() })
+
+  /* add to quote */
+  const picked = document.getElementById('picked')
+  let pickedSlab = null
+  document.getElementById('lb-add').addEventListener('click', () => {
+    pickedSlab = { name: active.dataset.name, cat: active.dataset.cat, src: document.getElementById('lb-img').src, alt: active.querySelector('img').alt }
+    document.getElementById('picked-img').src = pickedSlab.src
+    document.getElementById('picked-img').alt = pickedSlab.alt
+    document.getElementById('picked-name').textContent = pickedSlab.name
+    document.getElementById('picked-cat').textContent = pickedSlab.cat
+    picked.hidden = false
+    d.close()
+    document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+  document.getElementById('picked-clear').addEventListener('click', () => { pickedSlab = null; picked.hidden = true })
+
+  /* mock quote (never transmits) */
+  const f = document.getElementById('qf')
+  const done = document.getElementById('qd')
+  f.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(f)) { f.querySelector('[aria-invalid="true"]')?.focus(); return }
+    document.getElementById('d-slab').textContent = pickedSlab ? `${pickedSlab.name} · ${pickedSlab.cat}` : 'Not selected'
+    document.getElementById('d-room').textContent = document.getElementById('q-room').value
+    document.getElementById('d-contact').textContent = `${document.getElementById('q-name').value} · ${document.getElementById('q-phone').value}`
+    f.hidden = true; done.hidden = false; done.focus()
+  })
+  document.getElementById('qa').addEventListener('click', () => { f.reset(); f.hidden = false; done.hidden = true })
+</script>

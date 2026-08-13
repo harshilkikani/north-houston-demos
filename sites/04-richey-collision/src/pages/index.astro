@@ -1,4 +1,313 @@
 ---
-const t = "Richey Collision"
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const hero = img(base, 'hero-paint')
+const refl = img(base, 'paint-reflection')
+const handle = img(base, 'paint-handle')
+const scoop = img(base, 'paint-scoop')
+
+const claim = [
+  { n: '01', t: 'Bring it in', p: 'Drive it over or have it towed to Veterans Memorial. You do not need the insurer’s permission to choose where the work is done — that choice is yours in Texas.' },
+  { n: '02', t: 'We write it up', p: 'Damage is documented properly, including what is under the panel. Under-writing an estimate is how repairs turn into arguments halfway through.' },
+  { n: '03', t: 'We argue if it needs arguing', p: 'One reviewer describes the insurer being pushed to replace a rear bumper cover instead of repairing it. That conversation happens here, not at your kitchen table.' },
+]
 ---
-<h1>{t}</h1>
+
+<Base
+  title="Richey Collision — custom paint and collision repair, Veterans Memorial, Houston"
+  description="Collision repair, custom paint and colour matching in North Houston, including tri-coat finishes and Corvette work. 4.7 on Google from 99 reviews."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <picture>
+        <source type="image/webp" srcset={hero.webp} sizes="100vw" />
+        <img src={hero.fallback} alt="Extreme close view of a deep red car body panel, light curving across the clear coat" fetchpriority="high" width="1920" height="1080" />
+      </picture>
+      <span class="sweep" aria-hidden="true"></span>
+    </div>
+    <div class="hero-in wrap">
+      <p class="tag">Veterans Memorial Drive · Houston</p>
+      <h1 class="h1" style="margin-top:16px">Two shops<br />couldn't match it.<br /><em>He did.</em></h1>
+      <p class="lead hero-sub">
+        Custom paint and body work, including the tri-coat reds that dedicated body shops turn away. If your Corvette
+        people already told you where to go, this is usually the address.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px">
+        <a class="btn" href="#estimate">Request an estimate</a>
+        <a class="btn btn-o" href="#colour">The colour problem</a>
+      </div>
+      <dl class="badges">
+        <div><dt>Google</dt><dd>{biz.rating.value} ★ · {biz.rating.count} reviews</dd></div>
+        <div><dt>Speciality</dt><dd>Tri-coat &amp; custom paint</dd></div>
+        <div><dt>Known for</dt><dd>Corvette work</dd></div>
+        <div><dt>Open</dt><dd>Mon–Fri · 8–6</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- COLOUR -->
+  <section class="sect" id="colour">
+    <div class="wrap split wide">
+      <div>
+        <p class="tag">01 — Colour</p>
+        <h2 class="h2" style="margin:14px 0 18px;max-width:15ch">A red is never just a red.</h2>
+        <p class="lead">
+          A tri-coat finish is three separate layers: a ground coat, a translucent mid-coat, and clear over the top. The
+          colour you see is the light bouncing back through all three. Change the mid-coat by a fraction and the panel
+          reads as a different car in daylight.
+        </p>
+        <p class="lead" style="margin-top:14px">
+          That is why blending matters more than mixing, and why a customer wrote that two other dedicated body shops
+          could not match his red before he came here.
+        </p>
+        <a class="btn btn-o" href={`${base}/paint`} style="margin-top:24px">How the colour work is done</a>
+      </div>
+      <figure class="shot" style="margin:0">
+        <picture>
+          <source type="image/webp" srcset={refl.webp} sizes="(min-width:940px) 42vw, 100vw" />
+          <img src={refl.fallback} alt="A dark glossy car surface carrying long red and amber reflections" loading="lazy" width="1200" height="675" />
+        </picture>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CORVETTE -->
+  <section class="sect">
+    <div class="wrap">
+      <div class="split wide" style="align-items:end">
+        <div>
+          <p class="tag">02 — Reputation</p>
+          <h2 class="h2" style="margin:14px 0 18px;max-width:16ch">The Corvette crowd sends each other here.</h2>
+          <p class="lead">
+            Performance cars are unforgiving to paint. The panels are large, the curves are continuous, and there is
+            nowhere for a bad blend to hide. Word inside an owners' community travels faster than any advertising, and
+            more than one review here starts with a version of the same sentence.
+          </p>
+          <blockquote style="margin:26px 0 0;font-family:var(--font-display);font-weight:500;text-transform:uppercase;font-size:clamp(20px,2.4vw,30px);line-height:1.15;color:var(--color-bone);border-left:3px solid var(--color-red);padding-left:20px">
+            “All my Corvette buddies in Houston recommended me to Richey Collision.”
+          </blockquote>
+        </div>
+        <div style="display:grid;gap:14px;grid-template-columns:1fr 1fr">
+          <figure class="shot tall" style="margin:0">
+            <picture>
+              <source type="image/webp" srcset={handle.webp} sizes="21vw" />
+              <img src={handle.fallback} alt="Close view of a red door handle and the panel gap around it" loading="lazy" width="1200" height="1600" />
+            </picture>
+          </figure>
+          <figure class="shot tall" style="margin:0;margin-top:32px">
+            <picture>
+              <source type="image/webp" srcset={scoop.webp} sizes="21vw" />
+              <img src={scoop.fallback} alt="A red hood scoop photographed close, reflecting the sky" loading="lazy" width="1200" height="1600" />
+            </picture>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSURANCE -->
+  <section class="sect" id="insurance">
+    <div class="wrap">
+      <p class="tag">03 — Claims</p>
+      <h2 class="h2" style="margin:14px 0 18px;max-width:18ch">Your insurer has a preferred shop. You are not obliged to use it.</h2>
+      <p class="lead" style="margin-bottom:clamp(28px,3.4vw,44px)">
+        Most people do not know that. It is the single most useful thing a body shop can tell you, and it is the reason
+        this section exists at all.
+      </p>
+      <div class="tiles">
+        {claim.map((c) => (<div class="tile"><b>{c.n}</b><h3 class="h3">{c.t}</h3><p>{c.p}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTIMATE -->
+  <section class="sect" id="estimate">
+    <div class="wrap">
+      <p class="tag">04 — Estimate</p>
+      <h2 class="h2" style="margin:14px 0 18px;max-width:16ch">Show us the damage from where you're standing.</h2>
+      <p class="lead" style="margin-bottom:clamp(26px,3vw,40px)">Three steps. Tap the panels that took the hit.</p>
+
+      <div class="est">
+        <div class="diagram">
+          <p class="tag tag-d" style="margin-bottom:14px">Tap the damaged panels</p>
+          <svg viewBox="0 0 300 560" role="group" aria-label="Vehicle panel diagram">
+            <rect x="34" y="14" width="232" height="532" rx="58" fill="none" stroke="#e8e6e3" stroke-opacity=".18" stroke-width="1.5" />
+            <rect class="panel" data-p="Front bumper" role="button" tabindex="0" aria-pressed="false" aria-label="Front bumper" x="62" y="24" width="176" height="46" rx="20" />
+            <rect class="panel" data-p="Hood" role="button" tabindex="0" aria-pressed="false" aria-label="Hood" x="62" y="78" width="176" height="94" rx="10" />
+            <rect class="panel" data-p="Left front" role="button" tabindex="0" aria-pressed="false" aria-label="Left front fender and door" x="40" y="78" width="16" height="188" rx="8" />
+            <rect class="panel" data-p="Right front" role="button" tabindex="0" aria-pressed="false" aria-label="Right front fender and door" x="244" y="78" width="16" height="188" rx="8" />
+            <rect class="panel" data-p="Roof" role="button" tabindex="0" aria-pressed="false" aria-label="Roof" x="72" y="222" width="156" height="132" rx="10" />
+            <rect class="panel" data-p="Left rear" role="button" tabindex="0" aria-pressed="false" aria-label="Left rear door and quarter panel" x="40" y="274" width="16" height="188" rx="8" />
+            <rect class="panel" data-p="Right rear" role="button" tabindex="0" aria-pressed="false" aria-label="Right rear door and quarter panel" x="244" y="274" width="16" height="188" rx="8" />
+            <rect class="panel" data-p="Trunk" role="button" tabindex="0" aria-pressed="false" aria-label="Trunk lid" x="62" y="362" width="176" height="88" rx="10" />
+            <rect class="panel" data-p="Rear bumper" role="button" tabindex="0" aria-pressed="false" aria-label="Rear bumper" x="62" y="458" width="176" height="46" rx="20" />
+            <path d="M84 178 h132 l-14 34 h-104 z" fill="#0a0a0b" stroke="#e8e6e3" stroke-opacity=".16" stroke-width="1.2" />
+            <path d="M98 360 h104 l14 34 h-132 z" fill="#0a0a0b" stroke="#e8e6e3" stroke-opacity=".16" stroke-width="1.2" />
+            <text x="150" y="546" text-anchor="middle" fill="#8d8f94" font-family="Oswald, sans-serif" font-size="11" letter-spacing="4">REAR</text>
+          </svg>
+          <p class="small" id="sel-out" style="margin-top:14px;text-align:center">No panels selected</p>
+        </div>
+
+        <div>
+          <div class="steps-bar" aria-hidden="true">
+            <span data-s="0" data-on="true">1 Vehicle</span><span data-s="1">2 Damage</span><span data-s="2">3 Contact</span>
+          </div>
+
+          <form id="ef" novalidate>
+            <div data-step>
+              <div class="grid2">
+                <div class="f"><label for="v-year">Year</label><input id="v-year" type="text" inputmode="numeric" placeholder="2019" data-step-focus /></div>
+                <div class="f"><label for="v-make">Make</label><input id="v-make" type="text" placeholder="Chevrolet" data-required /><p class="err" data-error-for="v-make" hidden>Please add the make.</p></div>
+                <div class="f"><label for="v-model">Model</label><input id="v-model" type="text" placeholder="Corvette" data-required /><p class="err" data-error-for="v-model" hidden>Please add the model.</p></div>
+                <div class="f"><label for="v-colour">Colour / paint code if you know it</label><input id="v-colour" type="text" placeholder="Torch Red / WA9260" /></div>
+              </div>
+              <button class="btn" type="button" data-next style="margin-top:8px">Next — damage</button>
+            </div>
+
+            <div data-step hidden>
+              <div class="f">
+                <label>How bad is it?</label>
+                <div class="chips" role="group" aria-label="Severity">
+                  {['Scuffed', 'Dented', 'Panel damage', 'Structural'].map((c, i) => (<button class="chip" type="button" data-g="sev" aria-pressed={i === 1 ? 'true' : 'false'}>{c}</button>))}
+                </div>
+              </div>
+              <div class="f">
+                <label>Is it going through insurance?</label>
+                <div class="chips" role="group" aria-label="Insurance">
+                  {['Yes', 'No — paying myself', 'Not sure yet'].map((c, i) => (<button class="chip" type="button" data-g="ins" aria-pressed={i === 0 ? 'true' : 'false'}>{c}</button>))}
+                </div>
+              </div>
+              <div class="drop">
+                <p class="small" style="margin:0">Add photos of the damage</p>
+                <input type="file" id="photos" multiple accept="image/*" />
+                <p class="small" id="photo-note" style="margin:10px 0 0">Files stay on your device — this demo never uploads anything.</p>
+              </div>
+              <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+                <button class="btn btn-o" type="button" data-back>Back</button>
+                <button class="btn" type="button" data-next>Next — contact</button>
+              </div>
+            </div>
+
+            <div data-step hidden>
+              <div class="grid2">
+                <div class="f"><label for="c-name">Your name</label><input id="c-name" type="text" autocomplete="name" data-required data-step-focus /><p class="err" data-error-for="c-name" hidden>Please add your name.</p></div>
+                <div class="f"><label for="c-phone">Phone</label><input id="c-phone" type="tel" autocomplete="tel" data-required /><p class="err" data-error-for="c-phone" hidden>Please add a number.</p></div>
+              </div>
+              <div class="f"><label for="c-notes">Anything else</label><textarea id="c-notes" rows="3" placeholder="Rear ended in a car park, the bumper cover is cracked…"></textarea></div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap">
+                <button class="btn btn-o" type="button" data-back>Back</button>
+                <button class="btn" type="submit">Send the request</button>
+              </div>
+              <p class="small" style="margin-top:12px">Demonstration form — nothing is transmitted or stored.</p>
+            </div>
+          </form>
+
+          <div class="receipt" id="done" hidden tabindex="-1">
+            <p class="tag">Request logged</p>
+            <p class="ref" id="ref" style="margin:8px 0 16px">—</p>
+            <p class="small" style="margin:0">On the live site this reaches the front desk with your photos attached. Here it just shows you what would have been sent.</p>
+            <dl style="margin-top:20px">
+              <div><dt>Vehicle</dt><dd id="d-veh" style="margin:0">—</dd></div>
+              <div><dt>Damage</dt><dd id="d-dmg" style="margin:0">—</dd></div>
+              <div><dt>Severity</dt><dd id="d-sev" style="margin:0">—</dd></div>
+              <div><dt>Insurance</dt><dd id="d-ins" style="margin:0">—</dd></div>
+              <div><dt>Photos</dt><dd id="d-pho" style="margin:0">—</dd></div>
+              <div><dt>Contact</dt><dd id="d-con" style="margin:0">—</dd></div>
+            </dl>
+            <button class="btn btn-o" type="button" id="again" style="margin-top:22px">Start over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect" id="reviews">
+    <div class="wrap">
+      <p class="tag">05 — {biz.rating.value} on Google from {biz.rating.count} reviews</p>
+      <h2 class="h2" style="margin:14px 0 clamp(28px,3.4vw,44px);max-width:18ch">People do not write paragraphs about a body shop unless something happened.</h2>
+      <div class="rq">
+        {biz.reviews.map((r) => (<div><blockquote>{r.excerpt}</blockquote><cite>Google review</cite></div>))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { steps, validate } from '@nhd/shared/ui'
+
+  /* panel picker */
+  const chosen = new Set()
+  const out = document.getElementById('sel-out')
+  function refresh() {
+    out.textContent = chosen.size ? [...chosen].join(' · ') : 'No panels selected'
+  }
+  document.querySelectorAll('.panel').forEach((p) => {
+    const toggle = () => {
+      const on = p.getAttribute('aria-pressed') === 'true'
+      p.setAttribute('aria-pressed', String(!on))
+      on ? chosen.delete(p.dataset.p) : chosen.add(p.dataset.p)
+      refresh()
+    }
+    p.addEventListener('click', toggle)
+    p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle() } })
+  })
+
+  /* chips */
+  const pick = (g) => document.querySelector(`[data-g="${g}"][aria-pressed="true"]`)?.textContent.trim() || '—'
+  document.querySelectorAll('.chip').forEach((c) =>
+    c.addEventListener('click', () => {
+      document.querySelectorAll(`[data-g="${c.dataset.g}"]`).forEach((x) => x.setAttribute('aria-pressed', 'false'))
+      c.setAttribute('aria-pressed', 'true')
+    })
+  )
+
+  /* photos stay local */
+  const photos = document.getElementById('photos')
+  photos.addEventListener('change', () => {
+    const n = photos.files.length
+    document.getElementById('photo-note').textContent = n
+      ? `${n} ${n === 1 ? 'photo' : 'photos'} attached — they stay on your device, nothing is uploaded.`
+      : 'Files stay on your device — this demo never uploads anything.'
+  })
+
+  /* steps */
+  const form = document.getElementById('ef')
+  const bar = document.querySelectorAll('.steps-bar span')
+  const flow = steps(form, { onRender: (i) => bar.forEach((s, n) => s.setAttribute('data-on', String(n <= i))) })
+  flow.render()
+  form.querySelectorAll('[data-next]').forEach((b) =>
+    b.addEventListener('click', () => {
+      const panel = b.closest('[data-step]')
+      const fields = [...panel.querySelectorAll('[data-required]')]
+      const bad = fields.find((f) => !String(f.value).trim())
+      if (bad) { validate(form); bad.focus(); return }
+      flow.next()
+    })
+  )
+  form.querySelectorAll('[data-back]').forEach((b) => b.addEventListener('click', () => flow.back()))
+
+  const done = document.getElementById('done')
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(form)) { form.querySelector('[aria-invalid="true"]')?.focus(); return }
+    const v = (id) => document.getElementById(id).value.trim()
+    document.getElementById('d-veh').textContent = [v('v-year'), v('v-make'), v('v-model'), v('v-colour')].filter(Boolean).join(' ') || '—'
+    document.getElementById('d-dmg').textContent = chosen.size ? [...chosen].join(', ') : 'Not marked on the diagram'
+    document.getElementById('d-sev').textContent = pick('sev')
+    document.getElementById('d-ins').textContent = pick('ins')
+    document.getElementById('d-pho').textContent = photos.files.length ? `${photos.files.length} attached` : 'None'
+    document.getElementById('d-con').textContent = `${v('c-name')} · ${v('c-phone')}`
+    document.getElementById('ref').textContent = 'RC-' + String(Date.now()).slice(-6)
+    form.hidden = true; done.hidden = false; done.focus()
+  })
+  document.getElementById('again').addEventListener('click', () => {
+    form.reset(); form.hidden = false; done.hidden = true
+    chosen.clear(); document.querySelectorAll('.panel').forEach((p) => p.setAttribute('aria-pressed', 'false')); refresh()
+    flow.go(0)
+  })
+</script>

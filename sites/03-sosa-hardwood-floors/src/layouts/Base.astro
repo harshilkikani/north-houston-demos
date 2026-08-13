@@ -1,0 +1,109 @@
+---
+import '../styles/site.css'
+import biz from '../../content/business.json'
+import { hourRows, telHref } from '@nhd/shared/content'
+
+const { title, description } = Astro.props
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const tel = telHref(biz.phone.value)
+const rows = hourRows(biz.hours.value)
+const left = [{ href: `${base}/#work`, label: 'The work' }, { href: `${base}/floors`, label: 'Floors' }]
+const right = [{ href: `${base}/#estimate`, label: 'Free estimate' }, { href: `${base}/#reviews`, label: 'Reviews' }]
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${base}/assets/og.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#faf6ef" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="stylesheet" href={`${base}/fonts/fonts.css`} />
+  </head>
+  <body>
+    <a href="#main" style="position:absolute;left:-9999px;background:#2b2118;color:#faf6ef;padding:12px 18px;z-index:99" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+    <header class="nav">
+      <div class="nav-in">
+        <nav class="nav-side" aria-label="Primary left">{left.map((n) => <a href={n.href}>{n.label}</a>)}</nav>
+        <a class="word" href={`${base}/`}>Sosa<small>Hardwood Floors</small></a>
+        <nav class="nav-side r" aria-label="Primary right">
+          {right.map((n) => <a href={n.href}>{n.label}</a>)}
+          <a class="btn btn-sm" href={tel}>{biz.phone.value}</a>
+        </nav>
+        <div style="display:flex;gap:8px;align-items:center" class="mob-only">
+          <a class="btn btn-sm" href={tel} aria-label={`Call ${biz.phone.value}`}>Call</a>
+          <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sheet"><i></i></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menu">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="kicker">Menu</span>
+        <button class="x" id="sheet-close" type="button" aria-label="Close menu">✕</button>
+      </div>
+      <nav aria-label="Mobile">{[...left, ...right].map((n) => <a href={n.href}>{n.label}</a>)}</nav>
+      <a class="btn" href={tel} style="justify-content:center">Call {biz.phone.value}</a>
+    </div>
+
+    <main id="main"><slot /></main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <p class="kicker">{biz.display_name}</p>
+            <p class="h2" style="margin-top:10px;max-width:13ch">Free estimates, six days a week.</p>
+            <p class="small" style="margin-top:14px;max-width:44ch">
+              {biz.owner_or_contact.value} installs across {biz.service_area.value}. Estimates happen at your house, in
+              your light, on your subfloor — call and pick a time.
+            </p>
+            <p style="display:grid;gap:8px;margin-top:18px;font-size:15.5px">
+              <a href={tel} style="justify-self:start">{biz.phone.value}</a>
+              <a href={biz.map_url} target="_blank" rel="noopener" style="justify-self:start">Find on Google Maps</a>
+              <a href={biz.socials.facebook.value} target="_blank" rel="noopener" style="justify-self:start">Facebook</a>
+            </p>
+          </div>
+          <div>
+            <p class="kicker">Hours</p>
+            <dl class="hrs" style="margin-top:12px">
+              {rows.map((r) => (<div class={r.closed ? 'off' : ''}><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>))}
+            </dl>
+          </div>
+          <div>
+            <p class="kicker">On Google</p>
+            <p style="font-family:var(--font-display);font-weight:600;font-size:56px;margin:8px 0 0;line-height:1">{biz.rating.value}</p>
+            <p class="small" style="margin:0">from {biz.rating.count} reviews</p>
+            <p class="small" style="margin-top:14px;max-width:26ch">The strongest flooring reputation on Cypresswood — and, until now, no website at all.</p>
+          </div>
+        </div>
+        <div class="fine">
+          <p style="margin:0">Speculative redesign concept for {biz.display_name}. Not the company's official website, not published and not indexed. The estimate builder is a demonstration and transmits nothing.</p>
+          <p style="margin:0">Room and material photography is licensed stock.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import { dialog } from '@nhd/shared/ui'
+      const sheet = document.getElementById('sheet')
+      const burger = document.getElementById('burger')
+      const d = dialog(sheet, { onClose: () => burger.setAttribute('aria-expanded', 'false') })
+      burger.addEventListener('click', () => { d.open(); burger.setAttribute('aria-expanded', 'true') })
+      document.getElementById('sheet-close').addEventListener('click', d.close)
+      sheet.querySelectorAll('a').forEach((a) => a.addEventListener('click', d.close))
+    </script>
+    <style is:global>
+      @media (min-width: 1020px) { .mob-only { display: none !important; } }
+      @media (max-width: 1019px) { .nav-in { justify-content: space-between; } .word { text-align: left; } }
+    </style>
+  </body>
+</html>

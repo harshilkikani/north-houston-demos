@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const carpet = img(base, 'compare-carpet-grey')
+
+const kinds = [
+  { t: 'Solid hardwood', img: 'species-white-oak', p: 'Real wood the whole way through, so it can be sanded and refinished several times over its life. Best above grade, in rooms where humidity stays steady. This is the floor you install once.' },
+  { t: 'Engineered wood', img: 'species-red-oak', p: 'A real wood wear layer over a stable core. It moves less than solid wood, which makes it the safer choice on concrete slabs — most of Houston, in other words.' },
+  { t: 'Luxury vinyl plank', img: 'species-weathered', p: 'Waterproof, quiet underfoot, and far more convincing than it used to be. The right answer for kitchens, laundries and houses with dogs or small children.' },
+]
+
+const stairs = [
+  'Stairs are the hardest part of any flooring job and the part most installers quote around.',
+  'Treads, risers and nosings all have to match a floor that was milled separately.',
+  'One reviewer describes a stair problem they had been struggling with being solved on site rather than deferred.',
+]
+---
+
+<Base
+  title="Floors — Sosa Hardwood Floors"
+  description="Solid hardwood, engineered wood and LVP compared, plus stairs and carpet removal, for Houston homes."
+>
+  <section class="sect">
+    <div class="wrap">
+      <p class="kicker">Floors</p>
+      <h1 class="h1" style="margin-top:12px;max-width:14ch">Three ways to floor a Houston house.</h1>
+      <p class="lead" style="margin-top:16px">
+        Most of Houston sits on a slab, and that single fact rules out more flooring than any budget does. Here is the
+        honest version of the trade-offs.
+      </p>
+    </div>
+  </section>
+
+  {kinds.map((k, i) => {
+    const im = img(base, k.img)
+    return (
+      <section class="sect" style="padding-top:0">
+        <div class="wrap">
+          <div class="hr" style="margin-bottom:clamp(32px,4vw,52px)"></div>
+          <div style="display:grid;gap:26px" class={`kind ${i % 2 ? 'flip' : ''}`}>
+            <picture>
+              <source type="image/webp" srcset={im.webp} sizes="(min-width:900px) 42vw, 100vw" />
+              <img src={im.fallback} alt={k.t} loading="lazy" width="1200" height="1600" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px" />
+            </picture>
+            <div style="display:flex;flex-direction:column;justify-content:center">
+              <p class="kicker">0{i + 1}</p>
+              <h2 class="h2" style="margin:10px 0 14px">{k.t}</h2>
+              <p class="lead" style="margin:0">{k.p}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  })}
+
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="hr" style="margin-bottom:clamp(32px,4vw,52px)"></div>
+      <div style="display:grid;gap:26px" class="kind">
+        <picture>
+          <source type="image/webp" srcset={carpet.webp} sizes="(min-width:900px) 42vw, 100vw" />
+          <img src={carpet.fallback} alt="Close view of flat grey carpet fibre" loading="lazy" width="1200" height="800" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px" />
+        </picture>
+        <div style="display:flex;flex-direction:column;justify-content:center">
+          <p class="kicker">And the carpet</p>
+          <h2 class="h2" style="margin:10px 0 14px">Removal, disposal and the furniture, included.</h2>
+          <p class="lead" style="margin:0">
+            Pulling carpet, tack strip and staples is filthy work, and plenty of quotes leave it off so the number looks
+            better. Reviewers here specifically mention that the old carpet goes and the furniture gets moved as part of
+            the job.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="hr" style="margin-bottom:clamp(32px,4vw,52px)"></div>
+      <p class="kicker">Stairs</p>
+      <h2 class="h2" style="margin:10px 0 20px;max-width:16ch">Ask about the stairs before you sign anything.</h2>
+      <ul style="list-style:none;padding:0;margin:0;display:grid;gap:14px;max-width:70ch">
+        {stairs.map((s, i) => (
+          <li style="display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start">
+            <span style="font-family:var(--font-display);font-weight:600;color:var(--color-brass);font-size:20px">0{i + 1}</span>
+            <span class="lead" style="margin:0">{s}</span>
+          </li>
+        ))}
+      </ul>
+      <a class="btn" href={`${base}/#estimate`} style="margin-top:28px">Build your scope sheet</a>
+      <p class="small" style="margin-top:20px">
+        Material and room photography on this page is licensed stock illustrating flooring types. It is not a record of
+        {' '}{biz.display_name}'s own installations.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  @media (min-width: 900px) {
+    .kind { grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
+    .kind.flip picture { order: 2; }
+  }
+</style>
