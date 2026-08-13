@@ -1,0 +1,532 @@
+{
+  "_meta": {
+    "captured": "2026-08-13",
+    "verification_tiers": {
+      "VERIFIED": "Observed on the business's own Google Business Profile, own website, or own social account.",
+      "REPORTED": "Appears only on a third-party aggregator/directory/scraper. Informs design. NEVER an on-page claim.",
+      "UNKNOWN": "Not found."
+    },
+    "rule": "Only VERIFIED facts may become on-page assertions. All map/directions links use the Google Business Profile CID URL (authoritative destination, no geocoding risk).",
+    "rating_note": "Ratings/counts are Google Business Profile figures captured 2026-08-13 and are displayed with explicit 'Google' attribution. Third-party aggregators (Birdeye) show higher counts because they pool sources; the conservative GBP figure is displayed."
+  },
+
+  "sites": [
+    {
+      "site_id": "01",
+      "slug": "countertops-of-texas",
+      "display_name": "Countertops of Texas",
+      "legal_name": { "value": "Countertops of Texas, LLC", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Countertop fabrication and installation (granite & quartz)",
+      "phone": { "value": "(832) 923-1991", "tel": "+18329231991", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "address": {
+        "value": "11902 Proctor St, Houston, TX 77086",
+        "status": "VERIFIED", "source": "google_business_profile",
+        "display_safe": true,
+        "display_mode": "SERVICE_AREA_ANCHOR",
+        "display_note": "No evidence of a public showroom; Proctor St appears in residential property indexes. Present as a service-area anchor. NEVER use 'visit our showroom' language."
+      },
+      "service_area": { "value": "North Houston and Harris County", "status": "VERIFIED", "source": "google_business_profile_service_area", "display_safe": true, "note": "Stated radius not published; use area language only, never a mileage figure." },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "6:00 AM – 6:00 PM", "tue": "6:00 AM – 6:00 PM", "wed": "6:00 AM – 6:00 PM", "thu": "6:00 AM – 6:00 PM", "fri": "6:00 AM – 6:00 PM", "sat": "6:00 AM – 6:00 PM", "sun": "9:00 AM – 5:00 PM" },
+        "highlight": "Open seven days a week, from 6 AM."
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=15419462754814470229", "status": "VERIFIED", "display_safe": true },
+      "website": { "value": "NONE", "status": "VERIFIED", "note": "Google Business Profile website field is empty." },
+      "socials": {
+        "facebook": { "value": "https://www.facebook.com/countertopsoftexas", "status": "VERIFIED", "display_safe": true, "tagline_observed": "I am the Fabricator, I am the Installer!!" },
+        "instagram": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false }
+      },
+      "rating": { "value": 5.0, "count": 8, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "owner_or_contact": { "value": "Victor", "role": "Owner / fabricator / installer", "status": "VERIFIED", "source": "google_reviews_multiple", "display_safe": true, "display_note": "First name only. No surname verified." },
+      "services": [
+        { "name": "Granite countertops", "status": "VERIFIED" },
+        { "name": "Quartz countertops", "status": "VERIFIED" },
+        { "name": "Kitchen countertops", "status": "VERIFIED" },
+        { "name": "Bathroom vanities & countertops", "status": "VERIFIED" },
+        { "name": "Tile work", "status": "VERIFIED" }
+      ],
+      "review_themes": [
+        "Exact matching of colour, pattern and edge profile to existing counters",
+        "Held the install date despite bad weather",
+        "Responsive, direct communication with the owner",
+        "Pricing better than competing quotes",
+        "Repeat and referral customers",
+        "Seam craft — solved an awkward sink angle in one piece instead of two"
+      ],
+      "reviews": [
+        { "excerpt": "We asked to match the color, pattern, and edge profile as our other countertops and it came out perfect!", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "The awkward angle near our sink was able to be installed in one piece instead of having 2 pieces with a seam.", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "en", "bilingual": false, "evidence": "No Spanish-language review or bilingual signal located. Translation not warranted per §20 evidence rule." },
+      "primary_cta": "Request a free measure & quote",
+      "wow_thesis": "Seeing his one-man fabrication craft presented like a premium stone studio, with the seam-and-edge precision his reviews praise made visible.",
+      "demo_moment": "Open the Edge Profile studio, tap through four profiles and watch the stone edge redraw live, then send a mock quote."
+    },
+
+    {
+      "site_id": "02",
+      "slug": "dd-granite",
+      "display_name": "D&D Granite",
+      "legal_name": { "value": "D&D Granite", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Countertop fabrication and installation (granite, quartz, marble, solid surface)",
+      "phone": { "value": "(346) 599-2367", "tel": "+13465992367", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "address": {
+        "value": "12390 TX-249, Houston, TX 77086",
+        "status": "VERIFIED", "source": "google_business_profile",
+        "display_safe": true,
+        "display_mode": "SHOWROOM",
+        "display_note": "Unit designation is contested — Google Business Profile shows Unit C1, Birdeye and Chamber of Commerce show Unit A1. Unit number is OMITTED from display; the CID map link resolves the exact suite."
+      },
+      "service_area": { "value": "North Houston and Harris County", "status": "REPORTED", "display_safe": false },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "9:00 AM – 5:00 PM", "tue": "9:00 AM – 5:00 PM", "wed": "9:00 AM – 5:00 PM", "thu": "9:00 AM – 5:00 PM", "fri": "9:00 AM – 5:00 PM", "sat": "9:00 AM – 4:00 PM", "sun": "Closed" },
+        "highlight": "Open Saturdays for weekend slab viewing."
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=16927571535995707567", "status": "VERIFIED", "display_safe": true },
+      "website": { "value": "NONE", "status": "VERIFIED" },
+      "socials": {
+        "facebook": { "value": "https://www.facebook.com/61583551970358", "status": "VERIFIED", "display_safe": true, "note": "Two pages exist ('D&D granite' 61583551970358 and 'D&D Granite and Marble' 61559365115214). The newer numeric page is linked; the duplicate is a sales talking point, not site content." },
+        "instagram": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false }
+      },
+      "rating": { "value": 5.0, "count": 7, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "owner_or_contact": { "value": "Diana", "role": "Customer contact", "status": "VERIFIED", "source": "google_review", "display_safe": true, "display_note": "First name only." },
+      "services": [
+        { "name": "Granite countertops", "status": "VERIFIED" },
+        { "name": "Quartz countertops", "status": "VERIFIED" },
+        { "name": "Solid surface countertops", "status": "VERIFIED" },
+        { "name": "Kitchen countertops", "status": "VERIFIED" },
+        { "name": "Bathroom vanities & sinks", "status": "VERIFIED" },
+        { "name": "Slab selection", "status": "VERIFIED" }
+      ],
+      "review_themes": [
+        "Variety and breadth of slab selection",
+        "Speed of installation",
+        "Quality of the finished work",
+        "Professionalism",
+        "Strong value"
+      ],
+      "reviews": [
+        { "excerpt": "We were happy about everything—the variety of slabs, the time they installed and the quality of their work.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "D & D Granite did a great job installing our master bath sinks and counter top.", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "en", "bilingual": false, "evidence": "One short Spanish-language review noted; insufficient for a full bilingual build. Spanish-language greeting used in copy where natural, no toggle." },
+      "primary_cta": "See the slabs in person",
+      "wow_thesis": "Seeing their slab inventory and finished installs presented as a browsable showroom experience instead of two half-built Facebook pages.",
+      "demo_moment": "Filter the stone wall by material (granite / quartz / marble / solid surface), open a slab into the full-bleed viewer, and add it to a quote request."
+    },
+
+    {
+      "site_id": "03",
+      "slug": "sosa-hardwood-floors",
+      "display_name": "Sosa Hardwood Floors",
+      "legal_name": { "value": "Sosa Hardwood Floors", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Flooring contractor — hardwood, engineered, LVP, stairs",
+      "phone": { "value": "(346) 244-3801", "tel": "+13462443801", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "address": {
+        "value": "9721 Cypresswood Dr, Houston, TX 77070",
+        "status": "VERIFIED", "source": "google_business_profile",
+        "display_safe": true,
+        "display_mode": "SERVICE_AREA_ANCHOR",
+        "display_note": "No suite number, contractor-only categorisation. Present as service-area anchor. No showroom language."
+      },
+      "service_area": { "value": "Houston and surrounding Harris County", "status": "VERIFIED", "source": "google_business_profile_service_area", "display_safe": true },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "8:00 AM – 8:00 PM", "tue": "8:00 AM – 8:00 PM", "wed": "8:00 AM – 8:00 PM", "thu": "8:00 AM – 8:00 PM", "fri": "8:00 AM – 8:00 PM", "sat": "8:00 AM – 8:00 PM", "sun": "Closed" },
+        "highlight": "Estimates six days a week, 8 AM to 8 PM — including after work."
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=13728330450343533774", "status": "VERIFIED", "display_safe": true },
+      "website": { "value": "NONE", "status": "VERIFIED" },
+      "socials": {
+        "facebook": { "value": "https://www.facebook.com/sosahardwoodfloors", "status": "VERIFIED", "display_safe": true, "note": "Exact-name vanity handle. A second page (sosa.hardwood.floors.2025) also exists." },
+        "instagram": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false }
+      },
+      "rating": { "value": 4.8, "count": 86, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "owner_or_contact": { "value": "Ismael Sosa", "role": "Owner / installer", "status": "VERIFIED", "source": "google_business_profile_photos_and_reviews", "display_safe": true },
+      "services": [
+        { "name": "Hardwood flooring installation", "status": "VERIFIED" },
+        { "name": "Engineered wood flooring", "status": "VERIFIED" },
+        { "name": "Luxury vinyl plank (LVP)", "status": "VERIFIED" },
+        { "name": "Stair installation & refinishing", "status": "VERIFIED" },
+        { "name": "Carpet removal & replacement", "status": "VERIFIED" },
+        { "name": "Whole-home flooring", "status": "VERIFIED" },
+        { "name": "Furniture moved as part of the job", "status": "VERIFIED" }
+      ],
+      "review_themes": [
+        "Fast and efficient",
+        "Neat and sharp workmanship",
+        "Moves furniture and removes old carpet as part of the job",
+        "Creative problem-solving on a difficult stair match (zebra wood)",
+        "Cost-effective compared with other quotes",
+        "Hassle-free, works with the customer's budget"
+      ],
+      "reviews": [
+        { "excerpt": "Ismael the installer works very fast, and efficient. His work is very neat and sharp.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "They went above and beyond by coming up with a solution for our stairs that we had really been struggling with.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "He removes all carpet and also moves furniture around. Hassle free professional installation!", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "en", "bilingual": false, "evidence": "No Spanish-language review evidence located. Not warranted per §20." },
+      "primary_cta": "Request a free in-home estimate",
+      "wow_thesis": "He has the strongest reputation in his trade for miles and literally nothing online — seeing 86 reviews at 4.8 and his finished floors turned into a portfolio that looks like a design firm's.",
+      "demo_moment": "Drag the carpet-to-hardwood before/after slider, then run the room-by-room estimate builder to a styled summary."
+    },
+
+    {
+      "site_id": "04",
+      "slug": "richey-collision",
+      "display_name": "Richey Collision",
+      "legal_name": { "value": "Richey Collision Inc", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Collision repair, custom paint and body work",
+      "phone": { "value": "(281) 893-6341", "tel": "+12818936341", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "address": { "value": "12221 Veterans Memorial Dr, Houston, TX 77067", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true, "display_mode": "SHOP" },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "8:00 AM – 6:00 PM", "tue": "8:00 AM – 6:00 PM", "wed": "8:00 AM – 6:00 PM", "thu": "8:00 AM – 6:00 PM", "fri": "8:00 AM – 6:00 PM", "sat": "Closed", "sun": "Closed" }
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=5353556403408169858", "status": "VERIFIED", "display_safe": true },
+      "website": {
+        "value": "NONE FUNCTIONING", "status": "VERIFIED",
+        "note": "richeycollision.com resolves to an empty page (independently re-confirmed 2026-08-13). richeycollisioninc.com is non-functional. Google website field is empty. This is the central sales fact — it is NOT site content."
+      },
+      "socials": {
+        "facebook": { "value": "https://www.facebook.com/RicheyCollision", "status": "VERIFIED", "display_safe": true, "descriptor_observed": "Custom Paint and Body work." },
+        "instagram": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false }
+      },
+      "rating": { "value": 4.7, "count": 99, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "secondary_rating": { "value": 4.5, "count": 14, "source": "yelp", "status": "VERIFIED", "display_safe": false, "note": "Not displayed — one rating source keeps the credibility block clean." },
+      "years_in_business": { "value": "25", "status": "REPORTED", "source": "nextdoor_business_page", "display_safe": false, "display_note": "MUST NOT APPEAR ON THE SITE. Not independently verified." },
+      "owner_or_contact": { "value": "Chris", "role": "Owner / painter", "status": "VERIFIED", "source": "google_reviews_multiple", "display_safe": true, "display_note": "First name only on site. 'Chris Watts' appears on a third-party licensee page — REPORTED, surname not displayed." },
+      "front_desk": { "value": "Marie", "status": "VERIFIED", "source": "google_review", "display_safe": true },
+      "services": [
+        { "name": "Collision repair", "status": "VERIFIED" },
+        { "name": "Custom paint", "status": "VERIFIED" },
+        { "name": "Paint matching, including tri-coat finishes", "status": "VERIFIED" },
+        { "name": "Insurance claim handling and advocacy", "status": "VERIFIED" },
+        { "name": "Aftermarket body component sourcing, paint and fitting", "status": "VERIFIED" },
+        { "name": "Corvette and performance-car work", "status": "VERIFIED" }
+      ],
+      "review_themes": [
+        "Paint matching on colours other shops could not match, including red tri-coat",
+        "Corvette expertise — recommended inside the Houston Corvette community",
+        "Advocates with the insurance company on the customer's behalf",
+        "Front-desk service quality",
+        "Attention to detail"
+      ],
+      "reviews": [
+        { "excerpt": "I have a very difficult color to match; it's a red tricoat, which two other (dedicated) body shops were unable to match. Chris was able to do so near-perfectly.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "All my Corvette buddies in Houston recommended me to Richey Collision.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "He actually helped me with the insurance company and got them to replace the rear bumper cover instead of trying to repair it.", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "en", "bilingual": false, "evidence": "No bilingual signal located." },
+      "primary_cta": "Request a repair estimate",
+      "wow_thesis": "\"Your domain doesn't load — did you know?\" Then showing him a site that finally matches the caliber of work his Corvette customers already talk about.",
+      "demo_moment": "Run the three-step estimate request — vehicle, damage area on an interactive car diagram, photo drop — to a styled confirmation with a claim reference."
+    },
+
+    {
+      "site_id": "05",
+      "slug": "la-tino-hair",
+      "display_name": "La-Tino Hair",
+      "legal_name": { "value": "La-Tino Hair", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Hair salon and barbershop — colour specialist",
+      "phone": { "value": "(281) 880-8700", "tel": "+12818808700", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "address": { "value": "13213 Veterans Memorial Dr, Houston, TX 77014", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true, "display_mode": "SALON" },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "9:30 AM – 7:00 PM", "tue": "9:30 AM – 7:00 PM", "wed": "Closed", "thu": "9:30 AM – 7:00 PM", "fri": "9:30 AM – 7:00 PM", "sat": "9:00 AM – 6:00 PM", "sun": "9:00 AM – 2:00 PM" },
+        "highlight": "Open Sundays. Closed Wednesdays."
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=8974631798531501121", "status": "VERIFIED", "display_safe": true },
+      "website": { "value": "NONE", "status": "VERIFIED" },
+      "socials": {
+        "facebook": { "value": "UNKNOWN — AMBIGUOUS", "status": "UNKNOWN", "display_safe": false, "note": "At least three candidate pages exist (61578477653079, latinohair1, 102101883214196). Linking the wrong one is a contamination failure, so no Facebook link ships. The fragmented presence is a sales talking point." },
+        "instagram": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false }
+      },
+      "rating": { "value": 4.7, "count": 163, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "owner_or_contact": { "value": "Ivonne", "role": "Owner / lead stylist", "status": "VERIFIED", "source": "google_business_profile_photos_and_reviews", "display_safe": true, "display_note": "First name only. 'Ivonne Garcia' is REPORTED; surname not displayed." },
+      "services": [
+        { "name": "Balayage", "status": "VERIFIED" },
+        { "name": "Colour and highlights", "status": "VERIFIED" },
+        { "name": "Women's cut and style", "status": "VERIFIED" },
+        { "name": "Butterfly haircut", "status": "VERIFIED" },
+        { "name": "Men's barbering", "status": "VERIFIED" },
+        { "name": "Family cuts — all ages", "status": "VERIFIED" }
+      ],
+      "review_themes": [
+        "Decade-plus client loyalty; customers drive an hour to keep the appointment",
+        "Balayage and colour matching the client's vision exactly",
+        "Genuine relationship, not transactional",
+        "Serves men, women, young and old",
+        "Consistently above expectations"
+      ],
+      "reviews": [
+        { "excerpt": "I've trusted her with my hair for many years… and I'd still drive an hour just to see her.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "The balayage turned out exactly as I envisioned.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "Have plenty of experience and always consistently providing above and beyond to young, old, male and female.", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "en", "secondary": "es", "bilingual": true, "evidence": "Spanish-language reviews present; Spanish-adjacent business name; heavily bilingual corridor. Warranted per §20." },
+      "primary_cta": "Book with Ivonne",
+      "wow_thesis": "She already markets on Facebook and has nowhere to send anyone — seeing 163 reviews and a decade of loyal clients turned into a bookable, bilingual salon site.",
+      "demo_moment": "Switch the whole page to Spanish, then run the four-step booking flow to the styled confirmation card."
+    },
+
+    {
+      "site_id": "06",
+      "slug": "cutmasters",
+      "display_name": "CutMasters",
+      "legal_name": { "value": "CutMasters", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Family hair salon and barbershop",
+      "phone": { "value": "(281) 444-1540", "tel": "+12814441540", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "address": { "value": "13180 Veterans Memorial Dr, Houston, TX 77014", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true, "display_mode": "SALON" },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "10:00 AM – 7:00 PM", "tue": "10:00 AM – 7:00 PM", "wed": "10:00 AM – 7:00 PM", "thu": "10:00 AM – 7:00 PM", "fri": "10:00 AM – 7:00 PM", "sat": "9:00 AM – 7:00 PM", "sun": "9:00 AM – 3:00 PM" },
+        "highlight": "Open seven days, including Sunday mornings."
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=4299897261007149891", "status": "VERIFIED", "display_safe": true },
+      "website": { "value": "NONE", "status": "VERIFIED" },
+      "socials": {
+        "instagram": { "value": "https://www.instagram.com/cutmastershair/", "status": "VERIFIED", "display_safe": true, "note": "Handle 'cutmastershair' matches the business exactly." },
+        "facebook": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false }
+      },
+      "rating": { "value": 4.4, "count": 123, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "owner_or_contact": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false, "display_note": "No owner named. Site is built around the named stylists instead." },
+      "staff": [
+        { "name": "Mario", "specialty": "Men's and children's cuts; first haircuts", "status": "VERIFIED", "source": "google_reviews", "display_safe": true },
+        { "name": "Angie", "specialty": "Colour, reference-photo accuracy, hair-care education", "status": "VERIFIED", "source": "google_reviews", "display_safe": true },
+        { "name": "Amanda", "specialty": "Cuts and styling", "status": "VERIFIED", "source": "google_reviews", "display_safe": true },
+        { "name": "Ricky", "specialty": "Trims and blow-dry styling", "status": "VERIFIED", "source": "google_reviews", "display_safe": true }
+      ],
+      "services": [
+        { "name": "Men's haircuts", "status": "VERIFIED" },
+        { "name": "Women's cuts and styling", "status": "VERIFIED" },
+        { "name": "Children's haircuts & first haircuts", "status": "VERIFIED" },
+        { "name": "Colour", "status": "VERIFIED" },
+        { "name": "Blow-dry and styling", "status": "VERIFIED" }
+      ],
+      "review_themes": [
+        "Exceptional patience with young children and first haircuts",
+        "Colour matched closely to a reference photo",
+        "Stylists who teach clients how to care for their hair",
+        "Comfort and attentiveness",
+        "Reasonable pricing"
+      ],
+      "reviews": [
+        { "excerpt": "Mario gave our 1 year old son's first hair cut today and honestly he couldn't have been more perfect with how he tackled his hair.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "I showed her a reference photo and she completely knocked it out of the park.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "Educated me on how to properly take care of my hair.", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "en", "secondary": "es", "bilingual": true, "evidence": "A review notes a stylist who only spoke Spanish; heavily bilingual corridor. Warranted per §20." },
+      "primary_cta": "Book with a stylist",
+      "wow_thesis": "Seeing Mario, Angie, Amanda and Ricky presented as named specialists customers can choose and book directly — turning \"a salon\" into \"your stylist\".",
+      "demo_moment": "Tap a stylist card, watch the booking panel pre-fill with that stylist, pick a time and reach the confirmation."
+    },
+
+    {
+      "site_id": "07",
+      "slug": "latin-cuts",
+      "display_name": "Latin Cuts",
+      "legal_name": { "value": "Latin Cuts", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Beauty salon and barbershop",
+      "phone": { "value": "(281) 580-4549", "tel": "+12815804549", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "address": { "value": "13122 Veterans Memorial Dr, Houston, TX 77014", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true, "display_mode": "SALON" },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "10:00 AM – 8:00 PM", "tue": "10:00 AM – 8:00 PM", "wed": "10:00 AM – 8:00 PM", "thu": "10:00 AM – 8:00 PM", "fri": "10:00 AM – 8:00 PM", "sat": "9:00 AM – 8:00 PM", "sun": "10:00 AM – 5:00 PM" },
+        "highlight": "Open until 8 PM six days a week — the latest hours on the strip."
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=13986690455817901347", "status": "VERIFIED", "display_safe": true },
+      "website": { "value": "NONE", "status": "VERIFIED", "note": "An unclaimed Fresha directory listing exists and explicitly states the business is not affiliated with Fresha — they have no booking system of their own." },
+      "socials": {
+        "facebook": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false },
+        "instagram": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false }
+      },
+      "rating": { "value": 4.1, "count": 121, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "owner_or_contact": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false },
+      "staff": [
+        { "name": "Tito", "specialty": "Cuts", "status": "VERIFIED", "source": "google_reviews", "display_safe": true }
+      ],
+      "services": [
+        { "name": "Men's haircuts", "status": "VERIFIED" },
+        { "name": "Women's cuts", "status": "VERIFIED" },
+        { "name": "Colour", "status": "VERIFIED" },
+        { "name": "Hair treatments", "status": "VERIFIED" },
+        { "name": "Blow-dry", "status": "VERIFIED" }
+      ],
+      "review_themes_positive": [
+        "Long-tenured customers — years of visits without a bad experience",
+        "Tito and the women stylists praised for skill",
+        "Strong on colour and women's hair treatments",
+        "They listen to what the customer asks for"
+      ],
+      "internal_only_problems": {
+        "display_safe": false,
+        "note": "NEVER display. Drives feature selection only.",
+        "themes": ["No greeting on arrival", "No queue tracking — customers must self-manage their turn", "Inconsistent pricing between stylists"]
+      },
+      "reviews": [
+        { "excerpt": "I have been coming to this place for years and I have never had a bad experience. Tito is very good and the other ladies work very well.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "They always listen to what I want.", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "es", "secondary": "en", "bilingual": true, "evidence": "Spanish-language reviews present; Spanish business name; heavily bilingual corridor. Warranted per §20. Spanish is the DEFAULT language on this site — the only one in the portfolio that opens in Spanish." },
+      "primary_cta": "Take a time slot — skip the wait",
+      "wow_thesis": "Showing the owner that the two complaints repeated in his reviews — nobody tracks whose turn it is, and prices vary — are both solved by a booking page and a published price list.",
+      "demo_moment": "Open the live queue board, claim the next open slot, and watch the queue reorder with your name on it."
+    },
+
+    {
+      "site_id": "08",
+      "slug": "marytere-image-salon",
+      "display_name": "Marytere Image Salon & Barbershop",
+      "legal_name": { "value": "Marytere Image Salon & Barbershop", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Hair salon and barbershop",
+      "phone": {
+        "value": "(713) 231-8940", "tel": "+17132318940", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "conflict_note": "RESOLVED. ShowMeLocal and YellowPages list (281) 781-7534 — REPORTED. The business's own Fresha listing independently shows (713) 231-8940, matching the Google Business Profile. Two business-controlled sources agree; the GBP number ships."
+      },
+      "address": { "value": "13626 Veterans Memorial Dr, Houston, TX 77014", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true, "display_mode": "SALON" },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "Closed", "tue": "10:00 AM – 7:00 PM", "wed": "10:00 AM – 7:00 PM", "thu": "10:00 AM – 7:00 PM", "fri": "10:00 AM – 7:00 PM", "sat": "10:00 AM – 7:00 PM", "sun": "10:00 AM – 3:00 PM" },
+        "highlight": "Closed Mondays. Open Sundays."
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=5961629947103935359", "status": "VERIFIED", "display_safe": true },
+      "website": { "value": "NONE", "status": "VERIFIED" },
+      "socials": {
+        "facebook": { "value": "https://www.facebook.com/MarytereImageSalon", "status": "VERIFIED", "display_safe": true },
+        "instagram": { "value": "https://www.instagram.com/maritere_salazar/", "status": "VERIFIED", "display_safe": true, "note": "Instagram display name reads MARYTERE IMAGE SALON — it is the business account despite the personal handle." }
+      },
+      "rating": { "value": 4.3, "count": 22, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "owner_or_contact": {
+        "value": "UNKNOWN — NOT VERIFIED", "status": "REPORTED", "display_safe": false,
+        "display_note": "The Instagram handle @maritere_salazar and the business name imply an owner named Maritere Salazar, but this is inferred, not observed as a stated fact. HER NAME MUST NOT BE PRINTED AS THE OWNER. The personal-brand direction is built on the business name and the Instagram identity only."
+      },
+      "services": [
+        { "name": "Women's cuts", "status": "VERIFIED" },
+        { "name": "Men's cuts", "status": "VERIFIED" },
+        { "name": "Beard trim & shape-up", "status": "VERIFIED" },
+        { "name": "Children's haircuts", "status": "VERIFIED", "source": "fresha_listing" }
+      ],
+      "review_themes": [
+        "Hair and beard done exactly as asked",
+        "Good prices",
+        "Fast service",
+        "Warm hospitality"
+      ],
+      "reviews": [
+        { "excerpt": "The ladies provided great service and good haircuts. Great prices too.", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "Great service and hospitality, got my hair and beard done just the way I wanted.", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "en", "secondary": "es", "bilingual": true, "evidence": "Spanish business-owner naming, Spanish-language market, bilingual corridor. Warranted per §20. English default (the verified reviews are in English); Spanish toggle available. Latin Cuts is the site that opens in Spanish — keeping these two different avoids a second Spanish-first salon in the same cluster." },
+      "primary_cta": "Reserve a chair",
+      "wow_thesis": "Turning a personal Instagram into an actual salon brand — the smallest shop on the street looking like the most established one.",
+      "demo_moment": "Scroll the vertical lookbook column, tap a look, and carry it straight into the booking sheet as the requested style."
+    },
+
+    {
+      "site_id": "09",
+      "slug": "vnn-nails",
+      "display_name": "VNN Nails",
+      "legal_name": { "value": "VNN Nails", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Nail salon — nail art and custom design",
+      "phone": { "value": "(281) 444-8778", "tel": "+12814448778", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "address": { "value": "12033 Veterans Memorial Dr, Houston, TX 77067", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true, "display_mode": "SALON", "display_note": "A suite number (Ste 135) appears on directories only — REPORTED, omitted from display." },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "9:30 AM – 7:00 PM", "tue": "9:30 AM – 7:00 PM", "wed": "9:30 AM – 7:00 PM", "thu": "9:30 AM – 7:00 PM", "fri": "9:30 AM – 7:00 PM", "sat": "9:00 AM – 7:00 PM", "sun": "Closed" }
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=3709193722454066641", "status": "VERIFIED", "display_safe": true },
+      "website": { "value": "NONE", "status": "VERIFIED" },
+      "socials": {
+        "facebook": { "value": "https://www.facebook.com/p/VNN-Nails-12033-Veterans-Memorial-61570826164768/", "status": "VERIFIED", "display_safe": true, "note": "Page name includes the exact street address." },
+        "instagram": { "value": "https://www.instagram.com/vnnnails12033/", "status": "VERIFIED", "display_safe": true, "note": "Handle contains the street number 12033." }
+      },
+      "rating": { "value": 4.2, "count": 147, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "owner_or_contact": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false },
+      "staff": [
+        { "name": "Ben", "specialty": "Nail art and custom design", "status": "VERIFIED", "source": "google_reviews", "display_safe": true },
+        { "name": "Tammy", "specialty": "Full sets", "status": "VERIFIED", "source": "google_reviews", "display_safe": true }
+      ],
+      "services": [
+        { "name": "Full sets", "status": "VERIFIED" },
+        { "name": "Shellac / gel", "status": "VERIFIED" },
+        { "name": "Powder / dip", "status": "VERIFIED" },
+        { "name": "Pedicures", "status": "VERIFIED" },
+        { "name": "Nail art & custom design", "status": "VERIFIED" }
+      ],
+      "review_themes_positive": [
+        "Walk-ins attended to right away",
+        "Ben's design work praised repeatedly",
+        "Nails delivered exactly as requested"
+      ],
+      "internal_only_problems": {
+        "display_safe": false,
+        "note": "NEVER display. Drives feature selection only.",
+        "themes": ["Pricing not disclosed up front", "Final price higher than the quote", "Length-based upcharges not explained in advance"]
+      },
+      "reviews": [
+        { "excerpt": "They attended me right away and did my nails exactly how I wanted them. Highly recommend Ben!", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "Tammy did my nails and Ben did my design. They both did an excellent job!", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "en", "bilingual": false, "evidence": "No non-English review evidence located." },
+      "primary_cta": "Build your set — see the price first",
+      "wow_thesis": "Showing that the complaint appearing over and over in their reviews — surprise pricing — disappears the moment the price is built in front of the customer, and that Ben's design work finally has a gallery.",
+      "demo_moment": "Build a set in the price builder — service, length, design tier, add-ons — and watch the running total update live before you book."
+    },
+
+    {
+      "site_id": "10",
+      "slug": "cali-new-nails",
+      "display_name": "Cali New Nails",
+      "legal_name": { "value": "Cali New Nails", "status": "VERIFIED", "source": "google_business_profile" },
+      "industry": "Nail salon — gentle care specialists",
+      "phone": { "value": "(281) 580-6258", "tel": "+12815806258", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "address": { "value": "12285 Veterans Memorial Dr, Houston, TX 77067", "status": "VERIFIED", "source": "google_business_profile", "display_safe": true, "display_mode": "SALON" },
+      "hours": {
+        "status": "VERIFIED", "source": "google_business_profile", "display_safe": true,
+        "value": { "mon": "10:00 AM – 7:00 PM", "tue": "10:00 AM – 7:00 PM", "wed": "10:00 AM – 7:00 PM", "thu": "10:00 AM – 7:00 PM", "fri": "10:00 AM – 7:00 PM", "sat": "9:30 AM – 7:00 PM", "sun": "12:00 – 5:00 PM" },
+        "highlight": "Open seven days, including Sunday afternoons."
+      },
+      "map_url": { "value": "https://maps.google.com/?cid=5877838967152258387", "status": "VERIFIED", "display_safe": true },
+      "website": { "value": "NONE", "status": "VERIFIED" },
+      "socials": {
+        "facebook": { "value": "UNKNOWN — AMBIGUOUS", "status": "UNKNOWN", "display_safe": false, "note": "A 'Cali's New Nails' page exists under a legacy numeric ID but the name variant could not be tied to this address. Not linked — linking the wrong business is a contamination failure." },
+        "instagram": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false }
+      },
+      "rating": { "value": 4.3, "count": 57, "status": "VERIFIED", "source": "google_business_profile", "display_safe": true },
+      "owner_or_contact": { "value": "UNKNOWN — NOT FOUND", "status": "UNKNOWN", "display_safe": false },
+      "team": { "value": "Two technicians run the salon", "status": "VERIFIED", "source": "google_review", "display_safe": true, "display_note": "Names not found. Referred to as 'the two of us' / 'both technicians' — never invented names." },
+      "services": [
+        { "name": "Manicures", "status": "VERIFIED" },
+        { "name": "Pedicures", "status": "VERIFIED" },
+        { "name": "Solar nails", "status": "VERIFIED" },
+        { "name": "Shellac", "status": "VERIFIED" },
+        { "name": "Full sets", "status": "VERIFIED" },
+        { "name": "Eyebrow services", "status": "VERIFIED" }
+      ],
+      "review_themes": [
+        "Exceptional gentleness — sensitive feet and difficult toenails handled with care where other salons were rough",
+        "Walk-ins accepted",
+        "Affordable",
+        "Ten-plus-year customers",
+        "Mother-and-daughter and family visits"
+      ],
+      "internal_only_problems": {
+        "display_safe": false,
+        "note": "NEVER display. Drives feature selection only.",
+        "themes": ["Long waits because only two technicians work", "Unclear queue order"]
+      },
+      "reviews": [
+        { "excerpt": "My mom has really sensitive feet and curled toe nails and everywhere we go she has problems with people being too harsh to her feet, but here they were extremely gentle!", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "Affordable, professional, and wonderful work!!!", "source": "google", "status": "VERIFIED" },
+        { "excerpt": "Been coming here 10+ yrs. Love how they take care of me.", "source": "google", "status": "VERIFIED" }
+      ],
+      "languages": { "primary": "en", "bilingual": false, "evidence": "No non-English review evidence located." },
+      "primary_cta": "Reserve a quiet time",
+      "wow_thesis": "Seeing the thing their customers actually praise — that they are gentle when nobody else is — become the headline of the whole site, plus appointments that end the waiting.",
+      "demo_moment": "Reserve a time on the two-chair day view — watch both chairs fill and the chosen slot lock in."
+    }
+  ]
+}

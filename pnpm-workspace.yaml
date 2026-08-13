@@ -1,3 +1,5 @@
 packages:
   - 'sites/*'
-  - 'shared'
+allowBuilds:
+  sharp: true
+  esbuild: true
