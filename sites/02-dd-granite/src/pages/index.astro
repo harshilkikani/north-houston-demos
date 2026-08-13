@@ -51,7 +51,7 @@ const services = [
         </p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
           <a class="btn" href="#wall">Browse the stone wall</a>
-          <a class="btn btn-o" href={biz.map_url} target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn-o" href={biz.map_url.value} target="_blank" rel="noopener">Get directions</a>
         </div>
         <dl class="facts">
           <div><dt>Google</dt><dd>{biz.rating.value} ★ · {biz.rating.count} reviews</dd></div>
@@ -107,7 +107,7 @@ const services = [
           you get to pick the piece, not the category.
         </p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
-          <a class="btn" href={biz.map_url} target="_blank" rel="noopener">Directions</a>
+          <a class="btn" href={biz.map_url.value} target="_blank" rel="noopener">Directions</a>
           <a class="btn btn-o" href={`tel:+1${biz.phone.value.replace(/\D/g, '')}`}>Call {biz.phone.value}</a>
         </div>
       </div>
@@ -146,7 +146,7 @@ const services = [
       <div>
         <form id="qf" novalidate>
           <div class="picked" id="picked" hidden>
-            <img id="picked-img" src="" alt="" />
+            <img id="picked-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
             <div><b id="picked-name" style="font-family:var(--font-display)"></b><br /><small class="small" id="picked-cat"></small></div>
             <button type="button" class="btn btn-o btn-sm" id="picked-clear" style="margin-left:auto">Remove</button>
           </div>
@@ -189,7 +189,7 @@ const services = [
   <!-- LIGHTBOX -->
   <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lb-name">
     <div class="lb-in">
-      <img id="lb-img" src="" alt="" />
+      <img id="lb-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" />
       <div class="lb-copy">
         <p class="eyebrow" id="lb-cat"></p>
         <h3 class="h2" style="font-size:clamp(24px,3vw,36px)" id="lb-name"></h3>

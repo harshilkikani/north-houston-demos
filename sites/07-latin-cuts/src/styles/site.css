@@ -21,8 +21,9 @@ a { color: inherit; }
 :focus-visible { outline: 3px solid var(--color-marigold); outline-offset: 3px; }
 [hidden] { display: none !important; }
 
-h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; text-transform: uppercase; line-height: .88; letter-spacing: -.005em; }
-.h1 { font-size: clamp(46px, 13vw, 168px); }
+/* Anton carries tall accents (QUIÉN) — .88 clips them and collides the lines */
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; text-transform: uppercase; line-height: 1.02; letter-spacing: -.005em; }
+.h1 { font-size: clamp(44px, 12vw, 152px); }
 .h2 { font-size: clamp(32px, 6vw, 78px); }
 .h3 { font-size: clamp(20px, 2.4vw, 30px); line-height: 1; }
 .eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--color-marigold); margin: 0; }
@@ -83,9 +84,10 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; text
 .hero h1 .c { color: var(--color-vermilion); }
 .hero-grid { display: grid; gap: 24px; margin-top: clamp(24px, 3vw, 40px); }
 @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; } }
-.hero-shot { border: 3px solid var(--color-paper); }
-.hero-shot img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: grayscale(1) contrast(1.25); mix-blend-mode: luminosity; }
-.hero-shot { background: var(--color-vermilion); }
+/* duotone: greyscale base with a multiplied vermilion wash, so detail survives */
+.hero-shot { border: 3px solid var(--color-paper); background: var(--color-ink); position: relative; }
+.hero-shot img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: grayscale(1) contrast(1.12) brightness(1.06); }
+.hero-shot::after { content: ''; position: absolute; inset: 0; background: var(--color-vermilion); mix-blend-mode: multiply; opacity: .58; pointer-events: none; }
 
 .bar { display: grid; gap: 0; border: 3px solid var(--color-paper); margin-top: clamp(24px, 3vw, 40px); }
 @media (min-width: 700px) { .bar { grid-template-columns: repeat(4, 1fr); } }
@@ -125,9 +127,9 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; text
 /* team + shots */
 .shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 @media (min-width: 820px) { .shots { grid-template-columns: repeat(4, 1fr); } }
-.shots img { width: 100%; aspect-ratio: 1; object-fit: cover; filter: grayscale(1) contrast(1.2); }
-.shots figure { margin: 0; border: 3px solid var(--color-paper); background: var(--color-marigold); }
-.shots img { mix-blend-mode: luminosity; }
+.shots figure { margin: 0; border: 3px solid var(--color-paper); background: var(--color-ink); position: relative; }
+.shots img { width: 100%; aspect-ratio: 1; object-fit: cover; filter: grayscale(1) contrast(1.12) brightness(1.06); }
+.shots figure::after { content: ''; position: absolute; inset: 0; background: var(--color-marigold); mix-blend-mode: multiply; opacity: .5; pointer-events: none; }
 
 /* form */
 .f { display: grid; gap: 6px; margin-bottom: 13px; }

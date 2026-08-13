@@ -74,9 +74,11 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; line
 .hero { display: grid; gap: 30px; padding-top: clamp(28px, 4vw, 56px); }
 @media (min-width: 940px) { .hero { grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; padding-block: clamp(40px, 5vw, 80px); } }
 .hero h1 { max-width: 12ch; }
-.hero-img { position: relative; }
+.hero-img { position: relative; isolation: isolate; }
+.hero-img picture, .hero-img img { position: relative; z-index: 1; }
 .hero-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
-.hero-img::after { content: ''; position: absolute; inset: auto -14px -14px auto; width: 62%; height: 34%; border: 1px solid var(--color-gold); z-index: -1; }
+/* offset rule frame, peeking out behind the photograph */
+.hero-img::after { content: ''; position: absolute; inset: auto -16px -16px 34%; height: 42%; border: 1px solid var(--color-gold); z-index: 0; }
 
 .marks { display: flex; flex-wrap: wrap; gap: 0; margin-top: clamp(26px, 3vw, 40px); border-top: 1px solid color-mix(in srgb,var(--color-ink) 14%,transparent); }
 .marks div { flex: 1 1 140px; padding: 15px 0; border-bottom: 1px solid color-mix(in srgb,var(--color-ink) 14%,transparent); }

@@ -40,7 +40,8 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; line
 /* nav — slim sticky */
 .nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--color-rose) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent); }
 .nav-in { max-width: 1080px; margin-inline: auto; padding: 13px var(--gut); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.word { font-family: var(--font-display); font-size: clamp(19px, 2.4vw, 25px); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+/* Italiana's horizontal strokes are hairline-thin; below ~24px the E reads as an F */
+.word { font-family: var(--font-display); font-size: clamp(24px, 2.8vw, 30px); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; }
 .nav-r { display: flex; align-items: center; gap: 8px; }
 .lang { display: inline-flex; gap: 1px; font-size: 11px; letter-spacing: .16em; }
 .lang button { border: 0; background: none; cursor: pointer; font: inherit; color: var(--color-ink-soft); padding: 6px 6px; }

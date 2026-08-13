@@ -1,11 +1,11 @@
 site_id,build,desktop_visual,tablet_visual,mobile_visual,links,console,a11y,perf,contamination,deployed,live_verified,notes
-01,,,,,,,,,,,,
-02,,,,,,,,,,,,
-03,,,,,,,,,,,,
-04,,,,,,,,,,,,
-05,,,,,,,,,,,,
-06,,,,,,,,,,,,
-07,,,,,,,,,,,,
-08,,,,,,,,,,,,
-09,,,,,,,,,,,,
-10,,,,,,,,,,,,
+01,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 2 external links (2 on bot-blocking platforms — structure validated, not fetched)"
+02,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 2 external links (2 on bot-blocking platforms — structure validated, not fetched)"
+03,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 2 external links (2 on bot-blocking platforms — structure validated, not fetched)"
+04,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 2 external links (2 on bot-blocking platforms — structure validated, not fetched)"
+05,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 1 external links (1 on bot-blocking platforms — structure validated, not fetched)"
+06,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 2 external links (2 on bot-blocking platforms — structure validated, not fetched)"
+07,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 1 external links (1 on bot-blocking platforms — structure validated, not fetched)"
+08,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 3 external links (3 on bot-blocking platforms — structure validated, not fetched)"
+09,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 3 external links (3 on bot-blocking platforms — structure validated, not fetched)"
+10,PASS,,,,PASS,PASS,PASS,,,,,"2 routes; 1 external links (1 on bot-blocking platforms — structure validated, not fetched)"

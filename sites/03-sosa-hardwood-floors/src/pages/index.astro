@@ -4,10 +4,13 @@ import biz from '../../content/business.json'
 import { img } from '@nhd/shared/content'
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '')
-const after = img(base, 'hero-room')
-const before = img(base, 'compare-carpet')
+// Material comparison at a matched scale: carpet pile against oak grain.
+// Base layer = hardwood (revealed on the right), clipped layer = carpet (shown on the left).
+const wood = img(base, 'species-red-oak')
+const carpet = img(base, 'compare-carpet')
 
 const rooms = [
+  { n: 'hero-room', c: 'Warm-toned hardwood carried across an open living and dining room without a threshold break.' },
   { n: 'room-dining', c: 'Wide plank running the length of a dining room — the direction planks run changes how long a room reads.' },
   { n: 'room-empty-light', c: 'Pale oak in an empty room. Flooring is the one thing easiest to install before the furniture arrives.' },
   { n: 'room-living', c: 'Hardwood carried through a living room and into built-in shelving.' },
@@ -41,9 +44,9 @@ const species = [
       </p>
 
       <div class="ba" id="ba">
-        <img src={before.fallback} srcset={before.webp} sizes="100vw" alt="Close view of beige cut-pile carpet" width="1200" height="675" fetchpriority="high" />
+        <img src={wood.fallback} srcset={wood.webp} sizes="100vw" alt="Warm oak grain with darker figure running through it" width="1200" height="675" fetchpriority="high" />
         <div data-clip>
-          <img src={after.fallback} srcset={after.webp} sizes="100vw" alt="An open living and dining room floored in warm red-toned hardwood" width="1200" height="514" />
+          <img src={carpet.fallback} srcset={carpet.webp} sizes="100vw" alt="Close view of beige cut-pile carpet" width="1200" height="675" />
         </div>
         <span class="line" aria-hidden="true"></span>
         <span class="tag l">Carpet</span>

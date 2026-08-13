@@ -209,7 +209,7 @@ const gallery = ['art-onyx', 'art-red', 'art-navy-gold', 'art-long']
           which is worth knowing if you are deciding on the way past.
         </p>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn" href={biz.map_url} target="_blank" rel="noopener">Directions</a>
+          <a class="btn" href={biz.map_url.value} target="_blank" rel="noopener">Directions</a>
           <a class="btn btn-o" href={`tel:+1${biz.phone.value.replace(/\D/g, '')}`}>{biz.phone.value}</a>
         </div>
       </div>
