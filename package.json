@@ -1,0 +1,22 @@
+{
+  "name": "north-houston-demos",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Ten speculative local-business demo sites — North Houston / Veterans Memorial corridor",
+  "type": "module",
+  "scripts": {
+    "build": "node shared/scripts/build-all.mjs",
+    "assemble": "node shared/scripts/assemble.mjs",
+    "qa:links": "node shared/qa/check-links.mjs",
+    "qa:shots": "node shared/qa/screenshot.mjs",
+    "qa:contamination": "node shared/qa/contamination.mjs",
+    "qa:manifest": "node shared/qa/verify-manifest.mjs",
+    "qa:a11y": "node shared/qa/a11y.mjs",
+    "gen:content": "node shared/scripts/gen-content.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.49.1",
+    "sharp": "0.33.5"
+  },
+  "packageManager": "pnpm@11.1.2"
+}

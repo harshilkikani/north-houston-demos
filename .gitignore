@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.astro/
+_site/
+.DS_Store
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
+.cache/
+.pnpm-store/
+qa/**/local/
+research/raw/
+tmp/

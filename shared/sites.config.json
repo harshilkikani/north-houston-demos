@@ -1,0 +1,18 @@
+{
+  "repo": "north-houston-demos",
+  "owner": "harshilkikani",
+  "host": "github-pages",
+  "baseHost": "https://harshilkikani.github.io",
+  "sites": [
+    { "id": "01", "dir": "01-countertops-of-texas", "segment": "countertops-of-texas", "name": "Countertops of Texas, LLC", "industry": "stone-fabrication" },
+    { "id": "02", "dir": "02-dd-granite", "segment": "dd-granite", "name": "D&D Granite", "industry": "stone-fabrication" },
+    { "id": "03", "dir": "03-sosa-hardwood-floors", "segment": "sosa-hardwood-floors", "name": "Sosa Hardwood Floors", "industry": "flooring" },
+    { "id": "04", "dir": "04-richey-collision", "segment": "richey-collision", "name": "Richey Collision Inc", "industry": "collision-repair" },
+    { "id": "05", "dir": "05-la-tino-hair", "segment": "la-tino-hair", "name": "La-Tino Hair", "industry": "hair-salon" },
+    { "id": "06", "dir": "06-cutmasters", "segment": "cutmasters", "name": "CutMasters", "industry": "hair-salon" },
+    { "id": "07", "dir": "07-latin-cuts", "segment": "latin-cuts", "name": "Latin Cuts", "industry": "hair-salon" },
+    { "id": "08", "dir": "08-marytere-image-salon", "segment": "marytere-image-salon", "name": "Marytere Image Salon & Barbershop", "industry": "hair-salon" },
+    { "id": "09", "dir": "09-vnn-nails", "segment": "vnn-nails", "name": "VNN Nails", "industry": "nail-salon" },
+    { "id": "10", "dir": "10-cali-new-nails", "segment": "cali-new-nails", "name": "Cali New Nails", "industry": "nail-salon" }
+  ]
+}
