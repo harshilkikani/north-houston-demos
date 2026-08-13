@@ -44,5 +44,23 @@ Evidence-gated per §20. 07 Latin Cuts opens in Spanish; 05, 06, 08 open in Engl
 ## D11 — Playwright Chromium headless-shell is the QA renderer
 Installed at the user level. Screenshots at 390 / 768 / 1440. Contact sheets are composited with Sharp.
 
+## D13 — Copy register: plain-spoken, not poster-clever
+Operator feedback on the first pass: the headlines read as advertising, and the display sizes amplified
+it. Three rules now apply portfolio-wide and any future copy must follow them.
+
+1. **A headline says what the business does.** No slogans, no reversals ("Don't book a salon. Book your
+   person."), no rhetorical set-ups. If the owner would not say it out loud to a customer, it does not
+   go in 60px type.
+2. **Never write about the website.** Lines like "not one of them had a website to find him on" or
+   "Ben's work deserves a gallery" are pitch arguments aimed at the owner. The customer is the audience;
+   the pitch happens out loud, not on the page.
+3. **No comparative or boastful claims**, even when a verified review supplies them. "Two shops couldn't
+   match it" and "Everywhere else was too rough" were both review-derived and both removed — a review
+   can sit in the reviews section as a quote, but it must not become the site's own voice.
+
+Display sizes were cut across all ten (Latin Cuts hardest, 152px → 78px; Richey 108px → 68px). Two
+layout consequences were corrected in the same pass: Countertops' h1 max-width widened to 26ch, and
+Latin Cuts' hero grid realigned to the top so the shorter headline did not leave a gap.
+
 ## D12 — Required environment variable names
 None. Deployment authenticates through the existing `gh` keyring session and the Actions-provided `GITHUB_TOKEN`. No secrets are stored in the repo.
