@@ -43,6 +43,8 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 400; line
 /* Italiana's horizontal strokes are hairline-thin; below ~24px the E reads as an F */
 .word { font-family: var(--font-display); font-size: clamp(24px, 2.8vw, 30px); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; }
 .nav-r { display: flex; align-items: center; gap: 8px; }
+/* on narrow phones the drawer already carries Reserve — drop the duplicate button */
+@media (max-width: 560px) { .nav-r .btn-sm { display: none; } }
 .lang { display: inline-flex; gap: 1px; font-size: 11px; letter-spacing: .16em; }
 .lang button { border: 0; background: none; cursor: pointer; font: inherit; color: var(--color-ink-soft); padding: 6px 6px; }
 .lang button[aria-pressed='true'] { color: var(--color-aub); font-weight: 700; }
