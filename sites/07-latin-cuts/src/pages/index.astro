@@ -1,4 +1,271 @@
 ---
-const t = "Latin Cuts"
+import Base from '../layouts/Base.astro'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const hero = img(base, 'hero-barber')
+const shots = ['cut-detail', 'cut-comb', 'cut-close', 'shop-row']
+
+const prices = [
+  { es: 'Corte de hombre', en: 'Men’s haircut', p: '$20', des: 'Máquina, tijera y perfilado.', den: 'Clipper, scissor and line-up.' },
+  { es: 'Corte de niño', en: 'Kids’ haircut', p: '$15', des: 'Menores de 12 años.', den: 'Under 12.' },
+  { es: 'Corte de mujer', en: 'Women’s cut', p: '$30', des: 'Corte, lavado y secado.', den: 'Cut, wash and blow-dry.' },
+  { es: 'Color', en: 'Colour', p: '$75+', des: 'Depende del largo y del punto de partida.', den: 'Depends on length and starting point.' },
+  { es: 'Tratamiento', en: 'Treatment', p: '$45+', des: 'Hidratación y reparación.', den: 'Hydration and repair.' },
+  { es: 'Barba', en: 'Beard', p: '$12', des: 'Perfilado y recorte.', den: 'Shape-up and trim.' },
+]
 ---
-<h1>{t}</h1>
+
+<Base
+  title="Latin Cuts — barbería y salón en Veterans Memorial, Houston"
+  description="Toma tu turno en línea y mira los precios antes de llegar. Barbería y salón en 13122 Veterans Memorial Dr, Houston. Abierto hasta las 8."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow"><T es="13122 Veterans Memorial Dr · Houston" en="13122 Veterans Memorial Dr · Houston" /></p>
+      <h1 class="h1" style="margin-top:14px">
+        <span class="a" data-l="es">Ya no</span><span class="a" data-l="en" hidden>Nobody</span>
+        <span class="b" data-l="es">preguntes</span><span class="b" data-l="en" hidden>has to ask</span>
+        <span class="c" data-l="es">quién sigue.</span><span class="c" data-l="en" hidden>who's next.</span>
+      </h1>
+
+      <div class="hero-grid">
+        <div>
+          <p class="lead">
+            <T
+              es="Mira el turnero, agarra la hora que te sirve y llega cuando te toca. Los precios están publicados abajo, así que sabes lo que vas a pagar antes de sentarte."
+              en="Look at the board, take the time that suits you, and turn up when it is yours. Prices are published below, so you know what you are paying before you sit down."
+            />
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+            <a class="btn btn-y" href="#turno"><T es="Agarrar mi turno" en="Take my slot" /></a>
+            <a class="btn btn-p" href={`${base}/precios`}><T es="Ver precios" en="See prices" /></a>
+          </div>
+          <dl class="bar">
+            <div><dt>Google</dt><dd>{biz.rating.value} ★</dd></div>
+            <div><dt><T es="Reseñas" en="Reviews" /></dt><dd>{biz.rating.count}</dd></div>
+            <div><dt><T es="Cierra" en="Closes" /></dt><dd>8:00 PM</dd></div>
+            <div><dt><T es="Sin cita" en="Walk-ins" /></dt><dd><T es="Sí" en="Yes" /></dd></div>
+          </dl>
+        </div>
+        <figure class="hero-shot" style="margin:0">
+          <picture>
+            <source type="image/webp" srcset={hero.webp} sizes="(min-width:900px) 34vw, 100vw" />
+            <img src={hero.fallback} alt="A barber in a hat combing out a sharp fade" fetchpriority="high" width="1200" height="1500" />
+          </picture>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEUE BOARD -->
+  <section class="sect" id="turno">
+    <div class="wrap">
+      <p class="eyebrow"><T es="El turnero" en="The board" /></p>
+      <h2 class="h2" style="margin:12px 0 14px;max-width:14ch">
+        <T es="Tu nombre en la lista." en="Your name on the list." />
+      </h2>
+      <p class="lead" style="margin-bottom:clamp(24px,3vw,38px)">
+        <T
+          es="Elige una hora libre, pon tu nombre y listo. La lista se ordena sola y todos ven lo mismo."
+          en="Pick a free time, add your name, done. The list reorders itself and everybody sees the same thing."
+        />
+      </p>
+
+      <div class="two">
+        <div class="board">
+          <div class="board-head">
+            <b><T es="Hoy en la silla" en="Today in the chair" /></b>
+            <span class="live"><span class="dot" aria-hidden="true"></span><T es="En vivo" en="Live" /></span>
+          </div>
+          <div class="qlist" id="qlist"></div>
+        </div>
+
+        <div>
+          <form id="qf" novalidate>
+            <div class="f">
+              <label for="q-name"><T es="Tu nombre" en="Your name" /></label>
+              <input id="q-name" type="text" autocomplete="name" data-required placeholder="Ej. Marco" />
+              <p class="err" data-error-for="q-name" hidden><T es="Escribe tu nombre." en="Please add your name." /></p>
+            </div>
+            <div class="f">
+              <label for="q-svc"><T es="Servicio" en="Service" /></label>
+              <select id="q-svc">
+                {prices.map((p) => (<option>{p.es}</option>))}
+              </select>
+            </div>
+            <div class="f">
+              <label for="q-phone"><T es="Teléfono (opcional)" en="Phone (optional)" /></label>
+              <input id="q-phone" type="tel" autocomplete="tel" placeholder="(281) 000-0000" />
+            </div>
+            <p class="small" id="pick-note" style="margin:0 0 14px">
+              <T es="Toca una hora libre en el turnero." en="Tap a free time on the board." />
+            </p>
+            <button class="btn btn-y" type="submit" style="width:100%;justify-content:center"><T es="Confirmar turno" en="Confirm my slot" /></button>
+            <p class="small" style="margin-top:10px"><T es="Demostración — no se envía nada." en="Demonstration — nothing is sent." /></p>
+          </form>
+
+          <div class="claimed" id="claimed" hidden tabindex="-1">
+            <p style="font-family:var(--font-display);text-transform:uppercase;font-size:clamp(24px,3vw,34px);line-height:.95;margin:0">
+              <T es="Turno apartado" en="Slot taken" />
+            </p>
+            <dl style="margin-top:16px">
+              <div><dt><T es="Hora" en="Time" /></dt><dd id="c-time" style="margin:0;font-weight:700">—</dd></div>
+              <div><dt><T es="Nombre" en="Name" /></dt><dd id="c-name" style="margin:0;font-weight:700">—</dd></div>
+              <div><dt><T es="Servicio" en="Service" /></dt><dd id="c-svc" style="margin:0;font-weight:700">—</dd></div>
+              <div><dt><T es="Delante de ti" en="Ahead of you" /></dt><dd id="c-ahead" style="margin:0;font-weight:700">—</dd></div>
+            </dl>
+            <button class="btn" type="button" id="again" style="margin-top:18px"><T es="Empezar de nuevo" en="Start over" /></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px">
+        <div>
+          <p class="eyebrow"><T es="Precios" en="Prices" /></p>
+          <h2 class="h2" style="margin-top:12px;max-width:13ch"><T es="El mismo precio para todos." en="The same price for everyone." /></h2>
+        </div>
+        <a class="btn btn-p" href={`${base}/precios`}><T es="Lista completa" en="Full list" /></a>
+      </div>
+      <div class="price-table">
+        <div class="price-head"><T es="Menú de muestra" en="Sample menu" /></div>
+        {prices.map((p) => (
+          <div class="price-row">
+            <div>
+              <h3><T es={p.es} en={p.en} /></h3>
+              <p><T es={p.des} en={p.den} /></p>
+            </div>
+            <b>{p.p}</b>
+          </div>
+        ))}
+      </div>
+      <p class="small" style="margin-top:14px">
+        <T
+          es="Precios de muestra para la demostración — la barbería pone las cifras reales."
+          en="Sample pricing for the demo — the shop sets the real figures."
+        />
+      </p>
+    </div>
+  </section>
+
+  <!-- TEAM / SHOP -->
+  <section class="sect" id="equipo" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow"><T es="La silla" en="The chair" /></p>
+      <h2 class="h2" style="margin:12px 0 20px;max-width:16ch">
+        <T es="Tito y las muchachas." en="Tito and the ladies." />
+      </h2>
+      <p class="lead" style="margin-bottom:24px">
+        <T
+          es="Una reseña lo resume: años viniendo, nunca una mala experiencia, Tito muy bueno y las demás trabajan muy bien. Eso no se compra con publicidad."
+          en="One review says it all: years of coming here, never a bad experience, Tito is very good and the other ladies work very well. You cannot buy that with advertising."
+        />
+      </p>
+      <div class="shots">
+        {shots.map((s) => {
+          const im = img(base, s)
+          return (
+            <figure>
+              <picture>
+                <source type="image/webp" srcset={im.webp} sizes="(min-width:820px) 24vw, 50vw" />
+                <img src={im.fallback} alt="" loading="lazy" width="1200" height="1200" />
+              </picture>
+            </figure>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect" id="resenas" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">{biz.rating.value} · {biz.rating.count} <T es="reseñas en Google" en="Google reviews" /></p>
+      <div class="revs" style="margin-top:20px">
+        {biz.reviews.map((r) => (<div><blockquote>“{r.excerpt}”</blockquote><cite>Google</cite></div>))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { validate } from '@nhd/shared/ui'
+
+  const SLOTS = [
+    { t: '2:00', n: 'Marco', s: 'Corte de hombre' },
+    { t: '2:30', n: null, s: null },
+    { t: '3:00', n: 'Yesenia', s: 'Color' },
+    { t: '3:30', n: 'Luis', s: 'Corte de hombre' },
+    { t: '4:00', n: null, s: null },
+    { t: '4:30', n: null, s: null },
+    { t: '5:00', n: 'Ana', s: 'Corte de mujer' },
+    { t: '5:30', n: null, s: null },
+    { t: '6:00', n: null, s: null },
+  ]
+  let mine = null
+  const list = document.getElementById('qlist')
+  const isEs = () => document.documentElement.lang === 'es'
+
+  function render() {
+    list.innerHTML = SLOTS.map((s, i) => {
+      const free = !s.n
+      const isMine = mine === i
+      const label = isMine ? s.n : s.n || (isEs() ? 'Libre' : 'Free')
+      const sub = isMine ? (isEs() ? 'Tu turno' : 'Your slot') : s.s || ''
+      const btn = free && !isMine ? `<button type="button" data-take="${i}">${isEs() ? 'Tomar' : 'Take'}</button>` : `<span class="s">${sub}</span>`
+      return `<div class="qrow ${isMine ? 'mine' : free ? 'free' : ''}"><span class="t">${s.t}</span><span class="n">${label}</span>${btn}</div>`
+    }).join('')
+    list.querySelectorAll('[data-take]').forEach((b) =>
+      b.addEventListener('click', () => {
+        mine = Number(b.dataset.take)
+        SLOTS[mine].n = document.getElementById('q-name').value.trim() || (isEs() ? 'Tú' : 'You')
+        SLOTS[mine].s = document.getElementById('q-svc').value
+        render()
+        document.getElementById('pick-note').textContent = isEs()
+          ? `Apartaste las ${SLOTS[mine].t}. Confirma abajo.`
+          : `You have ${SLOTS[mine].t}. Confirm below.`
+      })
+    )
+  }
+  render()
+
+  document.getElementById('q-name').addEventListener('input', (e) => {
+    if (mine !== null) { SLOTS[mine].n = e.target.value.trim() || (isEs() ? 'Tú' : 'You'); render() }
+  })
+  document.getElementById('q-svc').addEventListener('change', (e) => {
+    if (mine !== null) { SLOTS[mine].s = e.target.value; render() }
+  })
+
+  const f = document.getElementById('qf')
+  const done = document.getElementById('claimed')
+  f.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(f)) { f.querySelector('[aria-invalid="true"]')?.focus(); return }
+    if (mine === null) {
+      const first = SLOTS.findIndex((s) => !s.n)
+      if (first === -1) return
+      mine = first
+      SLOTS[mine].n = document.getElementById('q-name').value.trim()
+      SLOTS[mine].s = document.getElementById('q-svc').value
+      render()
+    }
+    document.getElementById('c-time').textContent = SLOTS[mine].t
+    document.getElementById('c-name').textContent = SLOTS[mine].n
+    document.getElementById('c-svc').textContent = SLOTS[mine].s
+    document.getElementById('c-ahead').textContent = String(SLOTS.slice(0, mine).filter((s) => s.n).length)
+    f.hidden = true; done.hidden = false; done.focus()
+  })
+  document.getElementById('again').addEventListener('click', () => {
+    if (mine !== null) { SLOTS[mine].n = null; SLOTS[mine].s = null; mine = null }
+    f.reset(); f.hidden = false; done.hidden = true; render()
+  })
+  document.querySelectorAll('[data-lang-btn]').forEach((b) => b.addEventListener('click', () => setTimeout(render, 0)))
+</script>

@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+import { LOOKS } from '../data/looks.mjs'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const groups = [
+  { en: 'Salon', es: 'Salón', items: LOOKS.filter((l) => l.cat_en !== 'Barbershop') },
+  { en: 'Barbershop', es: 'Barbería', items: LOOKS.filter((l) => l.cat_en === 'Barbershop') },
+]
+---
+
+<Base
+  title="Lookbook — Marytere Image Salon &amp; Barbershop"
+  description="Styles to bring in with you: cuts, colour finishes, beards and shaves at Marytere Image Salon on Veterans Memorial Drive."
+>
+  <section class="sect">
+    <div class="col center">
+      <p class="eyebrow">Lookbook</p>
+      <h1 class="h1" style="margin-top:14px;max-width:12ch;margin-inline:auto">
+        <T en="Bring a picture." es="Trae una foto." />
+      </h1>
+      <div class="hair"></div>
+      <p class="lead" style="max-width:44ch;margin-inline:auto">
+        <T
+          en="Nothing gets lost in translation when there is an image on the table. Save one of these, or bring your own — either works."
+          es="Nada se pierde en la traducción cuando hay una imagen sobre la mesa. Guarda una de estas o trae la tuya — cualquiera sirve."
+        />
+      </p>
+    </div>
+  </section>
+
+  {groups.map((g) => (
+    <section class="sect" style="padding-top:0">
+      <div class="col-wide">
+        <div class="center">
+          <div class="hair"></div>
+          <h2 class="h2"><T en={g.en} es={g.es} /></h2>
+        </div>
+        <div class="look" style="margin-top:clamp(26px,3.4vw,44px)">
+          {g.items.map((l) => {
+            const im = img(base, l.n)
+            return (
+              <figure class="look-item" style="margin:0;cursor:default">
+                <span class="arch">
+                  <picture>
+                    <source type="image/webp" srcset={im.webp} sizes="(min-width:760px) 44vw, 100vw" />
+                    <img src={im.fallback} alt="" loading="lazy" width="1200" height="1600" />
+                  </picture>
+                </span>
+                <figcaption>
+                  <small><T en={l.cat_en} es={l.cat_es} /></small>
+                  <h3 style="margin-top:5px"><T en={l.en} es={l.es} /></h3>
+                </figcaption>
+              </figure>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="sect" style="padding-top:0">
+    <div class="col center">
+      <div class="hair"></div>
+      <h2 class="h2" style="max-width:14ch;margin-inline:auto"><T en="Ready when you are." es="Cuando quieras." /></h2>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px">
+        <a class="btn" href={`${base}/#reserve`}><T en="Reserve a chair" es="Reservar una silla" /></a>
+        <a class="btn btn-o" href={biz.socials.instagram.value} target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p class="small" style="margin-top:22px">
+        <T
+          en="Every image here is licensed stock used as a style reference. None of it is a photograph of work carried out at this salon."
+          es="Todas las imágenes son de archivo con licencia usadas como referencia de estilo. Ninguna es una foto de trabajo hecho en este salón."
+        />
+      </p>
+    </div>
+  </section>
+</Base>

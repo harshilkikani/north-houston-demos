@@ -1,0 +1,126 @@
+---
+import '../styles/site.css'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { hourRows, telHref } from '@nhd/shared/content'
+
+const { title, description } = Astro.props
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const tel = telHref(biz.phone.value)
+const rowsEs = hourRows(biz.hours.value, 'es')
+const rowsEn = hourRows(biz.hours.value, 'en')
+const nav = [
+  { href: `${base}/#turno`, es: 'Tu turno', en: 'Your turn' },
+  { href: `${base}/precios`, es: 'Precios', en: 'Prices' },
+  { href: `${base}/#equipo`, es: 'El equipo', en: 'The team' },
+  { href: `${base}/#resenas`, es: 'Reseñas', en: 'Reviews' },
+]
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${base}/assets/og.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#101010" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="stylesheet" href={`${base}/fonts/fonts.css`} />
+  </head>
+  <body>
+    <a href="#main" style="position:absolute;left:-9999px;background:#ffb800;color:#101010;padding:12px 18px;z-index:99;font-weight:700" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Ir al contenido</a>
+
+    <header class="nav">
+      <div class="nav-in">
+        <a class="brand" href={`${base}/`}>Latin Cuts</a>
+        <nav class="nlinks" aria-label="Principal">{nav.map((n) => (<a href={n.href}><T es={n.es} en={n.en} /></a>))}</nav>
+        <div class="nav-r">
+          <div class="lang" role="group" aria-label="Idioma / Language">
+            <button type="button" data-lang-btn="es" aria-pressed="true">ES</button><button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn-sm" href={`${base}/#turno`}><T es="Turno" en="Queue" /></a>
+          <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sheet"><i></i></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="marq" aria-hidden="true">
+      <div>
+        <span>Lunes a viernes 10–8</span><span>★</span><span>Sábado 9–8</span><span>★</span><span>Domingo 10–5</span><span>★</span>
+        <span>Se aceptan sin cita</span><span>★</span><span>{biz.phone.value}</span><span>★</span>
+        <span>Lunes a viernes 10–8</span><span>★</span><span>Sábado 9–8</span><span>★</span><span>Domingo 10–5</span><span>★</span>
+        <span>Se aceptan sin cita</span><span>★</span><span>{biz.phone.value}</span><span>★</span>
+      </div>
+    </div>
+
+    <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menú">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="eyebrow">Menú</span>
+        <button class="x" id="sheet-close" type="button" aria-label="Cerrar menú">✕</button>
+      </div>
+      <nav aria-label="Móvil">{nav.map((n) => (<a href={n.href}><T es={n.es} en={n.en} /></a>))}</nav>
+      <a class="btn btn-y" href={tel} style="justify-content:center">{biz.phone.value}</a>
+    </div>
+
+    <main id="main"><slot /></main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <p style="font-family:var(--font-display);text-transform:uppercase;font-size:clamp(30px,4.4vw,52px);line-height:.9;margin:0;max-width:11ch">
+              <T es="Ya no esperes sin saber." en="Stop waiting without knowing." />
+            </p>
+            <p style="margin-top:16px;font-size:15.5px;max-width:38ch">{biz.address.value}</p>
+            <p style="display:grid;gap:6px;margin-top:14px;font-weight:700;font-size:16px">
+              <a href={tel} style="justify-self:start">{biz.phone.value}</a>
+              <a href={biz.map_url} target="_blank" rel="noopener" style="justify-self:start"><T es="Cómo llegar" en="Directions" /></a>
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow" style="color:#101010"><T es="Horario" en="Hours" /></p>
+            <dl class="hrs" style="margin-top:12px" data-l="es">
+              {rowsEs.map((r) => (<div><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>))}
+            </dl>
+            <dl class="hrs" style="margin-top:12px" data-l="en" hidden>
+              {rowsEn.map((r) => (<div><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>))}
+            </dl>
+          </div>
+          <div>
+            <p class="eyebrow" style="color:#101010">Google</p>
+            <p style="font-family:var(--font-display);font-size:64px;margin:6px 0 0;line-height:1">{biz.rating.value}</p>
+            <p style="margin:0;font-size:14.5px;font-weight:500">
+              <T es={`de ${biz.rating.count} reseñas`} en={`from ${biz.rating.count} reviews`} />
+            </p>
+          </div>
+        </div>
+        <div class="fine">
+          <p style="margin:0">
+            <T
+              es={`Concepto de rediseño especulativo para ${biz.display_name}. No es el sitio oficial, no está publicado ni indexado. El turnero y los precios son una demostración: no se envía ni se guarda nada.`}
+              en={`Speculative redesign concept for ${biz.display_name}. Not the shop's official website, not published and not indexed. The queue board and price list are demonstrations: nothing is sent or stored.`}
+            />
+          </p>
+          <p style="margin:0"><T es="Fotografía de archivo con licencia." en="Licensed stock photography." /></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import { dialog, language } from '@nhd/shared/ui'
+      const sheet = document.getElementById('sheet')
+      const burger = document.getElementById('burger')
+      const d = dialog(sheet, { onClose: () => burger.setAttribute('aria-expanded', 'false') })
+      burger.addEventListener('click', () => { d.open(); burger.setAttribute('aria-expanded', 'true') })
+      document.getElementById('sheet-close').addEventListener('click', d.close)
+      sheet.querySelectorAll('a').forEach((a) => a.addEventListener('click', d.close))
+      language('es')
+    </script>
+  </body>
+</html>

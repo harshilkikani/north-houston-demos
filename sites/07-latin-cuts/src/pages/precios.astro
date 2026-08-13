@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const sweep = img(base, 'shop-sweep')
+
+const groups = [
+  {
+    es: 'Hombres', en: 'Men',
+    items: [
+      { es: 'Corte de hombre', en: 'Men’s haircut', p: '$20' },
+      { es: 'Corte + barba', en: 'Cut + beard', p: '$28' },
+      { es: 'Barba', en: 'Beard shape-up', p: '$12' },
+      { es: 'Corte de niño (menores de 12)', en: 'Kids’ cut (under 12)', p: '$15' },
+    ],
+  },
+  {
+    es: 'Mujeres', en: 'Women',
+    items: [
+      { es: 'Corte de mujer', en: 'Women’s cut', p: '$30' },
+      { es: 'Secado y peinado', en: 'Blow-dry & style', p: '$25' },
+      { es: 'Color (según largo)', en: 'Colour (by length)', p: '$75+' },
+      { es: 'Rayitos', en: 'Highlights', p: '$95+' },
+      { es: 'Tratamiento', en: 'Treatment', p: '$45+' },
+    ],
+  },
+]
+---
+
+<Base
+  title="Precios — Latin Cuts"
+  description="Lista de precios de Latin Cuts en Veterans Memorial Drive, Houston. El mismo precio para todos, publicado antes de que te sientes."
+>
+  <section class="sect">
+    <div class="wrap">
+      <p class="eyebrow"><T es="Precios" en="Prices" /></p>
+      <h1 class="h1" style="margin-top:12px;max-width:11ch">
+        <span class="a"><T es="Sin" en="No" /></span>
+        <span class="b"><T es="sorpresas" en="surprises" /></span>
+        <span class="c"><T es="al final." en="at the end." /></span>
+      </h1>
+      <p class="lead" style="margin-top:20px">
+        <T
+          es="Publicar los precios es lo más fácil que puede hacer una barbería para que nadie salga incómodo. Aquí están."
+          en="Publishing prices is the easiest thing a shop can do to stop anyone leaving uncomfortable. Here they are."
+        />
+      </p>
+      <a class="btn btn-y" href={`${base}/#turno`} style="margin-top:22px"><T es="Agarrar mi turno" en="Take my slot" /></a>
+    </div>
+  </section>
+
+  {groups.map((g) => (
+    <section class="sect" style="padding-top:0">
+      <div class="wrap">
+        <div class="price-table">
+          <div class="price-head"><T es={g.es} en={g.en} /></div>
+          {g.items.map((it) => (
+            <div class="price-row">
+              <div><h3><T es={it.es} en={it.en} /></h3></div>
+              <b>{it.p}</b>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="sect" style="padding-top:0">
+    <div class="wrap two" style="align-items:center">
+      <figure class="hero-shot" style="margin:0">
+        <picture>
+          <source type="image/webp" srcset={sweep.webp} sizes="(min-width:940px) 52vw, 100vw" />
+          <img src={sweep.fallback} alt="A barbershop floor being swept between clients" loading="lazy" width="1920" height="1080" style="aspect-ratio:16/9" />
+        </picture>
+      </figure>
+      <div>
+        <h2 class="h2" style="max-width:13ch"><T es="Precios de muestra" en="Sample pricing" /></h2>
+        <p class="lead" style="margin-top:14px">
+          <T
+            es={`Estas cifras son de muestra para la demostración. ${biz.display_name} no publica una lista de precios en ningún lado, así que no inventamos la suya: las columnas están listas para que el dueño ponga las reales.`}
+            en={`These figures are samples for the demonstration. ${biz.display_name} does not publish a price list anywhere, so we have not invented theirs — the columns are ready for the owner's real numbers.`}
+          />
+        </p>
+        <a class="btn btn-p" href={`tel:+1${biz.phone.value.replace(/\D/g, '')}`} style="margin-top:20px">{biz.phone.value}</a>
+      </div>
+    </div>
+  </section>
+</Base>

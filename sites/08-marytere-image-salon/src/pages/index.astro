@@ -1,4 +1,265 @@
 ---
-const t = "Marytere Image Salon & Barbershop"
+import Base from '../layouts/Base.astro'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+import { LOOKS } from '../data/looks.mjs'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const hero = img(base, 'hero-salon')
+const mirror = img(base, 'salon-mirror')
+
+const services = [
+  { en: 'Women’s cut', es: 'Corte de mujer', den: 'Cut, wash and finish.', des: 'Corte, lavado y peinado.', p: '$30' },
+  { en: 'Men’s cut', es: 'Corte de hombre', den: 'Clipper or scissor.', des: 'Máquina o tijera.', p: '$20' },
+  { en: 'Beard trim & shape', es: 'Barba', den: 'Line-up and finish.', des: 'Perfilado y acabado.', p: '$12' },
+  { en: 'Children’s haircut', es: 'Corte de niño', den: 'For the small ones.', des: 'Para los pequeños.', p: '$15' },
+  { en: 'Styling', es: 'Peinado', den: 'Blow-dry, waves or an updo for an occasion.', des: 'Secado, ondas o recogido para una ocasión.', p: '$25+' },
+]
 ---
-<h1>{t}</h1>
+
+<Base
+  title="Marytere Image Salon &amp; Barbershop — Veterans Memorial, Houston"
+  description="A salon and barbershop in one room on Veterans Memorial Drive. Cuts, beards and styling. Open Sundays, closed Mondays."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="col center">
+      <p class="eyebrow"><T en="Salon & Barbershop · Houston" es="Salón y Barbería · Houston" /></p>
+      <h1 class="h1" style="margin-top:16px">
+        <T en="A small room" es="Un lugar pequeño" /><br /><T en="that remembers you." es="que te recuerda." />
+      </h1>
+      <p class="lead" style="margin-top:18px;max-width:44ch;margin-inline:auto">
+        <T
+          en="Hair and beards done the way you asked, at prices people call out by name in their reviews. Two chairs, no hurry, and someone who actually says hello when you walk in."
+          es="Cabello y barba como lo pediste, a precios que la gente menciona en sus reseñas. Dos sillas, sin prisas, y alguien que sí te saluda al entrar."
+        />
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px">
+        <a class="btn" href="#reserve"><T en="Reserve a chair" es="Reservar una silla" /></a>
+        <a class="btn btn-o" href={`${base}/lookbook`}><T en="See the lookbook" es="Ver el lookbook" /></a>
+      </div>
+      <figure class="frame arch" style="margin-inline:auto">
+        <picture>
+          <source type="image/webp" srcset={hero.webp} sizes="400px" />
+          <img src={hero.fallback} alt="A salon interior of arched mirrors and styling chairs, photographed in black and white" fetchpriority="high" width="1200" height="1600" />
+        </picture>
+      </figure>
+      <dl class="marks">
+        <div><dt>Google</dt><dd>{biz.rating.value}</dd></div>
+        <div><dt><T en="Reviews" es="Reseñas" /></dt><dd>{biz.rating.count}</dd></div>
+        <div><dt><T en="Sundays" es="Domingos" /></dt><dd>10–3</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- LOOKBOOK -->
+  <section class="sect" id="lookbook">
+    <div class="col-wide">
+      <div class="center">
+        <p class="eyebrow"><T en="Lookbook" es="Lookbook" /></p>
+        <h2 class="h2" style="margin-top:14px;max-width:15ch;margin-inline:auto">
+          <T en="Show them, don't describe it." es="Muéstralo, no lo describas." />
+        </h2>
+        <div class="hair"></div>
+        <p class="lead" style="max-width:46ch;margin-inline:auto">
+          <T
+            en="Pick the look you want and it travels straight into the reservation, so nobody has to translate a description into a haircut."
+            es="Elige el look que quieres y pasa directo a tu reserva, para que nadie tenga que traducir una descripción en un corte."
+          />
+        </p>
+      </div>
+
+      <div class="look" style="margin-top:clamp(30px,4vw,52px)">
+        {LOOKS.map((l) => {
+          const im = img(base, l.n)
+          return (
+            <button class="look-item" type="button" data-look={l.n} data-en={l.en} data-es={l.es}>
+              <span class="arch">
+                <picture>
+                  <source type="image/webp" srcset={im.webp} sizes="(min-width:760px) 44vw, 100vw" />
+                  <img src={im.fallback} alt="" loading="lazy" width="1200" height="1600" />
+                </picture>
+              </span>
+              <span>
+                <small><T en={l.cat_en} es={l.cat_es} /></small>
+                <h3 style="margin-top:5px"><T en={l.en} es={l.es} /></h3>
+              </span>
+            </button>
+          )
+        })}
+      </div>
+      <p class="small center" style="margin-top:22px">
+        <T
+          en="Style references, not photographs of this salon's own clients."
+          es="Referencias de estilo, no fotos de clientes de este salón."
+        />
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sect" id="services" style="padding-top:0">
+    <div class="col">
+      <div class="center">
+        <p class="eyebrow"><T en="Services" es="Servicios" /></p>
+        <h2 class="h2" style="margin-top:14px"><T en="Sample menu" es="Menú de muestra" /></h2>
+        <div class="hair"></div>
+      </div>
+      <div class="svc">
+        {services.map((s) => (
+          <div>
+            <div><h3><T en={s.en} es={s.es} /></h3><p><T en={s.den} es={s.des} /></p></div>
+            <b>{s.p}</b>
+          </div>
+        ))}
+      </div>
+      <p class="small" style="margin-top:16px">
+        <T
+          en="These figures are samples for the demonstration — the salon sets its own. Reviewers describe the prices here as good, which is worth publishing once they are confirmed."
+          es="Estas cifras son de muestra para la demostración — el salón pone las suyas. Las reseñas describen los precios como buenos, y vale la pena publicarlos una vez confirmados."
+        />
+      </p>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect" style="padding-top:0">
+    <div class="col center">
+      <div class="hair"></div>
+      <div class="q">
+        <blockquote>“{biz.reviews[1].excerpt}”</blockquote>
+        <cite>Google · {biz.rating.value} / {biz.rating.count} <T en="reviews" es="reseñas" /></cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVE -->
+  <section class="sect" id="reserve" style="background:var(--color-rose-2)">
+    <div class="col">
+      <div class="center">
+        <p class="eyebrow"><T en="Reserve" es="Reservar" /></p>
+        <h2 class="h2" style="margin-top:14px"><T en="Hold a chair." es="Aparta una silla." /></h2>
+        <div class="hair"></div>
+      </div>
+
+      <form id="rf" novalidate style="margin-top:8px">
+        <div class="chosen" id="chosen" hidden>
+          <span class="arch"><img id="chosen-img" src="" alt="" style="width:100%;height:100%;object-fit:cover" /></span>
+          <div style="flex:1">
+            <small class="eyebrow"><T en="Requested look" es="Look solicitado" /></small>
+            <div id="chosen-name" style="font-family:var(--font-display);font-size:20px"></div>
+          </div>
+          <button class="btn btn-o btn-sm" type="button" id="chosen-clear"><T en="Clear" es="Quitar" /></button>
+        </div>
+
+        <div class="f">
+          <label for="r-svc"><T en="Service" es="Servicio" /></label>
+          <select id="r-svc">{services.map((s) => (<option>{s.en}</option>))}</select>
+        </div>
+        <div class="f">
+          <label for="r-day"><T en="Day" es="Día" /></label>
+          <select id="r-day"><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select>
+        </div>
+        <div class="f">
+          <label><T en="Time" es="Hora" /></label>
+          <div class="slots" id="slots"></div>
+        </div>
+        <div class="f">
+          <label for="r-name"><T en="Your name" es="Tu nombre" /></label>
+          <input id="r-name" type="text" autocomplete="name" data-required />
+          <p class="err" data-error-for="r-name" hidden><T en="Please add your name." es="Escribe tu nombre." /></p>
+        </div>
+        <div class="f">
+          <label for="r-phone"><T en="Phone" es="Teléfono" /></label>
+          <input id="r-phone" type="tel" autocomplete="tel" data-required />
+          <p class="err" data-error-for="r-phone" hidden><T en="Please add a number." es="Escribe un número." /></p>
+        </div>
+        <button class="btn" type="submit" style="width:100%;justify-content:center"><T en="Reserve" es="Reservar" /></button>
+        <p class="small center" style="margin-top:12px"><T en="Demonstration only — nothing is sent or stored." es="Sólo demostración — no se envía ni se guarda nada." /></p>
+      </form>
+
+      <div class="done" id="done" hidden tabindex="-1">
+        <p class="eyebrow" style="color:#e5c9c0"><T en="Reserved" es="Reservado" /></p>
+        <h3 class="h2" style="margin-top:10px;font-size:clamp(24px,3vw,34px)"><T en="See you then." es="Nos vemos." /></h3>
+        <dl>
+          <div><dt><T en="Look" es="Look" /></dt><dd id="d-look" style="margin:0">—</dd></div>
+          <div><dt><T en="Service" es="Servicio" /></dt><dd id="d-svc" style="margin:0">—</dd></div>
+          <div><dt><T en="When" es="Cuándo" /></dt><dd id="d-when" style="margin:0">—</dd></div>
+          <div><dt><T en="Name" es="Nombre" /></dt><dd id="d-name" style="margin:0">—</dd></div>
+        </dl>
+        <button class="btn btn-o" type="button" id="again" style="margin-top:20px;color:#fff;border-color:rgba(255,255,255,.5)"><T en="Start over" es="Empezar de nuevo" /></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="sect" id="visit">
+    <div class="col center">
+      <figure class="arch" style="max-width:340px;margin:0 auto clamp(24px,3vw,36px)">
+        <picture>
+          <source type="image/webp" srcset={mirror.webp} sizes="340px" />
+          <img src={mirror.fallback} alt="A round mirror and styling chair beside a bright window" loading="lazy" width="1200" height="1600" style="aspect-ratio:3/4" />
+        </picture>
+      </figure>
+      <p class="eyebrow"><T en="Visit" es="Visítanos" /></p>
+      <h2 class="h2" style="margin-top:14px;max-width:14ch;margin-inline:auto">
+        <T en="Northchase, on Veterans Memorial." es="Northchase, en Veterans Memorial." />
+      </h2>
+      <p class="lead" style="margin-top:14px">{biz.address.value}</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px">
+        <a class="btn" href={biz.map_url} target="_blank" rel="noopener"><T en="Directions" es="Cómo llegar" /></a>
+        <a class="btn btn-o" href={`tel:+1${biz.phone.value.replace(/\D/g, '')}`}>{biz.phone.value}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { validate } from '@nhd/shared/ui'
+
+  const TIMES = ['10:00', '11:00', '12:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00']
+  const TAKEN = ['11:00', '2:00', '5:00']
+  let time = null
+  const slotsEl = document.getElementById('slots')
+  function renderSlots() {
+    slotsEl.innerHTML = TIMES.map((t) => `<button class="slot" type="button" data-t="${t}" aria-pressed="${t === time}" ${TAKEN.includes(t) ? 'disabled' : ''}>${t}</button>`).join('')
+    slotsEl.querySelectorAll('[data-t]').forEach((b) => b.addEventListener('click', () => { time = b.dataset.t; renderSlots() }))
+  }
+  renderSlots()
+
+  let look = null
+  const chosen = document.getElementById('chosen')
+  document.querySelectorAll('[data-look]').forEach((b) =>
+    b.addEventListener('click', () => {
+      const im = b.querySelector('img')
+      look = { en: b.dataset.en, es: b.dataset.es, src: im.currentSrc || im.src }
+      document.getElementById('chosen-img').src = look.src
+      document.getElementById('chosen-name').textContent = document.documentElement.lang === 'es' ? look.es : look.en
+      chosen.hidden = false
+      document.getElementById('reserve').scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  )
+  document.getElementById('chosen-clear').addEventListener('click', () => { look = null; chosen.hidden = true })
+
+  const f = document.getElementById('rf')
+  const done = document.getElementById('done')
+  f.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(f)) { f.querySelector('[aria-invalid="true"]')?.focus(); return }
+    const es = document.documentElement.lang === 'es'
+    document.getElementById('d-look').textContent = look ? (es ? look.es : look.en) : es ? 'Sin especificar' : 'Not specified'
+    document.getElementById('d-svc').textContent = document.getElementById('r-svc').value
+    document.getElementById('d-when').textContent = `${document.getElementById('r-day').value}${time ? ' · ' + time : ''}`
+    document.getElementById('d-name').textContent = document.getElementById('r-name').value
+    f.hidden = true; done.hidden = false; done.focus()
+  })
+  document.getElementById('again').addEventListener('click', () => {
+    f.reset(); f.hidden = false; done.hidden = true; time = null; renderSlots()
+  })
+  document.querySelectorAll('[data-lang-btn]').forEach((b) =>
+    b.addEventListener('click', () => setTimeout(() => {
+      if (look) document.getElementById('chosen-name').textContent = document.documentElement.lang === 'es' ? look.es : look.en
+    }, 0))
+  )
+</script>
