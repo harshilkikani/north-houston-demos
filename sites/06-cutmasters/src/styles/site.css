@@ -99,10 +99,13 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 700; line
 @media (max-width: 620px) { .photos { grid-template-columns: repeat(3, 1fr); gap: 8px; } }
 
 /* services */
-/* five services, five columns at desktop — auto-fit left one card orphaned on its own row */
-.svc { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
-@media (min-width: 680px) { .svc { grid-template-columns: repeat(3, 1fr); } }
+/* five services, five columns at desktop — auto-fit left one card orphaned on its own row.
+   Single column on phones: two columns cannot hold a service name and its price side by side. */
+.svc { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 520px) { .svc { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 760px) { .svc { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1080px) { .svc { grid-template-columns: repeat(5, 1fr); } }
+.svc h3 { min-width: 0; overflow-wrap: anywhere; }
 .svc div { background: var(--color-paper-2); border-radius: 20px; padding: 20px 22px; }
 .svc h3 { font-size: 19px; margin-bottom: 5px; }
 .svc p { margin: 0; font-size: 15px; color: var(--color-ink-soft); }
