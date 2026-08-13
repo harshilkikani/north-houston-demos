@@ -1,4 +1,352 @@
 ---
-const t = "La-Tino Hair"
+import Base from '../layouts/Base.astro'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const hero = img(base, 'hero-colour')
+const salon = img(base, 'salon')
+
+const works = [
+  { n: 'work-blonde', en: 'Balayage, hand-painted so the grow-out stays soft.', es: 'Balayage pintado a mano para que el crecimiento se note lo menos posible.' },
+  { n: 'work-silver', en: 'Cool tones need maintenance — she will tell you that before you book, not after.', es: 'Los tonos fríos requieren mantenimiento — te lo dice antes de reservar, no después.' },
+  { n: 'work-brunette', en: 'Brunette with movement cut into it, not layered on top.', es: 'Castaño con movimiento cortado dentro, no añadido encima.' },
+]
+
+const services = [
+  { en: 'Balayage', es: 'Balayage', den: 'Hand-painted lightening. Bring a photo — reviewers say the result matched what they pictured.', des: 'Aclarado pintado a mano. Trae una foto — las reseñas dicen que el resultado fue igual al que imaginaban.', t: '2–3 hrs' },
+  { en: 'Colour & highlights', es: 'Color y rayitos', den: 'Full colour, root touch-ups, foils and toning.', des: 'Color completo, retoque de raíz, papel aluminio y matizado.', t: '1.5–3 hrs' },
+  { en: 'Cut & style', es: 'Corte y peinado', den: 'Women’s cutting and finishing, including the butterfly cut.', des: 'Corte y peinado para mujer, incluido el corte mariposa.', t: '45–75 min' },
+  { en: 'Men’s barbering', es: 'Barbería', den: 'Clipper work, scissor cuts and beard shaping.', des: 'Máquina, tijera y perfilado de barba.', t: '30–45 min' },
+  { en: 'Family cuts', es: 'Cortes familiares', den: 'Reviewers mention young, old, male and female in the same sentence. That is the room.', des: 'Las reseñas mencionan jóvenes, mayores, hombres y mujeres en la misma frase. Así es el salón.', t: '30–60 min' },
+]
 ---
-<h1>{t}</h1>
+
+<Base
+  title="La-Tino Hair — colour, balayage and barbering on Veterans Memorial, Houston"
+  description="Balayage and colour work by Ivonne, plus barbering and family cuts. 4.7 on Google from 163 reviews. Open Sundays, closed Wednesdays."
+>
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow"><T en="Houston · Veterans Memorial" es="Houston · Veterans Memorial" /></p>
+      <h1 class="h1" style="margin-top:16px">
+        <T en="Colour that" es="Color que" /><br /><span class="it"><T en="looks like you" es="se parece a ti" /></span><T en="." es="." />
+      </h1>
+      <p class="lead" style="margin-top:22px">
+        <T
+          en="Ivonne has been colouring hair on this street long enough that clients drive an hour to keep the appointment. Balayage, foils, cuts for the whole family — and Sundays, which almost nobody nearby does."
+          es="Ivonne lleva tanto tiempo haciendo color en esta calle que hay clientas que manejan una hora para no perder su cita. Balayage, rayitos, cortes para toda la familia — y domingos, algo que casi nadie más abre."
+        />
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px">
+        <a class="btn" href="#book"><T en="Book an appointment" es="Reservar una cita" /></a>
+        <a class="btn btn-o" href="#colour"><T en="See the colour work" es="Ver el color" /></a>
+      </div>
+      <dl class="marks">
+        <div><dt>Google</dt><dd>{biz.rating.value} ★</dd></div>
+        <div><dt><T en="Reviews" es="Reseñas" /></dt><dd>{biz.rating.count}</dd></div>
+        <div><dt><T en="Open" es="Abierto" /></dt><dd><T en="Sundays" es="Domingos" /></dd></div>
+        <div><dt><T en="Closed" es="Cerrado" /></dt><dd><T en="Wednesdays" es="Miércoles" /></dd></div>
+      </dl>
+    </div>
+    <figure class="hero-img" style="margin:0">
+      <picture>
+        <source type="image/webp" srcset={hero.webp} sizes="(min-width:940px) 40vw, 100vw" />
+        <img src={hero.fallback} alt="A hand lifting a section of long caramel-toned wavy hair" fetchpriority="high" width="1200" height="1500" />
+      </picture>
+    </figure>
+  </div>
+
+  <!-- COLOUR WORK -->
+  <section class="sect" id="colour">
+    <div class="wrap">
+      <div class="rule" style="margin-bottom:clamp(36px,4.4vw,60px)"></div>
+      <p class="eyebrow"><T en="Colour work" es="Trabajo de color" /></p>
+      <h2 class="h2" style="margin:14px 0 16px;max-width:16ch">
+        <T en="The part people write reviews about." es="Lo que la gente menciona en las reseñas." />
+      </h2>
+      <p class="lead" style="margin-bottom:clamp(30px,3.6vw,46px)">
+        <T
+          en="Colour is the service that goes wrong most often somewhere else, which is why it is the one people stay loyal over. Bring the photo. She will tell you honestly whether your hair can get there in one sitting."
+          es="El color es el servicio que más se arruina en otros lados, y por eso es el que crea clientas fieles. Trae la foto. Ella te dirá con honestidad si tu cabello puede llegar ahí en una sola cita."
+        />
+      </p>
+      <div class="works">
+        {works.map((w) => {
+          const im = img(base, w.n)
+          return (
+            <figure class="work" style="margin:0">
+              <picture>
+                <source type="image/webp" srcset={im.webp} sizes="(min-width:860px) 30vw, 50vw" />
+                <img src={im.fallback} alt="" loading="lazy" width="1200" height="1500" />
+              </picture>
+              <figcaption><T en={w.en} es={w.es} /></figcaption>
+            </figure>
+          )
+        })}
+      </div>
+      <p class="small" style="margin-top:20px">
+        <T en="Styling references, not photographs of this salon's own clients." es="Referencias de estilo, no fotos de clientas de este salón." />
+      </p>
+    </div>
+  </section>
+
+  <!-- IVONNE -->
+  <section class="sect" id="ivonne" style="background:var(--color-ivory-2)">
+    <div class="wrap owner">
+      <figure style="margin:0">
+        <picture>
+          <source type="image/webp" srcset={salon.webp} sizes="(min-width:920px) 36vw, 100vw" />
+          <img src={salon.fallback} alt="A stylist finishing a blow-dry in a bright salon with a window behind" loading="lazy" width="1200" height="800" />
+        </picture>
+      </figure>
+      <div>
+        <p class="eyebrow"><T en="The chair" es="La silla" /></p>
+        <h2 class="h2" style="margin:14px 0 18px;max-width:15ch">
+          <T en="People do not drive an hour for a haircut." es="Nadie maneja una hora sólo por un corte." />
+        </h2>
+        <p class="lead">
+          <T
+            en="They drive for the person holding the scissors. Several reviewers count their time here in years — one says more than ten — and the reason is always the same: she listens first, and she tells you the truth about what your hair will do."
+            es="Manejan por la persona que tiene las tijeras. Varias reseñas cuentan su tiempo aquí en años — una dice más de diez — y la razón siempre es la misma: primero escucha, y te dice la verdad sobre lo que tu cabello puede hacer."
+          />
+        </p>
+        <blockquote style="margin:26px 0 0;font-family:var(--font-display);font-style:italic;font-size:clamp(21px,2.2vw,28px);line-height:1.3;border-left:2px solid var(--color-plum);padding-left:20px">
+          “I've trusted her with my hair for many years… and I'd still drive an hour just to see her.”
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sect">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:22px;flex-wrap:wrap;margin-bottom:26px">
+        <div>
+          <p class="eyebrow"><T en="Services" es="Servicios" /></p>
+          <h2 class="h2" style="margin-top:12px;max-width:14ch"><T en="What she does." es="Lo que hace." /></h2>
+        </div>
+        <a class="btn btn-o" href={`${base}/services`}><T en="Full service list" es="Lista completa" /></a>
+      </div>
+      <div class="menu">
+        {services.map((s) => (
+          <div>
+            <div>
+              <h3 class="h3"><T en={s.en} es={s.es} /></h3>
+              <p><T en={s.den} es={s.des} /></p>
+            </div>
+            <span class="dur">{s.t}</span>
+          </div>
+        ))}
+      </div>
+      <p class="small" style="margin-top:18px">
+        <T en="Times are typical, not fixed — colour depends on where your hair is starting from." es="Los tiempos son aproximados — el color depende del punto de partida de tu cabello." />
+      </p>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="rule" style="margin-bottom:clamp(36px,4.4vw,60px)"></div>
+      <p class="eyebrow">{biz.rating.value} · {biz.rating.count} <T en="Google reviews" es="reseñas en Google" /></p>
+      <div class="qs" style="margin-top:clamp(26px,3vw,40px)">
+        {biz.reviews.map((r) => (<div class="q"><blockquote>“{r.excerpt}”</blockquote><cite>Google</cite></div>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="sect" id="book" style="background:var(--color-ivory-2)">
+    <div class="wrap">
+      <p class="eyebrow"><T en="Book" es="Reservar" /></p>
+      <h2 class="h2" style="margin:14px 0 clamp(28px,3.4vw,44px);max-width:16ch">
+        <T en="Four taps and you're in the book." es="Cuatro toques y quedas anotada." />
+      </h2>
+
+      <div class="book">
+        <div>
+          <div class="stepbar" aria-hidden="true">
+            <span data-s="0" data-on="true"><T en="Service" es="Servicio" /></span>
+            <span data-s="1"><T en="Stylist" es="Estilista" /></span>
+            <span data-s="2"><T en="Time" es="Hora" /></span>
+            <span data-s="3"><T en="Details" es="Datos" /></span>
+          </div>
+
+          <form id="bf" novalidate>
+            <div data-step>
+              <div class="opts">
+                {services.map((s, i) => (
+                  <button class="opt" type="button" data-g="svc" aria-pressed={i === 0 ? 'true' : 'false'}>
+                    <T en={s.en} es={s.es} /><small>{s.t}</small>
+                  </button>
+                ))}
+              </div>
+              <button class="btn" type="button" data-next style="margin-top:18px"><T en="Next" es="Siguiente" /></button>
+            </div>
+
+            <div data-step hidden>
+              <div class="opts">
+                <button class="opt" type="button" data-g="who" aria-pressed="true">Ivonne<small><T en="Owner · colour specialist" es="Dueña · especialista en color" /></small></button>
+                <button class="opt" type="button" data-g="who" aria-pressed="false"><T en="Next available stylist" es="Primer estilista disponible" /><small><T en="Usually sooner" es="Normalmente antes" /></small></button>
+              </div>
+              <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+                <button class="btn btn-o" type="button" data-back><T en="Back" es="Atrás" /></button>
+                <button class="btn" type="button" data-next><T en="Next" es="Siguiente" /></button>
+              </div>
+            </div>
+
+            <div data-step hidden>
+              <div class="opts" style="margin-bottom:16px" id="days"></div>
+              <div class="slots" id="slots"></div>
+              <p class="small" style="margin-top:12px"><T en="Closed Wednesdays — the calendar knows." es="Cerrado los miércoles — el calendario ya lo sabe." /></p>
+              <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+                <button class="btn btn-o" type="button" data-back><T en="Back" es="Atrás" /></button>
+                <button class="btn" type="button" data-next><T en="Next" es="Siguiente" /></button>
+              </div>
+            </div>
+
+            <div data-step hidden>
+              <div class="f">
+                <label for="b-name"><T en="Your name" es="Tu nombre" /></label>
+                <input id="b-name" type="text" autocomplete="name" data-required data-step-focus />
+                <p class="err" data-error-for="b-name" hidden><T en="Please add your name." es="Por favor escribe tu nombre." /></p>
+              </div>
+              <div class="f">
+                <label for="b-phone"><T en="Phone" es="Teléfono" /></label>
+                <input id="b-phone" type="tel" autocomplete="tel" data-required />
+                <p class="err" data-error-for="b-phone" hidden><T en="Please add a number." es="Por favor escribe un número." /></p>
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap">
+                <button class="btn btn-o" type="button" data-back><T en="Back" es="Atrás" /></button>
+                <button class="btn" type="submit"><T en="Confirm booking" es="Confirmar cita" /></button>
+              </div>
+              <p class="small" style="margin-top:12px">
+                <T en="Demonstration only — nothing is sent or stored." es="Sólo demostración — no se envía ni se guarda nada." />
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <div class="card-out" id="summary">
+            <p class="eyebrow"><T en="Your appointment" es="Tu cita" /></p>
+            <dl style="margin-top:14px">
+              <div><dt><T en="Service" es="Servicio" /></dt><dd id="s-svc" style="margin:0">—</dd></div>
+              <div><dt><T en="With" es="Con" /></dt><dd id="s-who" style="margin:0">—</dd></div>
+              <div><dt><T en="When" es="Cuándo" /></dt><dd id="s-when" style="margin:0">—</dd></div>
+            </dl>
+            <p class="small" style="margin-top:16px">
+              <T en="Walk-ins are welcome too — this just holds your place." es="También se aceptan clientes sin cita — esto sólo aparta tu lugar." />
+            </p>
+          </div>
+
+          <div class="confirm" id="confirm" hidden tabindex="-1">
+            <p class="eyebrow" style="color:#f0d9a8"><T en="You're booked" es="Cita confirmada" /></p>
+            <h3 class="h3" style="margin:10px 0 14px;font-size:clamp(24px,2.8vw,34px)">
+              <T en="See you soon." es="Nos vemos pronto." />
+            </h3>
+            <dl>
+              <div><dt><T en="Service" es="Servicio" /></dt><dd id="c-svc" style="margin:0">—</dd></div>
+              <div><dt><T en="With" es="Con" /></dt><dd id="c-who" style="margin:0">—</dd></div>
+              <div><dt><T en="When" es="Cuándo" /></dt><dd id="c-when" style="margin:0">—</dd></div>
+              <div><dt><T en="Name" es="Nombre" /></dt><dd id="c-name" style="margin:0">—</dd></div>
+            </dl>
+            <button class="btn btn-o" type="button" id="again" style="margin-top:22px;color:#fff;border-color:rgba(255,255,255,.5)">
+              <T en="Start over" es="Empezar de nuevo" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { steps, validate } from '@nhd/shared/ui'
+
+  const DAYS_EN = ['Thursday', 'Friday', 'Saturday', 'Sunday']
+  const DAYS_ES = ['Jueves', 'Viernes', 'Sábado', 'Domingo']
+  const TIMES = {
+    Thursday: ['9:30', '11:00', '1:00', '2:30', '4:00', '5:30'],
+    Friday: ['9:30', '11:00', '1:00', '2:30', '4:00', '5:30'],
+    Saturday: ['9:00', '10:30', '12:00', '1:30', '3:00', '4:30'],
+    Sunday: ['9:00', '10:30', '12:00', '1:00'],
+  }
+  const TAKEN = { Thursday: ['11:00'], Friday: ['1:00', '4:00'], Saturday: ['10:30', '3:00'], Sunday: ['12:00'] }
+
+  let day = 'Thursday'
+  let time = null
+  const daysEl = document.getElementById('days')
+  const slotsEl = document.getElementById('slots')
+
+  function lang() { return document.documentElement.lang === 'es' ? 'es' : 'en' }
+  function dayLabel(d) { const i = DAYS_EN.indexOf(d); return lang() === 'es' ? DAYS_ES[i] : d }
+
+  function renderDays() {
+    daysEl.innerHTML = DAYS_EN.map(
+      (d) => `<button class="opt" type="button" data-day="${d}" aria-pressed="${d === day}">${dayLabel(d)}<small>${TIMES[d].length - TAKEN[d].length} open</small></button>`
+    ).join('')
+    daysEl.querySelectorAll('[data-day]').forEach((b) =>
+      b.addEventListener('click', () => { day = b.dataset.day; time = null; renderDays(); renderSlots(); summary() })
+    )
+  }
+  function renderSlots() {
+    slotsEl.innerHTML = TIMES[day]
+      .map((t) => `<button class="slot" type="button" data-time="${t}" aria-pressed="${t === time}" ${TAKEN[day].includes(t) ? 'disabled' : ''}>${t}</button>`)
+      .join('')
+    slotsEl.querySelectorAll('[data-time]').forEach((b) =>
+      b.addEventListener('click', () => { time = b.dataset.time; renderSlots(); summary() })
+    )
+  }
+  const pick = (g) => document.querySelector(`[data-g="${g}"][aria-pressed="true"]`)
+  const pickText = (g) => { const el = pick(g); return el ? el.querySelector('[data-l]:not([hidden])')?.textContent.trim() || el.textContent.trim() : '—' }
+
+  function summary() {
+    document.getElementById('s-svc').textContent = pickText('svc')
+    document.getElementById('s-who').textContent = pickText('who')
+    document.getElementById('s-when').textContent = time ? `${dayLabel(day)} · ${time}` : '—'
+  }
+
+  document.querySelectorAll('.opt[data-g]').forEach((o) =>
+    o.addEventListener('click', () => {
+      document.querySelectorAll(`[data-g="${o.dataset.g}"]`).forEach((x) => x.setAttribute('aria-pressed', 'false'))
+      o.setAttribute('aria-pressed', 'true')
+      summary()
+    })
+  )
+
+  const form = document.getElementById('bf')
+  const bar = document.querySelectorAll('.stepbar span')
+  const flow = steps(form, { onRender: (i) => bar.forEach((s, n) => s.setAttribute('data-on', String(n <= i))) })
+  renderDays(); renderSlots(); summary(); flow.render()
+
+  form.querySelectorAll('[data-next]').forEach((b) => b.addEventListener('click', () => flow.next()))
+  form.querySelectorAll('[data-back]').forEach((b) => b.addEventListener('click', () => flow.back()))
+
+  const confirm = document.getElementById('confirm')
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(form)) { form.querySelector('[aria-invalid="true"]')?.focus(); return }
+    summary()
+    document.getElementById('c-svc').textContent = pickText('svc')
+    document.getElementById('c-who').textContent = pickText('who')
+    document.getElementById('c-when').textContent = time ? `${dayLabel(day)} · ${time}` : '—'
+    document.getElementById('c-name').textContent = document.getElementById('b-name').value
+    form.hidden = true
+    document.getElementById('summary').hidden = true
+    confirm.hidden = false
+    confirm.focus()
+  })
+  document.getElementById('again').addEventListener('click', () => {
+    form.reset(); form.hidden = false; confirm.hidden = true
+    document.getElementById('summary').hidden = false
+    time = null; renderSlots(); summary(); flow.go(0)
+  })
+
+  document.querySelectorAll('[data-lang-btn]').forEach((b) =>
+    b.addEventListener('click', () => setTimeout(() => { renderDays(); renderSlots(); summary() }, 0))
+  )
+</script>

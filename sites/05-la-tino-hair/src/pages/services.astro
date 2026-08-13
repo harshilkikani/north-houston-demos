@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const flat = img(base, 'flatlay')
+
+const groups = [
+  {
+    en: 'Colour', es: 'Color',
+    items: [
+      { en: 'Balayage', es: 'Balayage', den: 'Lightening painted by hand rather than through foil, so the grow-out line stays soft.', des: 'Aclarado pintado a mano en lugar de con papel, para que la raíz crezca suave.' },
+      { en: 'Full colour', es: 'Color completo', den: 'Wall-to-wall colour change, roots to ends.', des: 'Cambio de color completo, de raíz a puntas.' },
+      { en: 'Root touch-up', es: 'Retoque de raíz', den: 'Maintenance between full colours.', des: 'Mantenimiento entre colores completos.' },
+      { en: 'Highlights & toning', es: 'Rayitos y matiz', den: 'Foils, and the toner that decides whether the result reads warm or cool.', des: 'Papel aluminio y el matizador que decide si el resultado sale cálido o frío.' },
+    ],
+  },
+  {
+    en: 'Cutting & styling', es: 'Corte y peinado',
+    items: [
+      { en: 'Women’s cut', es: 'Corte de mujer', den: 'Cut, wash and finish.', des: 'Corte, lavado y peinado.' },
+      { en: 'Butterfly cut', es: 'Corte mariposa', den: 'Layered so it reads long from the back and short around the face.', des: 'En capas: largo por detrás, corto alrededor del rostro.' },
+      { en: 'Blow-dry & style', es: 'Secado y peinado', den: 'Finishing on its own, without a cut.', des: 'Sólo peinado, sin corte.' },
+    ],
+  },
+  {
+    en: 'Barbering', es: 'Barbería',
+    items: [
+      { en: 'Men’s cut', es: 'Corte de hombre', den: 'Clipper and scissor work.', des: 'Trabajo con máquina y tijera.' },
+      { en: 'Beard shaping', es: 'Perfilado de barba', den: 'Line-up and trim.', des: 'Delineado y recorte.' },
+      { en: 'Kids’ cuts', es: 'Cortes de niños', den: 'For the ones who would rather be anywhere else.', des: 'Para los que preferirían estar en cualquier otro lado.' },
+    ],
+  },
+]
+---
+
+<Base
+  title="Services — La-Tino Hair"
+  description="Colour, balayage, cutting, styling and barbering at La-Tino Hair on Veterans Memorial Drive, Houston."
+>
+  <section class="sect">
+    <div class="wrap">
+      <p class="eyebrow"><T en="Services" es="Servicios" /></p>
+      <h1 class="h1" style="margin-top:14px;max-width:11ch">
+        <T en="Everything, for" es="Todo, para" /> <span class="it"><T en="everyone" es="todos" /></span>.
+      </h1>
+      <p class="lead" style="margin-top:20px">
+        <T
+          en="One review puts it best: young, old, male and female. This is a family salon that happens to have a colourist running it."
+          es="Una reseña lo dice mejor: jóvenes, mayores, hombres y mujeres. Es un salón familiar que además tiene a una colorista al frente."
+        />
+      </p>
+      <a class="btn" href={`${base}/#book`} style="margin-top:24px"><T en="Book an appointment" es="Reservar una cita" /></a>
+    </div>
+  </section>
+
+  {groups.map((g) => (
+    <section class="sect" style="padding-top:0">
+      <div class="wrap">
+        <div class="rule" style="margin-bottom:clamp(30px,3.6vw,48px)"></div>
+        <h2 class="h2" style="margin-bottom:20px"><T en={g.en} es={g.es} /></h2>
+        <div class="menu">
+          {g.items.map((it) => (
+            <div>
+              <div>
+                <h3 class="h3"><T en={it.en} es={it.es} /></h3>
+                <p><T en={it.den} es={it.des} /></p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="sect" style="padding-top:0">
+    <div class="wrap owner">
+      <figure style="margin:0">
+        <picture>
+          <source type="image/webp" srcset={flat.webp} sizes="(min-width:920px) 36vw, 100vw" />
+          <img src={flat.fallback} alt="Colour swatches, shears and clips arranged on a pale wood surface" loading="lazy" width="1200" height="800" />
+        </picture>
+      </figure>
+      <div>
+        <p class="eyebrow"><T en="Before you book" es="Antes de reservar" /></p>
+        <h2 class="h2" style="margin:14px 0 16px;max-width:15ch">
+          <T en="Bring the photo. All of it." es="Trae la foto. Completa." />
+        </h2>
+        <p class="lead">
+          <T
+            en="Screenshot the colour you want and the colour you are trying to get away from. Lightening has limits, and knowing them in advance is the difference between one appointment and three."
+            es="Toma captura del color que quieres y del que quieres dejar atrás. El aclarado tiene límites, y saberlos antes es la diferencia entre una cita y tres."
+          />
+        </p>
+        <p class="small" style="margin-top:18px">
+          <T
+            en={`Prices are not published here because none are verified for ${biz.display_name}. Call ${biz.phone.value} and ask — the shop will tell you straight.`}
+            es={`Los precios no aparecen aquí porque no hay ninguno verificado para ${biz.display_name}. Llama al ${biz.phone.value} y pregunta — te dirán con claridad.`}
+          />
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

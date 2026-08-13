@@ -1,4 +1,313 @@
 ---
-const t = "CutMasters"
+import Base from '../layouts/Base.astro'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const hero = img(base, 'hero-shop')
+const photos = ['cut-clipper', 'cut-scissor', 'cut-short']
+
+const COLOURS = { Mario: '#e8503a', Angie: '#2f6fed', Amanda: '#7a4bd6', Ricky: '#12876a' }
+const team = biz.staff.map((s) => ({
+  ...s,
+  colour: COLOURS[s.name] || '#1f2430',
+  es:
+    s.name === 'Mario' ? 'Cortes de hombre y de niño; primeros cortes'
+    : s.name === 'Angie' ? 'Color, precisión con fotos de referencia, asesoría del cabello'
+    : s.name === 'Amanda' ? 'Cortes y peinado'
+    : 'Recortes y secado',
+}))
+
+const services = [
+  { en: 'Men’s haircut', es: 'Corte de hombre', den: 'Clipper or scissor, finished how you asked.', des: 'Máquina o tijera, terminado como lo pediste.' },
+  { en: 'Women’s cut & style', es: 'Corte y peinado de mujer', den: 'Cut, wash and blow-dry.', des: 'Corte, lavado y secado.' },
+  { en: 'Kids & first haircuts', es: 'Niños y primer corte', den: 'Patience included. Reviewers name it specifically.', des: 'Con toda la paciencia. Las reseñas lo mencionan.' },
+  { en: 'Colour', es: 'Color', den: 'Bring the reference photo — Angie is the one people mention.', des: 'Trae la foto de referencia — Angie es a quien mencionan.' },
+  { en: 'Blow-dry & styling', es: 'Secado y peinado', den: 'Finishing without a cut.', des: 'Peinado sin corte.' },
+]
 ---
-<h1>{t}</h1>
+
+<Base
+  title="CutMasters — family hair salon and barbershop, Veterans Memorial, Houston"
+  description="Men's, women's and children's haircuts, colour and first haircuts. Book with Mario, Angie, Amanda or Ricky. Open seven days."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-shot">
+        <picture>
+          <source type="image/webp" srcset={hero.webp} sizes="100vw" />
+          <img src={hero.fallback} alt="A busy salon floor with several chairs in use at once" fetchpriority="high" width="1200" height="800" />
+        </picture>
+      </div>
+      <div class="hero-card">
+        <p class="eyebrow"><T en="Open seven days · Veterans Memorial" es="Abierto los siete días · Veterans Memorial" /></p>
+        <h1 class="h1" style="margin-top:10px">
+          <T en="Don't book a salon." es="No reserves un salón." /><br /><T en="Book your person." es="Reserva a tu persona." />
+        </h1>
+        <p class="lead" style="margin-top:14px">
+          <T
+            en="Four people work these chairs and they are good at different things. Mario is the one parents ask for. Angie is the one who matches the photo on your phone. Pick whoever fits, and go straight to their times."
+            es="Cuatro personas trabajan estas sillas y cada quien es bueno en algo distinto. Mario es a quien piden los papás. Angie es quien iguala la foto de tu celular. Elige a quien te acomode y ve directo a sus horarios."
+          />
+        </p>
+        <div class="chips-row">
+          {team.map((m) => (
+            <button class="who-chip" type="button" data-jump={m.name}>
+              <span class="av" style={`background:${m.colour}`}>{m.name[0]}</span>{m.name}
+            </button>
+          ))}
+        </div>
+        <dl class="stats">
+          <div class="stat"><dt>Google</dt><dd>{biz.rating.value} ★</dd></div>
+          <div class="stat"><dt><T en="Reviews" es="Reseñas" /></dt><dd>{biz.rating.count}</dd></div>
+          <div class="stat"><dt><T en="Sundays" es="Domingos" /></dt><dd>9–3</dd></div>
+          <div class="stat"><dt><T en="Walk-ins" es="Sin cita" /></dt><dd><T en="Welcome" es="Bienvenidos" /></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="sect" id="team">
+    <div class="wrap">
+      <p class="eyebrow"><T en="The team" es="El equipo" /></p>
+      <h2 class="h2" style="margin:12px 0 14px;max-width:16ch">
+        <T en="Named, not anonymous." es="Con nombre, no anónimos." />
+      </h2>
+      <p class="lead" style="margin-bottom:clamp(24px,3vw,38px)">
+        <T
+          en="Every one of these names comes out of the reviews people left. Tap a card and the booking panel opens with that person already chosen."
+          es="Todos estos nombres salen de las reseñas que la gente dejó. Toca una tarjeta y la reserva se abre con esa persona ya elegida."
+        />
+      </p>
+      <div class="team">
+        {team.map((m) => (
+          <button class="member" type="button" data-member={m.name}>
+            <span class="avatar" style={`background:${m.colour}`}>{m.name[0]}</span>
+            <h3>{m.name}</h3>
+            <p><T en={m.specialty} es={m.es} /></p>
+            <span class="go"><T en="Book with" es="Reservar con" /> {m.name} →</span>
+          </button>
+        ))}
+      </div>
+      <p class="small" style="margin-top:16px">
+        <T
+          en="Cards show initials rather than photographs — we have not been given portraits of the team, and we will not put a stranger's face on their card."
+          es="Las tarjetas muestran iniciales en lugar de fotos — no tenemos retratos del equipo y no pondremos el rostro de un desconocido en su lugar."
+        />
+      </p>
+    </div>
+  </section>
+
+  <!-- PHOTOS -->
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="photos">
+        {photos.map((p) => {
+          const im = img(base, p)
+          return (
+            <picture>
+              <source type="image/webp" srcset={im.webp} sizes="30vw" />
+              <img src={im.fallback} alt="" loading="lazy" width="1200" height="1200" />
+            </picture>
+          )
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sect" id="services" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow"><T en="Services" es="Servicios" /></p>
+      <h2 class="h2" style="margin:12px 0 22px;max-width:15ch"><T en="Whatever the chair needs." es="Lo que la silla necesite." /></h2>
+      <div class="svc">
+        {services.map((s) => (<div><h3 class="h3"><T en={s.en} es={s.es} /></h3><p><T en={s.den} es={s.des} /></p></div>))}
+      </div>
+      <p class="small" style="margin-top:16px">
+        <T
+          en="Prices are not shown because none are published for this shop. Call and ask — reviewers describe the pricing as reasonable."
+          es="No mostramos precios porque no hay ninguno publicado. Llama y pregunta — las reseñas describen los precios como razonables."
+        />
+      </p>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="sect" id="book" style="background:var(--color-paper-2)">
+    <div class="wrap">
+      <p class="eyebrow"><T en="Book" es="Reservar" /></p>
+      <h2 class="h2" style="margin:12px 0 clamp(24px,3vw,38px);max-width:15ch">
+        <T en="Pick a person, pick a time." es="Elige persona, elige hora." />
+      </h2>
+
+      <div class="book">
+        <div class="panel">
+          <form id="bf" novalidate>
+            <div data-step>
+              <p class="eyebrow" style="margin-bottom:12px"><T en="1 — Who with" es="1 — Con quién" /></p>
+              <div class="opts" id="who-opts">
+                {team.map((m, i) => (
+                  <button class="opt" type="button" data-g="who" data-name={m.name} aria-pressed={i === 0 ? 'true' : 'false'}>
+                    {m.name}<small><T en={m.specialty} es={m.es} /></small>
+                  </button>
+                ))}
+                <button class="opt" type="button" data-g="who" data-name="Anyone" aria-pressed="false">
+                  <T en="Anyone available" es="Quien esté disponible" /><small><T en="Usually sooner" es="Normalmente antes" /></small>
+                </button>
+              </div>
+              <p class="eyebrow" style="margin:22px 0 12px"><T en="2 — What for" es="2 — Para qué" /></p>
+              <div class="opts">
+                {services.map((s, i) => (
+                  <button class="opt" type="button" data-g="svc" aria-pressed={i === 0 ? 'true' : 'false'}><T en={s.en} es={s.es} /></button>
+                ))}
+              </div>
+              <button class="btn btn-blue" type="button" data-next style="margin-top:20px"><T en="Choose a time" es="Elegir hora" /></button>
+            </div>
+
+            <div data-step hidden>
+              <p class="eyebrow" style="margin-bottom:12px"><T en="3 — When" es="3 — Cuándo" /></p>
+              <div class="opts" id="days" style="margin-bottom:16px"></div>
+              <div class="slots" id="slots"></div>
+              <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+                <button class="btn btn-o" type="button" data-back><T en="Back" es="Atrás" /></button>
+                <button class="btn btn-blue" type="button" data-next><T en="Next" es="Siguiente" /></button>
+              </div>
+            </div>
+
+            <div data-step hidden>
+              <p class="eyebrow" style="margin-bottom:12px"><T en="4 — Your details" es="4 — Tus datos" /></p>
+              <div class="f">
+                <label for="b-name"><T en="Name" es="Nombre" /></label>
+                <input id="b-name" type="text" autocomplete="name" data-required data-step-focus />
+                <p class="err" data-error-for="b-name" hidden><T en="Please add your name." es="Escribe tu nombre." /></p>
+              </div>
+              <div class="f">
+                <label for="b-phone"><T en="Phone" es="Teléfono" /></label>
+                <input id="b-phone" type="tel" autocomplete="tel" data-required />
+                <p class="err" data-error-for="b-phone" hidden><T en="Please add a number." es="Escribe un número." /></p>
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap">
+                <button class="btn btn-o" type="button" data-back><T en="Back" es="Atrás" /></button>
+                <button class="btn" type="submit"><T en="Confirm" es="Confirmar" /></button>
+              </div>
+              <p class="small" style="margin-top:12px"><T en="Demonstration only — nothing is sent." es="Sólo demostración — no se envía nada." /></p>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <div class="recap" id="recap">
+            <p class="eyebrow"><T en="Your appointment" es="Tu cita" /></p>
+            <dl style="margin-top:14px">
+              <div><dt><T en="With" es="Con" /></dt><dd id="r-who" style="margin:0">—</dd></div>
+              <div><dt><T en="Service" es="Servicio" /></dt><dd id="r-svc" style="margin:0">—</dd></div>
+              <div><dt><T en="When" es="Cuándo" /></dt><dd id="r-when" style="margin:0">—</dd></div>
+            </dl>
+          </div>
+          <div class="yay" id="yay" hidden tabindex="-1">
+            <p class="eyebrow" style="color:#cfe0ff"><T en="All set" es="Listo" /></p>
+            <h3 class="h3" style="margin:8px 0 14px"><T en="See you then." es="Nos vemos." /></h3>
+            <dl>
+              <div><dt><T en="With" es="Con" /></dt><dd id="y-who" style="margin:0">—</dd></div>
+              <div><dt><T en="Service" es="Servicio" /></dt><dd id="y-svc" style="margin:0">—</dd></div>
+              <div><dt><T en="When" es="Cuándo" /></dt><dd id="y-when" style="margin:0">—</dd></div>
+              <div><dt><T en="Name" es="Nombre" /></dt><dd id="y-name" style="margin:0">—</dd></div>
+            </dl>
+            <button class="btn btn-o" type="button" id="again" style="margin-top:20px"><T en="Start over" es="Empezar de nuevo" /></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sect">
+    <div class="wrap">
+      <p class="eyebrow">{biz.rating.value} · {biz.rating.count} <T en="Google reviews" es="reseñas de Google" /></p>
+      <h2 class="h2" style="margin:12px 0 22px;max-width:18ch">
+        <T en="The first haircut is the one they remember." es="El primer corte es el que se recuerda." />
+      </h2>
+      <div class="rev">
+        {biz.reviews.map((r) => (<div><blockquote>“{r.excerpt}”</blockquote><cite>Google</cite></div>))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { steps, validate } from '@nhd/shared/ui'
+
+  const DAYS_EN = ['Today', 'Tomorrow', 'Saturday', 'Sunday']
+  const DAYS_ES = ['Hoy', 'Mañana', 'Sábado', 'Domingo']
+  const TIMES = {
+    Today: ['10:00', '11:30', '1:00', '2:30', '4:00', '5:30'],
+    Tomorrow: ['10:00', '11:30', '1:00', '2:30', '4:00', '5:30'],
+    Saturday: ['9:00', '10:30', '12:00', '1:30', '3:00', '4:30', '6:00'],
+    Sunday: ['9:00', '10:00', '11:00', '12:00', '1:00', '2:00'],
+  }
+  const TAKEN = { Today: ['11:30', '4:00'], Tomorrow: ['1:00'], Saturday: ['10:30', '3:00'], Sunday: ['11:00'] }
+  let day = 'Today', time = null
+
+  const lang = () => (document.documentElement.lang === 'es' ? 'es' : 'en')
+  const dayLabel = (d) => (lang() === 'es' ? DAYS_ES[DAYS_EN.indexOf(d)] : d)
+  const daysEl = document.getElementById('days')
+  const slotsEl = document.getElementById('slots')
+
+  function renderDays() {
+    daysEl.innerHTML = DAYS_EN.map((d) => `<button class="opt" type="button" data-day="${d}" aria-pressed="${d === day}">${dayLabel(d)}</button>`).join('')
+    daysEl.querySelectorAll('[data-day]').forEach((b) => b.addEventListener('click', () => { day = b.dataset.day; time = null; renderDays(); renderSlots(); recap() }))
+  }
+  function renderSlots() {
+    slotsEl.innerHTML = TIMES[day].map((t) => `<button class="slot" type="button" data-time="${t}" aria-pressed="${t === time}" ${TAKEN[day].includes(t) ? 'disabled' : ''}>${t}</button>`).join('')
+    slotsEl.querySelectorAll('[data-time]').forEach((b) => b.addEventListener('click', () => { time = b.dataset.time; renderSlots(); recap() }))
+  }
+  const pickEl = (g) => document.querySelector(`[data-g="${g}"][aria-pressed="true"]`)
+  const pickText = (g) => { const e = pickEl(g); return e ? (e.querySelector('[data-l]:not([hidden])')?.textContent.trim() || e.childNodes[0].textContent.trim()) : '—' }
+
+  function recap() {
+    document.getElementById('r-who').textContent = pickEl('who')?.dataset.name === 'Anyone' ? pickText('who') : pickEl('who')?.dataset.name || '—'
+    document.getElementById('r-svc').textContent = pickText('svc')
+    document.getElementById('r-when').textContent = time ? `${dayLabel(day)} · ${time}` : '—'
+  }
+
+  document.querySelectorAll('.opt[data-g]').forEach((o) =>
+    o.addEventListener('click', () => {
+      document.querySelectorAll(`[data-g="${o.dataset.g}"]`).forEach((x) => x.setAttribute('aria-pressed', 'false'))
+      o.setAttribute('aria-pressed', 'true'); recap()
+    })
+  )
+
+  function selectMember(name) {
+    document.querySelectorAll('[data-g="who"]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.name === name)))
+    recap()
+    document.getElementById('book').scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+  document.querySelectorAll('[data-member]').forEach((b) => b.addEventListener('click', () => selectMember(b.dataset.member)))
+  document.querySelectorAll('[data-jump]').forEach((b) => b.addEventListener('click', () => selectMember(b.dataset.jump)))
+
+  const form = document.getElementById('bf')
+  const flow = steps(form)
+  renderDays(); renderSlots(); recap(); flow.render()
+  form.querySelectorAll('[data-next]').forEach((b) => b.addEventListener('click', () => flow.next()))
+  form.querySelectorAll('[data-back]').forEach((b) => b.addEventListener('click', () => flow.back()))
+
+  const yay = document.getElementById('yay')
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!validate(form)) { form.querySelector('[aria-invalid="true"]')?.focus(); return }
+    recap()
+    document.getElementById('y-who').textContent = document.getElementById('r-who').textContent
+    document.getElementById('y-svc').textContent = document.getElementById('r-svc').textContent
+    document.getElementById('y-when').textContent = document.getElementById('r-when').textContent
+    document.getElementById('y-name').textContent = document.getElementById('b-name').value
+    form.hidden = true; document.getElementById('recap').hidden = true; yay.hidden = false; yay.focus()
+  })
+  document.getElementById('again').addEventListener('click', () => {
+    form.reset(); form.hidden = false; yay.hidden = true; document.getElementById('recap').hidden = false
+    time = null; renderSlots(); recap(); flow.go(0)
+  })
+  document.querySelectorAll('[data-lang-btn]').forEach((b) => b.addEventListener('click', () => setTimeout(() => { renderDays(); renderSlots(); recap() }, 0)))
+</script>

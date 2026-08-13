@@ -1,0 +1,120 @@
+---
+import '../styles/site.css'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { hourRows, telHref } from '@nhd/shared/content'
+
+const { title, description, tab = 'home' } = Astro.props
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const tel = telHref(biz.phone.value)
+const rowsEn = hourRows(biz.hours.value, 'en')
+const rowsEs = hourRows(biz.hours.value, 'es')
+const nav = [
+  { href: `${base}/#team`, en: 'The team', es: 'El equipo' },
+  { href: `${base}/team`, en: 'Kids & first cuts', es: 'Niños y primer corte' },
+  { href: `${base}/#services`, en: 'Services', es: 'Servicios' },
+  { href: `${base}/#book`, en: 'Book', es: 'Reservar' },
+]
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${base}/assets/og.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#fffdf8" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="stylesheet" href={`${base}/fonts/fonts.css`} />
+  </head>
+  <body>
+    <a href="#main" style="position:absolute;left:-9999px;background:#e8503a;color:#fff;padding:12px 18px;z-index:99" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+    <header class="nav">
+      <div class="nav-in">
+        <a class="brand" href={`${base}/`}>Cut<span>Masters</span></a>
+        <nav class="nlinks" aria-label="Primary">{nav.map((n) => (<a href={n.href}><T en={n.en} es={n.es} /></a>))}</nav>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div class="lang" role="group" aria-label="Language / Idioma">
+            <button type="button" data-lang-btn="en" aria-pressed="true">EN</button><button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+          </div>
+          <a class="btn btn-sm" href={tel}><T en="Call" es="Llamar" /></a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main"><slot /></main>
+
+    <nav class="tabs" aria-label="Quick actions">
+      <a href={`${base}/`} class={tab === 'home' ? 'on' : ''}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg>
+        <T en="Home" es="Inicio" />
+      </a>
+      <a href={`${base}/#team`}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.2" /><path d="M3 20c0-3.4 2.7-5.6 6-5.6s6 2.2 6 5.6" /><circle cx="17.5" cy="9" r="2.4" /><path d="M16 14.6c3 0 5 2 5 5.4" /></svg>
+        <T en="Team" es="Equipo" />
+      </a>
+      <a href={`${base}/#book`}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
+        <T en="Book" es="Reservar" />
+      </a>
+      <a href={tel}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3.5h3l1.6 4-2 1.4a12.5 12.5 0 006.5 6.5l1.4-2 4 1.6v3a2 2 0 01-2.2 2A16.5 16.5 0 014 5.7 2 2 0 016 3.5z" /></svg>
+        <T en="Call" es="Llamar" />
+      </a>
+    </nav>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <p class="eyebrow" style="color:#ff8f7a">{biz.display_name}</p>
+            <p class="h2" style="margin-top:10px;max-width:13ch"><T en="Everyone in the family, one shop." es="Toda la familia, un solo salón." /></p>
+            <p class="small" style="color:rgba(255,253,248,.72);margin-top:14px;max-width:38ch">{biz.address.value}</p>
+            <p style="display:grid;gap:8px;margin-top:16px;font-size:16px">
+              <a href={tel} style="justify-self:start">{biz.phone.value}</a>
+              <a href={biz.map_url} target="_blank" rel="noopener" style="justify-self:start"><T en="Directions" es="Cómo llegar" /></a>
+              <a href={biz.socials.instagram.value} target="_blank" rel="noopener" style="justify-self:start">Instagram</a>
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow" style="color:#ff8f7a"><T en="Hours" es="Horario" /></p>
+            <dl class="hrs" style="margin-top:12px" data-l="en">
+              {rowsEn.map((r) => (<div><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>))}
+            </dl>
+            <dl class="hrs" style="margin-top:12px" data-l="es" hidden>
+              {rowsEs.map((r) => (<div><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>))}
+            </dl>
+          </div>
+          <div>
+            <p class="eyebrow" style="color:#ff8f7a">Google</p>
+            <p style="font-family:var(--font-display);font-weight:700;font-size:56px;margin:8px 0 0;line-height:1">{biz.rating.value}</p>
+            <p class="small" style="color:rgba(255,253,248,.72);margin:0">
+              <T en={`from ${biz.rating.count} reviews`} es={`de ${biz.rating.count} reseñas`} />
+            </p>
+          </div>
+        </div>
+        <div class="fine">
+          <p style="margin:0">
+            <T
+              en={`Speculative redesign concept for ${biz.display_name}. Not the salon's official website, not published and not indexed. Booking is a demonstration and transmits nothing.`}
+              es={`Concepto de rediseño especulativo para ${biz.display_name}. No es el sitio oficial, no está publicado ni indexado. La reserva es una demostración y no envía nada.`}
+            />
+          </p>
+          <p style="margin:0"><T en="Photography is licensed stock." es="Fotografía de archivo con licencia." /></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import { language } from '@nhd/shared/ui'
+      language('en')
+    </script>
+  </body>
+</html>

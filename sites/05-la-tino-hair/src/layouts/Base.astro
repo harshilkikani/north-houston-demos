@@ -1,0 +1,122 @@
+---
+import '../styles/site.css'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { hourRows, telHref, DAY_LABELS, DAY_KEYS } from '@nhd/shared/content'
+
+const { title, description } = Astro.props
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const tel = telHref(biz.phone.value)
+const rowsEn = hourRows(biz.hours.value, 'en')
+const rowsEs = hourRows(biz.hours.value, 'es')
+const nav = [
+  { href: `${base}/#colour`, en: 'Colour work', es: 'Color' },
+  { href: `${base}/services`, en: 'Services', es: 'Servicios' },
+  { href: `${base}/#ivonne`, en: 'Ivonne', es: 'Ivonne' },
+  { href: `${base}/#book`, en: 'Book', es: 'Reservar' },
+]
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${base}/assets/og.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#fbf7f2" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="stylesheet" href={`${base}/fonts/fonts.css`} />
+  </head>
+  <body>
+    <a href="#main" style="position:absolute;left:-9999px;background:#7d2e4a;color:#fff;padding:12px 18px;z-index:99" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+    <header class="nav">
+      <div class="nav-in">
+        <a class="word" href={`${base}/`}>La&#8209;Tino <em>Hair</em></a>
+        <nav class="nlinks" aria-label="Primary">
+          {nav.map((n) => (<a href={n.href}><T en={n.en} es={n.es} /></a>))}
+        </nav>
+        <div class="nav-r">
+          <div class="lang" role="group" aria-label="Language / Idioma">
+            <button type="button" data-lang-btn="en" aria-pressed="true">EN</button><span>/</span><button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+          </div>
+          <a class="btn btn-sm" href={`${base}/#book`}><T en="Book" es="Reservar" /></a>
+          <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sheet"><i></i></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menu">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="eyebrow">Menu</span>
+        <button class="x" id="sheet-close" type="button" aria-label="Close menu">✕</button>
+      </div>
+      <nav aria-label="Mobile">{nav.map((n) => (<a href={n.href}><T en={n.en} es={n.es} /></a>))}</nav>
+      <a class="btn" href={tel} style="justify-content:center">{biz.phone.value}</a>
+    </div>
+
+    <main id="main"><slot /></main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <p class="eyebrow">{biz.display_name}</p>
+            <p class="h2" style="margin-top:12px;max-width:12ch">
+              <T en="Same chair. Same hands. Years later." es="La misma silla. Las mismas manos. Años después." />
+            </p>
+            <p class="small" style="margin-top:16px;max-width:40ch">{biz.address.value}</p>
+            <p style="display:grid;gap:8px;margin-top:16px;font-size:15.5px">
+              <a href={tel} style="justify-self:start">{biz.phone.value}</a>
+              <a href={biz.map_url} target="_blank" rel="noopener" style="justify-self:start">
+                <T en="Directions on Google Maps" es="Cómo llegar en Google Maps" />
+              </a>
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow"><T en="Hours" es="Horario" /></p>
+            <dl class="hrs" style="margin-top:12px" data-l="en">
+              {rowsEn.map((r) => (<div class={r.closed ? 'off' : ''}><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>))}
+            </dl>
+            <dl class="hrs" style="margin-top:12px" data-l="es" hidden>
+              {rowsEs.map((r) => (<div class={r.closed ? 'off' : ''}><dt>{r.label}</dt><dd style="margin:0">{r.value}</dd></div>))}
+            </dl>
+          </div>
+          <div>
+            <p class="eyebrow">Google</p>
+            <p style="font-family:var(--font-display);font-size:62px;margin:6px 0 0;line-height:1">{biz.rating.value}</p>
+            <p class="small" style="margin:0">
+              <T en={`from ${biz.rating.count} reviews`} es={`de ${biz.rating.count} reseñas`} />
+            </p>
+          </div>
+        </div>
+        <div class="fine">
+          <p style="margin:0">
+            <T
+              en={`Speculative redesign concept for ${biz.display_name}. Not the salon's official website, not published and not indexed. The booking flow is a demonstration and transmits nothing.`}
+              es={`Concepto de rediseño especulativo para ${biz.display_name}. No es el sitio oficial del salón, no está publicado ni indexado. La reserva es una demostración y no envía nada.`}
+            />
+          </p>
+          <p style="margin:0"><T en="Photography is licensed stock." es="Fotografía de archivo con licencia." /></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import { dialog, language } from '@nhd/shared/ui'
+      const sheet = document.getElementById('sheet')
+      const burger = document.getElementById('burger')
+      const d = dialog(sheet, { onClose: () => burger.setAttribute('aria-expanded', 'false') })
+      burger.addEventListener('click', () => { d.open(); burger.setAttribute('aria-expanded', 'true') })
+      document.getElementById('sheet-close').addEventListener('click', d.close)
+      sheet.querySelectorAll('a').forEach((a) => a.addEventListener('click', d.close))
+      language('en')
+    </script>
+  </body>
+</html>

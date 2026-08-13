@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro'
+import T from '../components/T.astro'
+import biz from '../../content/business.json'
+import { img } from '@nhd/shared/content'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const shop = img(base, 'shop-bright')
+const reception = img(base, 'shop-reception')
+
+const tips = [
+  { en: 'Come when they are fresh', es: 'Ven cuando estén descansados', den: 'Right after a nap and a snack. A tired toddler and a pair of clippers is a fight nobody wins.', des: 'Justo después de la siesta y un bocadillo. Un niño cansado y una máquina es una pelea que nadie gana.' },
+  { en: 'Sit them on your lap', es: 'Siéntalo en tu regazo', den: 'Perfectly normal here, and usually the fastest route to a finished haircut.', des: 'Aquí es completamente normal, y suele ser la forma más rápida de terminar.' },
+  { en: 'Bring the distraction', es: 'Trae la distracción', den: 'A phone, a toy, whatever works at home. Nobody will judge you.', des: 'Un celular, un juguete, lo que funcione en casa. Nadie te va a juzgar.' },
+  { en: 'Ask for Mario', es: 'Pregunta por Mario', den: 'A parent wrote that he could not have been more perfect with their one-year-old’s first cut. That is the review that built this page.', des: 'Un papá escribió que no pudo haber sido más perfecto en el primer corte de su bebé de un año. Esa reseña originó esta página.' },
+]
+---
+
+<Base
+  tab="team"
+  title="Kids &amp; first haircuts — CutMasters"
+  description="First haircuts, children's cuts and how to make the appointment easy, at CutMasters on Veterans Memorial Drive."
+>
+  <section class="sect">
+    <div class="wrap">
+      <p class="eyebrow"><T en="Kids & first haircuts" es="Niños y primer corte" /></p>
+      <h1 class="h1" style="margin-top:12px;max-width:13ch">
+        <T en="The first one is a big deal." es="El primero es todo un acontecimiento." />
+      </h1>
+      <p class="lead" style="margin-top:16px">
+        <T
+          en="It is also the appointment most likely to go sideways. Here is how to make it painless, and who to ask for."
+          es="También es la cita que más fácil se complica. Así se hace sin dramas, y a quién debes pedir."
+        />
+      </p>
+      <a class="btn" href={`${base}/#book`} style="margin-top:22px"><T en="Book a kids’ cut" es="Reservar corte de niño" /></a>
+    </div>
+  </section>
+
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="hero-shot">
+        <picture>
+          <source type="image/webp" srcset={shop.webp} sizes="100vw" />
+          <img src={shop.fallback} alt="A bright open salon with a row of chairs and a product wall" loading="lazy" width="1920" height="1080" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect" style="padding-top:0">
+    <div class="wrap">
+      <div class="svc" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+        {tips.map((t, i) => (
+          <div>
+            <p class="eyebrow">0{i + 1}</p>
+            <h3 class="h3" style="margin:8px 0 6px"><T en={t.en} es={t.es} /></h3>
+            <p><T en={t.den} es={t.des} /></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sect" style="padding-top:0">
+    <div class="wrap book" style="align-items:center">
+      <div>
+        <p class="eyebrow"><T en="And the grown-ups" es="Y los adultos" /></p>
+        <h2 class="h2" style="margin:12px 0 14px;max-width:16ch">
+          <T en="Colour, cuts and the reference photo on your phone." es="Color, cortes y la foto de referencia en tu celular." />
+        </h2>
+        <p class="lead">
+          <T
+            en="Angie is the name that comes up for colour. One reviewer describes showing her a photo and getting exactly it back; another says she was taught how to look after her hair afterwards, which is rarer and more useful."
+            es="Angie es el nombre que aparece para color. Una reseña describe haberle mostrado una foto y recibir exactamente eso; otra dice que le enseñaron a cuidar su cabello después, algo más raro y más útil."
+          />
+        </p>
+        <a class="btn btn-blue" href={`${base}/#team`} style="margin-top:20px"><T en="Meet the team" es="Conoce al equipo" /></a>
+      </div>
+      <div class="hero-shot">
+        <picture>
+          <source type="image/webp" srcset={reception.webp} sizes="(min-width:940px) 40vw, 100vw" />
+          <img src={reception.fallback} alt="A salon reception desk with shelves of colour products behind it" loading="lazy" width="1920" height="1080" />
+        </picture>
+      </div>
+    </div>
+  </section>
+</Base>

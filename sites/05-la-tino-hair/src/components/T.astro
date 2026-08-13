@@ -1,0 +1,7 @@
+---
+// Bilingual text pair. Both languages ship in the DOM; the switch toggles visibility,
+// so the change is instant and cannot fail mid-demo.
+const { en, es, tag = 'span', cls = '' } = Astro.props
+const Tag = tag
+---
+<Tag class={cls} data-l="en">{en}</Tag><Tag class={cls} data-l="es" hidden>{es}</Tag>
